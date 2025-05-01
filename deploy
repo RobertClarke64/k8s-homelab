@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./zimaboard/deploy
+./grafana/deploy

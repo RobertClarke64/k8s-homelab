@@ -1,0 +1,16 @@
+nfs:
+  server: 192.168.1.101
+  path: /mnt/user/k8s-pv
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+
+storageClass:
+  create: true
+  name: unraid-nfs
+  defaultClass: true
+  reclaimPolicy: Retain
+  accessModes: ReadWriteOnce
+  allowVolumeExpansion: true
+  archiveOnDelete: false
+  provisionerName: nfs.csi.k8s.io

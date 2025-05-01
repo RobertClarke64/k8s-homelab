@@ -1,0 +1,3 @@
+#!/bin/bash
+
+helm upgrade --install grafana grafana/grafana --namespace grafana -f grafana/values.yaml --create-namespace
