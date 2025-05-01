@@ -2,3 +2,4 @@
 
 ./zimaboard/deploy
 ./grafana/deploy
+./alloy/deploy
