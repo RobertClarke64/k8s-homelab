@@ -106,7 +106,18 @@ alloy:
 
     # -- Extra volume mounts to add into the Grafana Alloy container. Does not
     # affect the watch container.
-    extra: []
+    extra:
+      - name: containerd-socket
+        mountPath: /var/run/containerd/
+      - name: containerd-lib
+        mountPath: /var/lib/containerd/
+        readOnly: true
+      - name: rootfs
+        mountPath: /rootfs/
+        readOnly: true
+      - name: sys
+        mountPath: /sys/
+        readOnly: true
 
   # -- Security context to apply to the Grafana Alloy container.
   securityContext: {}
@@ -362,7 +373,19 @@ controller:
 
   volumes:
     # -- Extra volumes to add to the Grafana Alloy pod.
-    extra: []
+    extra:
+      - name: containerd-socket
+        hostPath: 
+          path: /var/run/containerd/
+      - name: containerd-lib
+        hostPath:
+          path: /var/lib/containerd/
+      - name: rootfs
+        hostPath:
+          path: /
+      - name: sys
+        hostPath:
+          path: /sys/
 
   # -- volumeClaimTemplates to add when controller.type is 'statefulset'.
   volumeClaimTemplates: []
@@ -390,7 +413,7 @@ service:
     # cloud.google.com/load-balancer-type: Internal
 
 serviceMonitor:
-  enabled: false
+  enabled: true
   # -- Additional labels for the service monitor.
   additionalLabels: {}
   # -- Scrape interval. If not set, the Prometheus default scrape interval is used.
@@ -416,7 +439,7 @@ serviceMonitor:
   #   action: replace
 ingress:
   # -- Enables ingress for Alloy (Faro port)
-  enabled: true
+  enabled: false
   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx

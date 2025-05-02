@@ -11,59 +11,43 @@ discovery.kubernetes "pods" {
 	role = "pod"
 }
 
-discovery.kubernetes "nodes" {
-	role = "node"
-}
-
-discovery.kubernetes "services" {
-	role = "service"
-}
-
-discovery.kubernetes "endpoints" {
-	role = "endpoints"
-}
-
-discovery.kubernetes "endpointslices" {
-	role = "endpointslice"
-}
-
-discovery.kubernetes "ingresses" {
-	role = "ingress"
-}
-
-prometheus.scrape "k8s_pods" {
-	targets = discovery.kubernetes.pods.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
-prometheus.scrape "k8s_nodes" {
-	targets = discovery.kubernetes.nodes.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
-prometheus.scrape "k8s_services" {
-	targets = discovery.kubernetes.services.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
-prometheus.scrape "k8s_endpoints" {
-	targets = discovery.kubernetes.endpoints.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
-prometheus.scrape "k8s_endpointslices" {
-	targets = discovery.kubernetes.endpointslices.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
-prometheus.scrape "k8s_ingresses" {
-	targets = discovery.kubernetes.ingresses.targets
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
-}
-
 loki.source.kubernetes "pods" {
 	targets    = discovery.relabel.pod_logs.output
 	forward_to = [loki.write.zimaboard_loki.receiver]
+}
+
+prometheus.exporter.cadvisor "pods" {
+	store_container_labels = false
+	allowlisted_container_labels = ["app.kubernetes.io.name", "io.kubernetes.pod.name", "io.kubernetes.pod.namespace", "io.kubernetes.container.name"]
+}
+
+prometheus.scrape "cadvisor_pods" {
+	targets = prometheus.exporter.cadvisor.pods.targets
+	forward_to = [prometheus.relabel.pods.receiver]
+}
+
+prometheus.relabel "pods" {
+	rule {
+		target_label = "job"
+		replacement = "cadvisor_k8s_pods"
+	}
+
+	rule {
+		source_labels = ["container_label_io_kubernetes_container_name"]
+		target_label = "container"
+	}
+
+	rule {
+		source_labels = ["container_label_io_kubernetes_pod_name"]
+		target_label = "pod"
+	}
+
+	rule {
+		source_labels = ["container_label_io_kubernetes_pod_namespace"]
+		target_label = "namespace"
+	}
+
+	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
 }
 
 discovery.relabel "pod_logs" {
@@ -125,6 +109,10 @@ discovery.relabel "pod_logs" {
 		regex = "^(\\S+):\\/\\/.+$"
 		replacement = "$1"
 	}
+}
+
+prometheus.operator.servicemonitors "k8s_servicemonitors" {
+    forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
 }
 
 loki.write "zimaboard_loki" {
