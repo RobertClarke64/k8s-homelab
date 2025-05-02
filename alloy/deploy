@@ -1,6 +1,9 @@
 #!/bin/bash
 
+set -e
+
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
+helm upgrade --install alloy-custom ./alloy/custom -f alloy/values.yaml -f alloy/custom/values.yaml --namespace alloy --create-namespace
 helm upgrade --install alloy grafana/alloy -f alloy/values.yaml --namespace alloy --create-namespace
