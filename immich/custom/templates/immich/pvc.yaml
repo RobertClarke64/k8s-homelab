@@ -1,0 +1,16 @@
+{{- if .Values.immich.persistentVolume.create -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.immich.persistentVolume.name}}
+spec:
+  storageClassName: {{ .Values.immich.persistentVolume.storageClass }}
+  {{- with .Values.immich.persistentVolume.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- with .Values.immich.persistentVolume.resources }}
+  resources:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+{{- end }}
