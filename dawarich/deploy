@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+helm upgrade --install dawarich oci://ghcr.io/cogitri/charts/dawarich --namespace dawarich --create-namespace -f dawarich/values.yaml
