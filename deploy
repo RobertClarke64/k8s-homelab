@@ -3,3 +3,4 @@
 ./zimaboard/deploy
 ./grafana/deploy
 ./alloy/deploy
+./immich/deploy
