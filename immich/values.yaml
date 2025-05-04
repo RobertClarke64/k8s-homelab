@@ -68,8 +68,8 @@ server:
             - path: "/"
       tls: []
   podSecurityContext:
-    runAsNonRoot: false
-    runAsUser: 0
+    runAsNonRoot: true
+    runAsUser: 99
 
 machine-learning:
   enabled: true
