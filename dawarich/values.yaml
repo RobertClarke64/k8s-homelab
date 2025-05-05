@@ -25,6 +25,7 @@ env:
   prometheusExporterHost: "127.0.0.1"
   prometheusExporterPort: "9394"
   railsLogToStdout: "true"
+  photonApiHost: "https://photon.komoot.io"
 
 dawarich:
   replicaCount: 1
