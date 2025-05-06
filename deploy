@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ./zimaboard/deploy
-./grafana/deploy
+./kube-prometheus-stack/deploy
 ./alloy/deploy
+./grafana/deploy
 ./immich/deploy
+./dawarich/deploy
