@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+helm upgrade --install --create-namespace --namespace wanderer wanderer ./wanderer -f ./wanderer/values.yaml

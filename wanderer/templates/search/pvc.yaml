@@ -1,0 +1,16 @@
+{{- if .Values.search.persistentVolume.create -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.search.persistentVolume.name}}
+spec:
+  storageClassName: {{ .Values.search.persistentVolume.storageClass }}
+  {{- with .Values.search.persistentVolume.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- with .Values.search.persistentVolume.resources }}
+  resources:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+{{- end }}

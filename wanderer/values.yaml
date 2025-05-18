@@ -1,0 +1,258 @@
+# Default values for wanderer.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  env:
+    - name: MEILI_URL
+      value: "http://wanderer-search:7700"
+    - name: MEILI_MASTER_KEY
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-search-master-key
+          key: MEILI_MASTER_KEY
+
+search:
+  image:
+    repository: getmeili/meilisearch
+    pullPolicy: IfNotPresent
+    tag: "v1.11.3"
+  imagePullSecrets: []
+  replicaCount: 1
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+  securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+  service:
+    type: ClusterIP
+    port: 7700
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: http
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: http
+  resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: meili-data-pv
+      persistentVolumeClaim:
+        claimName: search-pvc
+  volumeMounts:
+    - name: meili-data-pv
+      mountPath: "/meili_data/data.ms"
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  env:
+    - name: MEILI_NO_ANALYTICS
+      value: "true"
+  persistentVolume:
+    create: true
+    name: "search-pvc"
+    storageClass: "unraid-nfs"
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+
+db:
+  image:
+    repository: flomp/wanderer-db
+    pullPolicy: IfNotPresent
+    tag: "v0.16.5"
+  imagePullSecrets: []
+  replicaCount: 1
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+  securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+  service:
+    type: ClusterIP
+    port: 8090
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: db-data-pv
+      persistentVolumeClaim:
+        claimName: db-pvc
+  volumeMounts:
+    - name: db-data-pv
+      mountPath: "/pb_data"
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  persistentVolume:
+    create: true
+    name: "db-pvc"
+    storageClass: "unraid-nfs"
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+  env:
+    - name: POCKETBASE_ENCRYPTION_KEY
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-search-master-key
+          key: POCKETBASE_ENCRYPTION_KEY
+    - name: POCKETBASE_CRON_SYNC_SCHEDULE
+      value: "*/30 * * * *"
+
+web:
+  image:
+    repository: flomp/wanderer-web
+    pullPolicy: IfNotPresent
+    tag: "v0.16.5"
+  imagePullSecrets: []
+  replicaCount: 1
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+  securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+  service:
+    type: ClusterIP
+    port: 3000
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: web-data-pv
+      persistentVolumeClaim:
+        claimName: web-pvc
+  volumeMounts:
+    - name: web-data-pv
+      mountPath: "/app/uploads"
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  env:
+    - name: ORIGIN
+      value: https://wanderer.robertclarke.co.uk
+    - name: BODY_SIZE_LIMIT
+      value: Infinity
+    - name: PUBLIC_POCKETBASE_URL
+      value: http://wanderer-db:8090
+    - name: PUBLIC_DISABLE_SIGNUP
+      value: "false"
+    - name: UPLOAD_FOLDER
+      value: /app/uploads
+    - name: UPLOAD_USER
+      value: admin
+    - name: UPLOAD_PASSWORD
+      value: admin
+    - name: PUBLIC_VALHALLA_URL
+      value: https://valhalla1.openstreetmap.de
+    - name: PUBLIC_NOMINATIM_URL
+      value: https://nominatim.openstreetmap.org
+  persistentVolume:
+    create: true
+    name: "web-pvc"
+    storageClass: "unraid-nfs"
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+  ingress:
+    enabled: true
+    className: "nginx"
+    annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    hosts:
+      - host: wanderer.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+# This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: ""
+
+# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
