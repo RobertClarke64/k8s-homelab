@@ -8,7 +8,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.26.1"
+  tag: "0.26.6"
   debug: true
 
 keyBase:
@@ -59,12 +59,14 @@ sidekiq:
         - "sh"
         - "-c"
         - "bundle exec sidekiqmon processes | grep ${HOSTNAME}"
+    timeoutSeconds: 10
   readinessProbe:
     exec:
       command:
         - "sh"
         - "-c"
         - "bundle exec sidekiqmon processes | grep ${HOSTNAME}"
+    timeoutSeconds: 10
   startupProbe:
     exec:
       command:
@@ -74,6 +76,7 @@ sidekiq:
     initialDelaySeconds: 30
     periodSeconds: 10
     failureThreshold: 10
+    timeoutSeconds: 10
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -227,11 +230,12 @@ ingress:
   className: "nginx"
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
   hosts:
     - host: map.robertclarke.co.uk
       paths:
         - path: /
-          pathType: Prefix
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
