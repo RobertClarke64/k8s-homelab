@@ -140,6 +140,8 @@ db:
           key: POCKETBASE_ENCRYPTION_KEY
     - name: POCKETBASE_CRON_SYNC_SCHEDULE
       value: "*/30 * * * *"
+    - name: ORIGIN
+      value: https://wanderer.robertclarke.co.uk
 
 web:
   image:
