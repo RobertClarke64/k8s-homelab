@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+helm upgrade --install --create-namespace --namespace adventurelog adventurelog ./adventurelog -f ./adventurelog/values.yaml
