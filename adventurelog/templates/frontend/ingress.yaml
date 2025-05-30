@@ -28,16 +28,6 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            {{- with .pathType }}
-            pathType: {{ . }}
-            {{- end }}
-            backend:
-              service:
-                name: {{ include "adventurelog.frontend.fullname" $ }}
-                port:
-                  number: {{ $.Values.frontend.service.port }}
-          {{- end }}
+          {{- toYaml .paths | nindent 12 }}
     {{- end }}
 {{- end }}

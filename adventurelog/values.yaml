@@ -10,7 +10,7 @@ frontend:
 
   env:
     - name: PUBLIC_SERVER_URL
-      value: "http://adventurelog-backend:8000"
+      value: "http://adventurelog-backend:80"
     - name: ORIGIN
       value: "https://adventures.robertclarke.co.uk"
     - name: BODY_SIZE_LIMIT
@@ -33,10 +33,6 @@ frontend:
     port: 3000
 
   resources: {}
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
     # limits:
     #   cpu: 100m
     #   memory: 128Mi
@@ -95,19 +91,43 @@ backend:
           name: adventurelog-secret
           key: adventure-postgres-password
     - name: PUBLIC_URL
-      value: "https://adventures.robertclarke.co.uk" # Match the outward port, used for the creation of image urls
+      value: "https://adventures-backend.robertclarke.co.uk" # Match the outward port, used for the creation of image urls
     - name: FRONTEND_URL
       value: "https://adventures.robertclarke.co.uk"
     - name: CSRF_TRUSTED_ORIGINS
-      value: "https://adventures.robertclarke.co.uk, http://localhost:3000"
+      value: "https://adventures.robertclarke.co.uk, https://adventures-backend.robertclarke.co.uk, http://adventurelog-backend:80"
     - name: DJANGO_ADMIN_USERNAME
-      value: "admin"
+      valueFrom:
+        secretKeyRef:
+          name: adventurelog-secret
+          key: django-admin-username
     - name: DJANGO_ADMIN_PASSWORD
-      value: "admin"
+      valueFrom:
+        secretKeyRef:
+          name: adventurelog-secret
+          key: django-admin-password
     - name: DJANGO_ADMIN_EMAIL
-      value: "admin@example.com"
+      valueFrom:
+        secretKeyRef:
+          name: adventurelog-secret
+          key: django-admin-email
     - name: DEBUG
       value: "True"
+
+  startupProbe:
+    httpGet:
+      path: /
+      port: http
+    failureThreshold: 30
+    periodSeconds: 10
+  livenessProbe:
+    httpGet:
+      path: /
+      port: http
+  readinessProbe:
+    httpGet:
+      path: /
+      port: http
 
   podAnnotations: {}
   podLabels: {}
@@ -123,13 +143,9 @@ backend:
 
   service:
     type: ClusterIP
-    port: 8000
+    port: 80
 
   resources: {}
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
     # limits:
     #   cpu: 100m
     #   memory: 128Mi
@@ -171,6 +187,7 @@ backend:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+
 db:
   replicaCount: 1
   image:
@@ -208,10 +225,6 @@ db:
     port: 5432
 
   resources: {}
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
     # limits:
     #   cpu: 100m
     #   memory: 128Mi
@@ -259,6 +272,21 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+          backend:
+            service:
+              name: adventurelog-frontend
+              port:
+                number: 3000
+    - host: adventures-backend.robertclarke.co.uk
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: adventurelog-backend
+              port:
+                number: 80
+
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
