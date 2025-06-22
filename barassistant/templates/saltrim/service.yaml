@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "barassistant.saltrim.fullname" . }}
+  labels:
+    {{- include "barassistant.saltrim.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.saltrim.service.type }}
+  ports:
+    - port: {{ .Values.saltrim.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "barassistant.saltrim.selectorLabels" . | nindent 4 }}

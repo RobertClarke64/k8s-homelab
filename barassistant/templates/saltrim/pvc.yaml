@@ -1,0 +1,16 @@
+{{- if .Values.saltrim.persistentVolume.create -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.saltrim.persistentVolume.name}}
+spec:
+  storageClassName: {{ .Values.saltrim.persistentVolume.storageClass }}
+  {{- with .Values.saltrim.persistentVolume.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- with .Values.saltrim.persistentVolume.resources }}
+  resources:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+{{- end }}

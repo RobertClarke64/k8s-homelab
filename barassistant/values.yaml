@@ -1,0 +1,337 @@
+global: {}
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/proxy-body-size: "512m"
+  hosts:
+    - host: bar.robertclarke.co.uk
+      paths:
+        - path: /bar(/|$)(.*)
+          pathType: ImplementationSpecific
+          service: barassistant-server
+          port: 8080
+        - path: /search(/|$)(.*)
+          pathType: ImplementationSpecific
+          service: barassistant-search
+          port: 7700
+        - path: /
+          pathType: ImplementationSpecific
+          service: barassistant-saltrim
+          port: 8080
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+server:
+  replicaCount: 1
+
+  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+  image:
+    repository: barassistant/server
+    pullPolicy: IfNotPresent
+    tag: "5.5.1"
+
+  env:
+    - name: APP_URL
+      value: "https://bar.robertclarke.co.uk/bar"
+    - name: MEILISEARCH_HOST
+      value: "http://barassistant-search:7700"
+    - name: MEILISEARCH_KEY
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-search-master-key
+          key: MEILI_MASTER_KEY
+    - name: CACHE_DRIVER
+      value: "redis"
+    - name: SESSION_DRIVER
+      value: "redis"
+    - name: REDIS_HOST
+      value: "barassistant-redis"
+    - name: ALLOW_REGISTRATION
+      value: "true"
+
+  imagePullSecrets: []
+
+  podAnnotations: {}
+  podLabels: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext:
+    # capabilities:
+    #   drop:
+    #   - ALL
+    readOnlyRootFilesystem: false
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+
+  persistentVolume:
+    create: true
+    name: "server-pvc"
+    storageClass: "unraid-nfs"
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+
+  volumes:
+    - name: server-data-pv
+      persistentVolumeClaim:
+        claimName: server-pvc
+
+  volumeMounts:
+    - name: server-data-pv
+      mountPath: "/var/www/cocktails/storage/bar-assistant"
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+search:
+  replicaCount: 1
+
+  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+  image:
+    repository: getmeili/meilisearch
+    pullPolicy: IfNotPresent
+    tag: "v1.12"
+
+  env:
+    - name: MEILI_NO_ANALYTICS
+      value: "true"
+    - name: MEILI_ENV
+      value: "production"
+    - name: MEILI_MASTER_KEY
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-search-master-key
+          key: MEILI_MASTER_KEY
+
+
+  imagePullSecrets: []
+
+  podAnnotations: {}
+  podLabels: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  service:
+    type: ClusterIP
+    port: 7700
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+
+  persistentVolume:
+    create: true
+    name: "search-pvc"
+    storageClass: "unraid-nfs"
+    accessModes:
+      - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+
+  volumes:
+    - name: search-data-pv
+      persistentVolumeClaim:
+        claimName: search-pvc
+
+  volumeMounts:
+    - name: search-data-pv
+      mountPath: "/meili_data"
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+saltrim:
+  replicaCount: 1
+
+  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+  image:
+    repository: barassistant/salt-rim
+    pullPolicy: IfNotPresent
+    tag: "4.4.0"
+
+  env:
+    - name: API_URL
+      value: "https://bar.robertclarke.co.uk/bar"
+    - name: MEILISEARCH_URL
+      value: "https://bar.robertclarke.co.uk/search"
+
+  imagePullSecrets: []
+
+  podAnnotations: {}
+  podLabels: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+
+  persistentVolume:
+    create: false
+
+  volumes: []
+
+  volumeMounts: []
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+redis:
+  replicaCount: 1
+
+  # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+  image:
+    repository: redis
+    pullPolicy: IfNotPresent
+    tag: "8.0.2"
+
+  env:
+    - name: ALLOW_EMPTY_PASSWORD
+      value: "yes"
+
+  imagePullSecrets: []
+
+  podAnnotations: {}
+  podLabels: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  service:
+    type: ClusterIP
+    port: 6379
+
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+  # livenessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+  # readinessProbe:
+  #   httpGet:
+  #     path: /
+  #     port: http
+
+  persistentVolume:
+    create: false
+
+  volumes: []
+
+  volumeMounts: []
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}

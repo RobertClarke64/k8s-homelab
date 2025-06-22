@@ -1,0 +1,16 @@
+{{- if .Values.redis.persistentVolume.create -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.redis.persistentVolume.name}}
+spec:
+  storageClassName: {{ .Values.redis.persistentVolume.storageClass }}
+  {{- with .Values.redis.persistentVolume.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- with .Values.redis.persistentVolume.resources }}
+  resources:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+{{- end }}

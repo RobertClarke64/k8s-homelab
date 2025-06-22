@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "barassistant.search.fullname" . }}
+  labels:
+    {{- include "barassistant.search.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.search.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "barassistant.search.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.search.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "barassistant.search.labels" . | nindent 8 }}
+        {{- with .Values.search.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.search.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "barassistant.serviceAccountName" . }}
+      {{- with .Values.search.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.search.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.search.image.repository }}:{{ .Values.search.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.search.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.search.service.port }}
+              protocol: TCP
+          {{- with .Values.search.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.search.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.search.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.search.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if or .Values.global.env .Values.search.env }}
+          env:
+            {{- with .Values.global.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- with .Values.search.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          {{- end }}
+      {{- with .Values.search.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.search.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.search.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.search.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

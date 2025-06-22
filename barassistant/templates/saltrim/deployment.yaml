@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "barassistant.saltrim.fullname" . }}
+  labels:
+    {{- include "barassistant.saltrim.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.saltrim.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "barassistant.saltrim.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.saltrim.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "barassistant.saltrim.labels" . | nindent 8 }}
+        {{- with .Values.saltrim.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.saltrim.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "barassistant.serviceAccountName" . }}
+      {{- with .Values.saltrim.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.saltrim.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.saltrim.image.repository }}:{{ .Values.saltrim.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.saltrim.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.saltrim.service.port }}
+              protocol: TCP
+          {{- with .Values.saltrim.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.saltrim.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.saltrim.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.saltrim.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if or .Values.global.env .Values.saltrim.env }}
+          env:
+            {{- with .Values.global.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- with .Values.saltrim.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          {{- end }}
+      {{- with .Values.saltrim.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.saltrim.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.saltrim.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.saltrim.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
