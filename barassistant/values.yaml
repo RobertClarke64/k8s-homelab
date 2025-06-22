@@ -13,23 +13,26 @@ ingress:
   enabled: true
   className: "nginx"
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
   hosts:
     - host: bar.robertclarke.co.uk
       paths:
-        - path: /bar(/|$)(.*)
-          pathType: ImplementationSpecific
-          service: barassistant-server
-          port: 8080
-        - path: /search(/|$)(.*)
-          pathType: ImplementationSpecific
-          service: barassistant-search
-          port: 7700
         - path: /
           pathType: ImplementationSpecific
           service: barassistant-saltrim
           port: 8080
+    - host: server.bar.robertclarke.co.uk
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          service: barassistant-server
+          port: 8080
+    - host: search.bar.robertclarke.co.uk
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          service: barassistant-search
+          port: 7700
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -46,7 +49,7 @@ server:
 
   env:
     - name: APP_URL
-      value: "https://bar.robertclarke.co.uk/bar"
+      value: "https://server.bar.robertclarke.co.uk"
     - name: MEILISEARCH_HOST
       value: "http://barassistant-search:7700"
     - name: MEILISEARCH_KEY
@@ -219,9 +222,9 @@ saltrim:
 
   env:
     - name: API_URL
-      value: "https://bar.robertclarke.co.uk/bar"
+      value: "https://server.bar.robertclarke.co.uk"
     - name: MEILISEARCH_URL
-      value: "https://bar.robertclarke.co.uk/search"
+      value: "https://search.bar.robertclarke.co.uk"
 
   imagePullSecrets: []
 
