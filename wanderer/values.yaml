@@ -140,6 +140,23 @@ db:
           key: POCKETBASE_ENCRYPTION_KEY
     - name: POCKETBASE_CRON_SYNC_SCHEDULE
       value: "*/30 * * * *"
+    - name: POCKETBASE_SMTP_ENABLED
+      value: "true"
+    - name: POCKETBASE_SMTP_HOST
+      value: "robertclarke.co.uk"
+    - name: POCKETBASE_SMTP_PORT
+      value: "465"
+    - name: POCKETBASE_SMTP_USERNAME
+      value: "wanderer@robertclarke.co.uk"
+    - name: POCKETBASE_SMTP_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-search-master-key
+          key: POCKETBASE_SMTP_PASSWORD
+    - name: POCKETBASE_SMTP_SENDER_ADDRESS
+      value: "wanderer@robertclarke.co.uk"
+    - name: POCKETBASE_SMTP_SENDER_NAME
+      values: "Wanderer"
     - name: ORIGIN
       value: https://wanderer.robertclarke.co.uk
 
@@ -147,7 +164,7 @@ web:
   image:
     repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.17.0-print-waypoints-2"
+    tag: "v0.17.0-print-waypoints-3"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
@@ -200,7 +217,7 @@ web:
     - name: PUBLIC_POCKETBASE_URL
       value: http://wanderer-db:8090
     - name: PUBLIC_DISABLE_SIGNUP
-      value: "false"
+      value: "true"
     - name: UPLOAD_FOLDER
       value: /app/uploads
     - name: UPLOAD_USER
