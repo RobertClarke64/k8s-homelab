@@ -8,7 +8,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.26.6"
+  tag: "0.29.1"
   debug: true
 
 keyBase:
@@ -58,21 +58,19 @@ sidekiq:
       command:
         - "sh"
         - "-c"
-        - "bundle exec sidekiqmon processes | grep ${HOSTNAME}"
-    timeoutSeconds: 10
+        - "pgrep -f sidekiq"
   readinessProbe:
     exec:
       command:
         - "sh"
         - "-c"
-        - "bundle exec sidekiqmon processes | grep ${HOSTNAME}"
-    timeoutSeconds: 10
+        - "pgrep -f sidekiq"
   startupProbe:
     exec:
       command:
         - "sh"
         - "-c"
-        - "bundle exec sidekiqmon processes | grep ${HOSTNAME}"
+        - "pgrep -f sidekiq"
     initialDelaySeconds: 30
     periodSeconds: 10
     failureThreshold: 10
