@@ -78,7 +78,7 @@ db:
   image:
     repository: flomp/wanderer-db
     pullPolicy: IfNotPresent
-    tag: "v0.17.1"
+    tag: "v0.17.2"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
@@ -164,7 +164,7 @@ web:
   image:
     repository: flomp/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.17.1"
+    tag: "v0.17.2"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
