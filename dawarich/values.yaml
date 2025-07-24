@@ -8,7 +8,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.29.1"
+  tag: "0.30.3"
   debug: true
 
 keyBase:
@@ -29,7 +29,8 @@ env:
 
 dawarich:
   replicaCount: 1
-  host: "map.robertclarke.co.uk"
+  hosts:
+    - "map.robertclarke.co.uk"
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -121,6 +122,9 @@ persistence:
     size: 5Gi
 
 postgresql:
+  enabled: true
+  host: '{{ $.Release.Name }}-postgresql'
+  port: 5432
   auth:
     # Either set the postgresql credentials in the helm chart, or provide your own secret.
     database: dawarich
@@ -128,8 +132,6 @@ postgresql:
     username: dawarich
     postgresPassword: dawarich
     # existingSecret: dawarich-postgresql
-  volumePermissions:
-    enabled: true
   primary:
     persistence:
       enabled: true
@@ -139,13 +141,6 @@ postgresql:
         - ReadWriteOnce
       size: 10Gi
     # https://github.com/Freika/dawarich/pull/569
-    resources:
-      limits:
-        cpu: 1000m
-        memory: 1024Mi
-      requests:
-        cpu: 100m
-        memory: 128Mi
     extendedConfiguration: |-
       shared_buffers = 512MB
       work_mem = 128MB
@@ -159,11 +154,21 @@ postgresql:
       runAsNonRoot: false
       runAsUser: 1001
       runAsGroup: 1001
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
   shmVolume:
     # As per upstream
     sizeLimit: 1Gi
 
 redis:
+  enabled: true
+  host: '{{ $.Release.Name }}-redis-master'
+  port: 6379
   auth:
     enabled: true
     password: changeme
@@ -202,18 +207,15 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext: {}
-  # runAsNonRoot: true
-  # runAsUser: 99
-  # runAsGroup: 100
-  # fsGroup: 100
+  # fsGroup: 2000
 
-# securityContext:
-#   capabilities:
-#     drop:
-#     - ALL
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: true
-#   runAsUser: 99
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
