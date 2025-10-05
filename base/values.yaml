@@ -1,0 +1,6 @@
+sm-operator:
+  settings:
+    bwSecretsManagerRefreshInterval: 180
+    cloudRegion: EU
+    bwApiUrlOverride: https://vault.robertclarke.co.uk/api
+    bwIdentityUrlOverride: https://vault.robertclarke.co.uk/identity/connect/token.
