@@ -5,5 +5,5 @@ type: application
 version: 0.1.0
 dependencies:
   - name: linkwarden
-    version: 1.0.1
-    repository: https://soubenz.github.io/linkwarden-helm-chart/
+    version: 0.3.3
+    repository: https://fmjstudios.github.io/helm

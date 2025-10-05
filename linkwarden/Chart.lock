@@ -1,6 +1,6 @@
 dependencies:
 - name: linkwarden
-  repository: https://soubenz.github.io/linkwarden-helm-chart/
-  version: 1.0.1
-digest: sha256:1d428f1422318a5f07c652eb567198722260c340782eb0d739d21470da4750ea
-generated: "2025-10-05T10:18:40.719612+01:00"
+  repository: https://fmjstudios.github.io/helm
+  version: 0.3.3
+digest: sha256:c4461af215a6676b1dd2ae26556d93b4d36b0a8d3ebbf857935b018b4f459b03
+generated: "2025-10-05T22:27:37.540976+01:00"
