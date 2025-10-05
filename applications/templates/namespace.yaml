@@ -1,0 +1,10 @@
+{{ range $key, $value := .Values.applications }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ default $value.namespace $key}}
+    name: {{ default $value.namespace $key}}
+  name: {{ default $value.namespace $key}}
+{{ end }}
