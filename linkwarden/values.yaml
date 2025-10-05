@@ -6,11 +6,13 @@ linkwarden:
   ingress:
     enabled: true
     className: nginx
-  data:
-    filesystem:
-      pvc:
-        size: 10Gi
-        storageClass: unraid-nfs
+
+  linkwarden:
+    data:
+      filesystem:
+        pvc:
+          size: 10Gi
+          storageClass: unraid-nfs
 
   postgresql:
     image:
