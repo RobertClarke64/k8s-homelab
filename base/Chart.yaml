@@ -3,7 +3,3 @@ name: base
 description: Helm chart for deploying base resources
 type: application
 version: 0.1.0
-dependencies:
-  - name: sm-operator
-    version: 1.0.0
-    repository: https://charts.bitwarden.com/
