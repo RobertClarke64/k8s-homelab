@@ -162,9 +162,10 @@ db:
 
 web:
   image:
-    repository: flomp/wanderer-web
+    # repository: flomp/wanderer-web
+    repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.18.3"
+    tag: "v0.18.3-print-waypoints"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
