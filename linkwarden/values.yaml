@@ -2,3 +2,6 @@ linkwarden:
   ingress:
     enabled: true
     className: nginx
+  persistence:
+    size: 10Gi
+    storageClass: unraid-nfs
