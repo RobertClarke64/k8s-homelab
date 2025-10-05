@@ -3,9 +3,8 @@ global:
     allowInsecureImages: true
 
 linkwarden:
-  ingress:
-    enabled: true
-    className: nginx
+  image:
+    tag: v2.13.0
 
   linkwarden:
     nextAuthSecret:
@@ -21,3 +20,7 @@ linkwarden:
   postgresql:
     image:
       repository: bitnamilegacy/postgresql
+
+  ingress:
+    enabled: true
+    className: nginx
