@@ -9,8 +9,9 @@ linkwarden:
 
   linkwarden:
     nextAuthSecret:
-      existingSecret: linkwarden-auth
-      key: token
+      existingSecret:
+        name: linkwarden-auth
+        key: token
     data:
       filesystem:
         pvc:
