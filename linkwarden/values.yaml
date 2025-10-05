@@ -8,6 +8,9 @@ linkwarden:
     className: nginx
 
   linkwarden:
+    nextAuthSecret:
+      existingSecret: linkwarden-auth
+      key: token
     data:
       filesystem:
         pvc:
