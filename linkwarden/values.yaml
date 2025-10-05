@@ -1,3 +1,7 @@
+global:
+  security:
+    allowInsecureImages: true
+
 linkwarden:
   ingress:
     enabled: true
