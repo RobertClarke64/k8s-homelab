@@ -5,3 +5,7 @@ linkwarden:
   persistence:
     size: 10Gi
     storageClass: unraid-nfs
+
+  postgresql:
+    image:
+      repository: bitnamilegacy/postgresql
