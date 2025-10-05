@@ -1,0 +1,4 @@
+linkwarden:
+  ingress:
+    enabled: true
+    className: nginx
