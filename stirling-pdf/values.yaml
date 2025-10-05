@@ -1,7 +1,7 @@
 
 stirling-pdf-chart:
   ingress:
-    enabled: false
+    enabled: true
     hosts:
       - name: pdf.robertclarke.co.uk
     ingressClassName: "nginx"
