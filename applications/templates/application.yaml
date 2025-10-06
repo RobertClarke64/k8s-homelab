@@ -13,7 +13,7 @@ spec:
     path: {{ default $value.path $key}}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ default $value.namespace $key}}
+    namespace: {{ $value.namespace | default $key}}
   syncPolicy:
     automated:
       enabled: true

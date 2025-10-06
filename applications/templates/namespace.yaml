@@ -4,7 +4,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    kubernetes.io/metadata.name: {{ default $value.namespace $key}}
-    name: {{ default $value.namespace $key}}
-  name: {{ default $value.namespace $key}}
+    kubernetes.io/metadata.name: {{ $value.namespace | default $key}}
+    name: {{ $value.namespace | default $key}}
+  name: {{ $value.namespace | default $key}}
 {{ end }}
