@@ -5,7 +5,7 @@ karakeep:
       className: nginx
 
   secrets:
-    meilisearch:
+    meilesearch:
       enabled: false
     karakeep:
       enabled: false
