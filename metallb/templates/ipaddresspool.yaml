@@ -2,17 +2,16 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: default
-  namespace: metallb-system
+  namespace: {{ .Release.Namespace }}
 spec:
   addresses:
-  - 192.168.1.241-192.168.1.254
-  - fc00:f853:0ccd:e799::/124
+    {{- .Values.ipAddressPool.addresses | toYaml | nindent 4 }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: l2-advertisement
-  namespace: metallb-system
+  namespace: {{ .Release.Namespace }}
 spec:
   ipAddressPools:
     - default

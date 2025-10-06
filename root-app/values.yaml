@@ -2,7 +2,6 @@ applications:
   argocd: {}
   stirling-pdf: {}
   linkwarden: {}
-  base: {}
   metallb:
     namespace: metallb-system
   ingress-nginx: {}
