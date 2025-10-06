@@ -6,3 +6,4 @@ applications:
     namespace: metallb-system
   ingress-nginx: {}
   grafana: {}
+  wanderer: {}
