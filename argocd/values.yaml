@@ -51,5 +51,11 @@ argo-cd:
         enabled: true
 
 dashboards:
+  argocd:
+    url: "https://grafana.com/api/dashboards/14584/revisions/1/download"
   argocd-operational-overview:
     url: "https://grafana.com/api/dashboards/19993/revisions/4/download"
+  argocd-notifications-overview:
+    url: "https://grafana.com/api/dashboards/19975/revisions/4/download"
+  argocd-application-overview:
+    url: "https://grafana.com/api/dashboards/19974/revisions/4/download"
