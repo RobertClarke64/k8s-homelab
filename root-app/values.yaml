@@ -1,6 +1,7 @@
 applications:
   alloy: {}
   argocd: {}
+  barassistant: {}
   stirling-pdf: {}
   linkwarden: {}
   metallb:
