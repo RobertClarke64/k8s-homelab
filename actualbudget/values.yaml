@@ -1,0 +1,14 @@
+actualbudget:
+  persistence:
+    enabled: true
+    storageClass: unraid-nfs
+
+  ingress:
+    enabled: true
+    className: nginx
+    hosts:
+      - host: actual.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+

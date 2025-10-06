@@ -1,0 +1,9 @@
+apiVersion: v2
+name: actualbudget
+description: A Helm Chart for deploying Actual Budget
+type: application
+version: 0.1.0
+dependencies:
+  - name: actualbudget
+    version: 1.8.3
+    repository: https://community-charts.github.io/helm-charts
