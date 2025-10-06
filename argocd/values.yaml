@@ -49,3 +49,7 @@ argo-cd:
       enabled: true
       serviceMonitor:
         enabled: true
+
+dashboards:
+  - name: "Operational / Overview"
+    url: "https://grafana.com/grafana/dashboards/19993-argocd-operational-overview/"
