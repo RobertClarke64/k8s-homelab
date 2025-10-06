@@ -1,15 +1,15 @@
-{{ range $dashboard := .Values.dashboards }}
+{{ range $key, $value := .Values.dashboards }}
 ---
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
-  name: {{ $dashboard.name }}
+  name: {{ $key }}
 spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
   folder: "ArgoCD"
-  {{- if $dashboard.url }}
-  url: {{ $dashboard.url }}
+  {{- if $value.url }}
+  url: {{ $value.url }}
   {{- end }}
 {{ end }}

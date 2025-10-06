@@ -51,5 +51,5 @@ argo-cd:
         enabled: true
 
 dashboards:
-  - name: "Operational / Overview"
+  argocd-operational-overview:
     url: "https://grafana.com/grafana/dashboards/19993-argocd-operational-overview/"
