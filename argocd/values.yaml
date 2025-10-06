@@ -9,3 +9,36 @@ argo-cd:
       ingressClassName: "nginx"
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  controller:
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  repoServer:
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  dex:
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  redis:
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  applicationSet:
+    metrics:
+      serviceMonitor:
+        enabled: true
+
+  notifications:
+    metrics:
+      serviceMonitor:
+        enabled: true
