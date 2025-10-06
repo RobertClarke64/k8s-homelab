@@ -9,7 +9,6 @@ grafana:
       - grafana.k8s.robertclarke.co.uk
       - grafana.robertclarke.co.uk
 
-
   persistence:
     enabled: true
     storageClassName: unraid-nfs
