@@ -156,7 +156,7 @@ db:
     - name: POCKETBASE_SMTP_SENDER_ADDRESS
       value: "wanderer@robertclarke.co.uk"
     - name: POCKETBASE_SMTP_SENDER_NAME
-      values: "Wanderer"
+      value: "Wanderer"
     - name: ORIGIN
       value: https://wanderer.robertclarke.co.uk
 
