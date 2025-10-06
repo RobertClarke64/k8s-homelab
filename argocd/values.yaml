@@ -1,4 +1,11 @@
+global:
+  domain: argo.robertclarke.co.uk
+
 argo-cd:
+  configs:
+    params:
+      server.insecure: true
+
   applicationSet:
     ingress:
       enabled: true
