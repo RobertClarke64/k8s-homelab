@@ -1,2 +1,5 @@
 karakeep:
   applicationHost: karakeep.robertclarke.co.uk
+  ingress:
+    karakeep:
+      className: nginx
