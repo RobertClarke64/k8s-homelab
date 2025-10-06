@@ -1,5 +1,5 @@
 applications:
-  argocd: {}
+  # argocd: {}
   stirling-pdf: {}
   linkwarden: {}
   base: {}
