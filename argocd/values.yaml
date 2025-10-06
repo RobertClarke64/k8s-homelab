@@ -5,7 +5,7 @@ argo-cd:
   server:
     ingress:
       enabled: true
-      hostname: argocd.robertclarke.co.uk
+      hostname: argo.robertclarke.co.uk
       ingressClassName: "nginx"
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
