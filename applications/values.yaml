@@ -2,3 +2,5 @@ applications:
   stirling-pdf: {}
   linkwarden: {}
   base: {}
+  metallb:
+    namespace: metallb-system
