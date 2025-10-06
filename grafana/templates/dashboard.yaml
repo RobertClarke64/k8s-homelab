@@ -9,7 +9,7 @@ spec:
       dashboards: grafana
   folder: "my-dashboards"
   json: >
-		{
-			"title": "as-code dashboard",
-			“uid” : “ascode”
-		}
+    {
+      "title": "as-code dashboard",
+      “uid” : “ascode”
+    }
