@@ -35,6 +35,9 @@ alloy:
   serviceMonitor:
     enabled: true
 
+  service:
+    type: LoadBalancer
+
 custom:
   configMap:
     create: true
