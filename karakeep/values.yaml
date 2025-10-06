@@ -3,3 +3,9 @@ karakeep:
   ingress:
     karakeep:
       className: nginx
+
+  secrets:
+    meilisearch:
+      enabled: false
+    karakeep:
+      enabled: false
