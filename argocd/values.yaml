@@ -4,4 +4,3 @@ argo-cd:
       enabled: true
       hostname: argocd.robertclarke.co.uk
       ingressClassName: "nginx"
-      tls: true
