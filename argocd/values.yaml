@@ -2,14 +2,10 @@ global:
   domain: argo.robertclarke.co.uk
 
 argo-cd:
-  configs:
-    params:
-      server.insecure: true
-
   server:
     ingress:
       enabled: true
       hostname: argocd.robertclarke.co.uk
       ingressClassName: "nginx"
       annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
