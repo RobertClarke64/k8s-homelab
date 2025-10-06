@@ -52,4 +52,4 @@ argo-cd:
 
 dashboards:
   argocd-operational-overview:
-    url: "https://grafana.com/grafana/dashboards/19993-argocd-operational-overview/"
+    url: "https://grafana.com/api/dashboards/19993/revisions/4/download"
