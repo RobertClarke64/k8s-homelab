@@ -1,23 +1,24 @@
-serviceMonitor:
-  enabled: true
-
-ingress:
-  enabled: true
-  ingressClassName: nginx
-  hosts:
-    - grafana.k8s.robertclarke.co.uk
-    - grafana.robertclarke.co.uk
-
-
-persistence:
-  enabled: true
-  storageClassName: unraid-nfs
-
-initChownData:
-  enabled: false
-
-sidecar:
-  dashboards:
+grafana:
+  serviceMonitor:
     enabled: true
-    provider:
-      folder: "Kubernetes"
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - grafana.k8s.robertclarke.co.uk
+      - grafana.robertclarke.co.uk
+
+
+  persistence:
+    enabled: true
+    storageClassName: unraid-nfs
+
+  initChownData:
+    enabled: false
+
+  sidecar:
+    dashboards:
+      enabled: true
+      provider:
+        folder: "Kubernetes"
