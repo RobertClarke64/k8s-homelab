@@ -6,7 +6,7 @@ argo-cd:
     params:
       server.insecure: true
 
-  applicationSet:
+  server:
     ingress:
       enabled: true
       hostname: argocd.robertclarke.co.uk
