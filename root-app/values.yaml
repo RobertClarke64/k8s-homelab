@@ -5,3 +5,4 @@ applications:
   metallb:
     namespace: metallb-system
   ingress-nginx: {}
+  grafana: {}
