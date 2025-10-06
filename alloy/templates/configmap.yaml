@@ -1,4 +1,4 @@
-{{- $values := (mustMergeOverwrite .Values.alloy.alloy (or .Values.agent dict)) -}}
+{{- $values := (mustMergeOverwrite .Values.custom (or .Values.agent dict)) -}}
 {{- if $values.configMap.create }}
 apiVersion: v1
 kind: ConfigMap

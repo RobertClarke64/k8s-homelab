@@ -1,10 +1,7 @@
 alloy:
   alloy:
     configMap:
-      create: true
-      content: |
-        {{- .Files.Get "config/config.alloy" | trim }}
-      name: alloy
+      create: false
     mounts:
       extra:
         - name: containerd-socket
@@ -37,3 +34,10 @@ alloy:
 
   serviceMonitor:
     enabled: true
+
+custom:
+  configMap:
+    create: true
+    content: |
+      {{- .Files.Get "config/config.alloy" | trim }}
+    name: alloy
