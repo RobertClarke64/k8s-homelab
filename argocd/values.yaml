@@ -2,4 +2,5 @@ argo-cd:
   applicationSet:
     ingress:
       enabled: true
+      hostname: argocd.robertclarke.co.uk
       ingressClassName: "nginx"
