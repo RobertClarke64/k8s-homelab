@@ -15,4 +15,7 @@ karakeep:
       containers:
         karakeep:
           env:
+            CRAWLER_FULL_PAGE_ARCHIVE: true
+            CRAWLER_FULL_PAGE_SCREENSHOT: true
             CRAWLER_VIDEO_DOWNLOAD: true
+            CRAWLER_VIDEO_DOWNLOAD_MAX_SIZE: 500
