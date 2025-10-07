@@ -9,3 +9,10 @@ karakeep:
       enabled: false
     karakeep:
       enabled: false
+
+  controllers:
+    karakeep:
+      containers:
+        karakeep:
+          env:
+            CRAWLER_VIDEO_DOWNLOAD: true
