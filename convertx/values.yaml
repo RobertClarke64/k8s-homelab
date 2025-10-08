@@ -30,6 +30,8 @@ service:
 ingress:
   convertx:
     className: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: "100m"
     hosts:
       - host: "{{ .Values.applicationHost }}"
         paths:
