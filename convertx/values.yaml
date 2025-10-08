@@ -29,6 +29,7 @@ service:
 
 ingress:
   convertx:
+    className: nginx
     hosts:
       - host: "{{ .Values.applicationHost }}"
         paths:
