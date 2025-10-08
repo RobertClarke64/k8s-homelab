@@ -3,7 +3,7 @@ applicationHost: convert.robertclarke.co.uk
 controllers:
   convertx:
     enabled: true
-    type: deployment
+    type: statefulset
     containers:
       convertx:
         image:
@@ -13,6 +13,14 @@ controllers:
         envFrom:
           - secretRef:
               name: "{{ .Release.Name }}"
+
+    statefulset:
+      volumeClaimTemplates:
+        - name: data
+          accessMode: ReadWriteOnce
+          size: 10Gi
+          globalMounts:
+            - path: /app/data
 
 secrets:
   convertx:
