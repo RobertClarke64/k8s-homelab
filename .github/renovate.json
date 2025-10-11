@@ -1,5 +1,5 @@
 {
-  "baseBranches": ["main"],
+  "baseBranchPatterns": ["main"],
   "rebaseWhen": "conflicted",
   "labels": ["dependencies"],
   "automergeStrategy": "merge-commit",
