@@ -1,2 +1,10 @@
-- name: Renovate Bot GitHub Action
-  uses: renovatebot/github-action@v43.0.16
+name: Renovate
+on:
+  schedule:
+    - cron: '0 15 * * *'
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Renovate Bot GitHub Action
+        uses: renovatebot/github-action@v43.0.16
