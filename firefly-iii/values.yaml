@@ -26,4 +26,5 @@ firefly-iii-stack:
       hosts:
         - importer.firefly.robertclarke.co.uk
     fireflyiii:
+      url: http://firefly-iii:80
       vanityUrl: https://firefly.robertclarke.co.uk
