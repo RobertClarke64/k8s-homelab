@@ -13,12 +13,6 @@ firefly-iii-stack:
       className: nginx
       hosts:
         - firefly.robertclarke.co.uk
-      annotations:
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header X-Forwarded-Host $host;
-          proxy_set_header X-Forwarded-Server $host;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     config:
       existingSecret: firefly-iii
       env:
