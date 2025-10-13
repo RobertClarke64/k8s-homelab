@@ -2,8 +2,7 @@ firefly-iii-stack:
   firefly-db:
     storage:
       class: unraid-nfs
-      accessModes:
-        - ReadWriteOnce
+      accessModes: ReadWriteOnce
     backup:
       pvc:
         class: unraid-nfs
