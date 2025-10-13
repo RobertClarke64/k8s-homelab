@@ -13,7 +13,6 @@ jobs:
         uses: renovatebot/github-action@v43.0.16
         with:
           token: ${{ secrets.RENOVATE_TOKEN }}
-          configurationFile: .github/renovate.json
         env:
           RENOVATE_AUTODISCOVER: 'true'
           RENOVATE_AUTODISCOVER_FILTER: 'RobertClarke64/k8s-homelab'
