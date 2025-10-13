@@ -16,7 +16,7 @@ search:
   image:
     repository: getmeili/meilisearch
     pullPolicy: IfNotPresent
-    tag: "v1.13.0"
+    tag: "v1.11.3"
   args:
     - --experimental-dumpless-upgrade
   imagePullSecrets: []
