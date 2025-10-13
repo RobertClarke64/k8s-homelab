@@ -6,3 +6,15 @@ firefly-iii-stack:
     backup:
       pvc:
         class: unraid-nfs
+
+  firefly-iii:
+    ingress:
+      className: nginx
+      hosts:
+        firefly.robertclarke.co.uk
+
+  importer:
+    ingress:
+      className: nginx
+      hosts:
+        importer.firefly.robertclarke.co.uk
