@@ -1,13 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "enabledManagers": ["helmv3"],
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "helmv3"
+  ],
   "helmv3": {
-    "fileMatch": ["(^|/)Chart\\.yaml$"]
+    "managerFilePatterns": [
+      "/(^|/)Chart\\.yaml$/"
+    ]
   },
   "packageRules": [
     {
-      "matchManagers": ["helmv3"],
+      "matchManagers": [
+        "helmv3"
+      ],
       "rangeStrategy": "bump",
       "automerge": false
     }
