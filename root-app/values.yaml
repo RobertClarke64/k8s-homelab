@@ -13,6 +13,7 @@ applications:
   metrics-server:
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     chart: metrics-server
+    targetRevision: 3.13.0
   ingress-nginx: {}
   grafana: {}
   wanderer: {}

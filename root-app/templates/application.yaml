@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: {{ default "https://github.com/RobertClarke64/k8s-homelab" $value.repoURL }}
-    targetRevision: HEAD
+    targetRevision: {{ default "HEAD" $value.targetRevision }}
     path: {{ default $key $value.path }}
     {{- with $value.chart }}
     chart: {{ . }}
