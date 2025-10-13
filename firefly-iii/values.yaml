@@ -25,3 +25,5 @@ firefly-iii-stack:
       className: nginx
       hosts:
         - importer.firefly.robertclarke.co.uk
+    fireflyiii:
+      vanityUrl: https://firefly.robertclarke.co.uk
