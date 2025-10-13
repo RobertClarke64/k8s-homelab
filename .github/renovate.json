@@ -8,7 +8,6 @@
   "packageRules": [
     {
       "matchManagers": ["helmv3"],
-      "groupName": "Helm chart dependencies",
       "rangeStrategy": "bump",
       "automerge": false
     }

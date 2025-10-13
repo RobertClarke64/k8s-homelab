@@ -18,3 +18,4 @@ jobs:
           LOG_LEVEL: 'debug'
           RENOVATE_AUTODISCOVER: 'true'
           RENOVATE_AUTODISCOVER_FILTER: 'RobertClarke64/k8s-homelab'
+          RENOVATE_CONFIG_MIGRATION: 'true'
