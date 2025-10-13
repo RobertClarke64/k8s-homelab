@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["helmv3"],
+  "helmv3": {
+    "fileMatch": ["(^|/)Chart\\.yaml$"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["helmv3"],
+      "groupName": "Helm chart dependencies",
+      "rangeStrategy": "bump",
+      "automerge": false
+    }
+  ]
+}
