@@ -17,8 +17,6 @@ search:
     repository: getmeili/meilisearch
     pullPolicy: IfNotPresent
     tag: "v1.11.3"
-  args:
-    - --experimental-dumpless-upgrade
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
