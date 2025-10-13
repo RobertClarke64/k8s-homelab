@@ -11,6 +11,11 @@ global:
         secretKeyRef:
           name: wanderer-search-master-key
           key: MEILI_MASTER_KEY
+    - name: MEILISEARCH_KEY
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-search-master-key
+          key: MEILI_MASTER_KEY
 
 search:
   image:
