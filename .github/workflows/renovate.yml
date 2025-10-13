@@ -17,4 +17,3 @@ jobs:
         env:
           LOG_LEVEL: 'debug'
           RENOVATE_AUTODISCOVER: 'true'
-          RENOVATE_AUTODISCOVER_FILTER: 'k8s-homelab'
