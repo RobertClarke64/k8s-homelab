@@ -17,6 +17,7 @@ firefly-iii-stack:
       existingSecret: firefly-iii
       env:
         APP_URL: https://firefly.robertclarke.co.uk
+        TRUSTED_PROXIES: "*"
 
   importer:
     ingress:
