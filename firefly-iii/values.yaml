@@ -13,6 +13,8 @@ firefly-iii-stack:
       className: nginx
       hosts:
         - firefly.robertclarke.co.uk
+    config:
+      existingSecret: firefly-iii
 
   importer:
     ingress:
