@@ -11,17 +11,12 @@ global:
         secretKeyRef:
           name: wanderer-search-master-key
           key: MEILI_MASTER_KEY
-    - name: MEILISEARCH_KEY
-      valueFrom:
-        secretKeyRef:
-          name: wanderer-search-master-key
-          key: MEILI_MASTER_KEY
 
 search:
   image:
     repository: getmeili/meilisearch
     pullPolicy: IfNotPresent
-    tag: "v1.23.0"
+    tag: "v1.11.3"
   args:
     - --experimental-dumpless-upgrade
   imagePullSecrets: []
