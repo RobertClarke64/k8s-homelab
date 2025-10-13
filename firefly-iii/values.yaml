@@ -8,12 +8,14 @@ firefly-iii-stack:
         class: unraid-nfs
 
   firefly-iii:
+    enabled: true
     ingress:
       className: nginx
       hosts:
         firefly.robertclarke.co.uk
 
   importer:
+    enabled: true
     ingress:
       className: nginx
       hosts:
