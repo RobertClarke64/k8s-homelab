@@ -1,0 +1,6 @@
+firefly-iii-stack:
+  firefly-db:
+    storage:
+      class: unraid-nfs
+      accessModes:
+        - ReadWriteOnce
