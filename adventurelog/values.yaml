@@ -6,7 +6,7 @@ frontend:
   image:
     repository: ghcr.io/seanmorley15/adventurelog-frontend
     pullPolicy: IfNotPresent
-    tag: "v0.10.0"
+    tag: "v0.11.0"
 
   env:
     - name: PUBLIC_SERVER_URL
