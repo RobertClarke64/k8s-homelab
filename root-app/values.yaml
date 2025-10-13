@@ -1,5 +1,6 @@
 applications:
   actualbudget: {}
+  adventurelog: {}
   alloy: {}
   argocd: {}
   barassistant: {}
