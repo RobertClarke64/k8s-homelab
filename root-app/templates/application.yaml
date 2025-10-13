@@ -1,4 +1,5 @@
-{{ range $key, $value := .Values.applications }}
+{{- range $key, $value := .Values.applications }}
+{{- if or $value.enabled (not (hasKey $value "enabled")) }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -8,9 +9,23 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/RobertClarke64/k8s-homelab
+    repoURL: {{ default "https://github.com/RobertClarke64/k8s-homelab" $value.repoURL }}
     targetRevision: HEAD
-    path: {{ default $value.path $key}}
+    path: {{ default $key $value.path }}
+    {{- with $value.chart }}
+    chart: {{ . }}
+    {{- end }}
+    {{- if or $value.valueFiles $value.valuesObject }}
+    helm:
+      {{- range $value.valueFiles }}
+      valueFiles:
+        - {{ . }}
+      {{- end }}
+      {{- with $value.valuesObject }}
+      valuesObject:
+        {{ toYaml . | nindent 8 }}
+      {{- end }}
+    {{- end }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $value.namespace | default $key}}
@@ -21,4 +36,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-{{ end }}
+{{- end }}
+{{- end }}
