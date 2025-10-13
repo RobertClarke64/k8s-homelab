@@ -14,7 +14,7 @@ firefly-iii-stack:
       hosts:
         - firefly.robertclarke.co.uk
       annotations:
-        nginx.org/redirect-to-https: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     config:
       existingSecret: firefly-iii
       env:
