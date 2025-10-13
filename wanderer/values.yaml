@@ -6,11 +6,11 @@ global:
   env:
     - name: MEILI_URL
       value: "http://wanderer-search:7700"
-    - name: MEILI_MASTER_KEY
-      valueFrom:
-        secretKeyRef:
-          name: wanderer-search-master-key
-          key: MEILI_MASTER_KEY
+    # - name: MEILI_MASTER_KEY
+    #   valueFrom:
+    #     secretKeyRef:
+    #       name: wanderer-search-master-key
+    #       key: MEILI_MASTER_KEY
 
 search:
   image:
