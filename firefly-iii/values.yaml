@@ -13,8 +13,6 @@ firefly-iii-stack:
       className: nginx
       hosts:
         - firefly.robertclarke.co.uk
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     config:
       existingSecret: firefly-iii
       env:
