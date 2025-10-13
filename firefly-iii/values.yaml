@@ -4,3 +4,6 @@ firefly-iii-stack:
       class: unraid-nfs
       accessModes:
         - ReadWriteOnce
+    backup:
+      pvc:
+        class: unraid-nfs
