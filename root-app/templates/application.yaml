@@ -36,5 +36,8 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      {{- with $value.extraSyncOptions }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
 {{- end }}
 {{- end }}
