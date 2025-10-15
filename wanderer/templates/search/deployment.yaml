@@ -70,10 +70,9 @@ spec:
             {{- end }}
           {{- end }}
           command:
-            - /bin/meilisearch
-            {{- with .Values.search.args }} 
-            {{- toYaml . | nindent 12 }}
-            {{- end }}
+            - "sh"
+            - "-c"
+            - "/bin/meilisearch --master-key=\"$MEILI_MASTER_KEY\""
       {{- with .Values.search.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
