@@ -19,6 +19,7 @@ dawarich:
       size: 5Gi
 
   postgresql:
+    host: dawarich-cluster-rw
     auth:
       existingSecret: dawarich-cluster-superuser
       secretKeys:
