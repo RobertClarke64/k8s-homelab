@@ -1,0 +1,9 @@
+apiVersion: v2
+name: dawarich
+description: A Helm Chart for deploying dawarich
+type: application
+version: 0.1.0
+dependencies:
+  - name: dawarich
+    version: 1.0.4
+    repository: https://charts.cogitri.dev

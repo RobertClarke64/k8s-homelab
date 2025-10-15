@@ -1,0 +1,6 @@
+dependencies:
+- name: dawarich
+  repository: https://charts.cogitri.dev
+  version: 1.0.4
+digest: sha256:249edf98cc362869eb9a3e28de2f630820fd11035de9351c754e98face377d50
+generated: "2025-10-15T14:40:49.737676+01:00"
