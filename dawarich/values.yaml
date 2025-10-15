@@ -23,6 +23,8 @@ dawarich:
     auth:
       password: dawarich
       postgresPassword: dawarich
+      secretKeys:
+        adminPasswordKey: null
 
   ingress:
     enabled: true
