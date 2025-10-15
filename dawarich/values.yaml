@@ -19,10 +19,8 @@ dawarich:
       size: 5Gi
 
   postgresql:
-    enabled: true
     auth:
-      password: dawarich
-      postgresPassword: dawarich
+      existingSecret: dawarich-cluster-superuser
       secretKeys:
         adminPasswordKey: null
 
