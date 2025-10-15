@@ -67,6 +67,9 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
           {{- end }}
+          command:
+            - "/bin/meilisearch"
+            - "--experimental-dumpless-upgrade"
       {{- with .Values.search.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
