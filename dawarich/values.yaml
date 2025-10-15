@@ -37,3 +37,6 @@ dawarich:
         paths:
           - path: /
             pathType: ImplementationSpecific
+
+cluster:
+  type: postgis
