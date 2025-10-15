@@ -5,6 +5,7 @@ applications:
   argocd: {}
   barassistant: {}
   convertx: {}
+  dawarich: {}
   firefly-iii: {}
   stirling-pdf: {}
   linkwarden: {}
