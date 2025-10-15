@@ -18,7 +18,9 @@ dawarich:
       storageClass: "unraid-nfs"
       size: 5Gi
 
-  # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+  postgresql:
+    enabled: true
+
   ingress:
     enabled: true
     className: "nginx"
@@ -30,4 +32,3 @@ dawarich:
         paths:
           - path: /
             pathType: ImplementationSpecific
-
