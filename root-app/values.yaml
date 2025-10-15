@@ -4,6 +4,10 @@ applications:
   alloy: {}
   argocd: {}
   barassistant: {}
+  cnpg:
+    repoURL: https://cloudnative-pg.github.io/charts
+    chart: cloudnative-pg
+    targetRevision: 0.26.0
   convertx: {}
   dawarich: {}
   firefly-iii: {}
