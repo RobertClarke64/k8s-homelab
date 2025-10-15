@@ -218,7 +218,7 @@ web:
     - name: PUBLIC_POCKETBASE_URL
       value: http://wanderer-db:8090
     - name: PUBLIC_DISABLE_SIGNUP
-      value: "true"
+      value: "false"
     - name: UPLOAD_FOLDER
       value: /app/uploads
     - name: UPLOAD_USER
