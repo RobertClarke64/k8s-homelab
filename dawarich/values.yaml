@@ -20,6 +20,9 @@ dawarich:
 
   postgresql:
     enabled: true
+    auth:
+      password: dawarich
+      postgresPassword: dawarich
 
   ingress:
     enabled: true
