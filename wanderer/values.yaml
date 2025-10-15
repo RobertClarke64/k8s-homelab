@@ -18,7 +18,7 @@ search:
     pullPolicy: IfNotPresent
     tag: "v1.11.3"
   args:
-    - --master-key="$(MEILI_MASTER_KEY)"
+    - --master-key="$MEILI_MASTER_KEY"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
