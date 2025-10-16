@@ -5,3 +5,4 @@ tandoor-recipes:
       ingressClassName: nginx
       hosts:
         - host: tandoor.k8s.robertclarke.co.uk
+        - host: recipes.robertclarke.co.uk
