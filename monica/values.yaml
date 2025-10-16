@@ -2,7 +2,9 @@ monica:
   monica:
     host: people.robertclarke.co.uk
     extraEnv:
-      - name: TRUSTED_PROXIES
+      - name: APP_URL
+        value: "https://people.robertclarke.co.uk"
+      - name: APP_TRUSTED_PROXIES
         value: "*"
 
   ingress:
