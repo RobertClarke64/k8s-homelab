@@ -28,6 +28,19 @@ monica:
     enabled: true
     storageClassName: unraid-nfs
 
+  internalDatabase:
+    enabled: false
+
+  externalDatabase:
+    type: postgresql
+    host: monica-cluster-rw
+    database: app
+    existingSecret:
+      enabled: true
+      secretName: monica-cluster-app
+      usernameKey: username
+      passwordKey: password
+
 cluster:
   cluster:
     instances: 1
