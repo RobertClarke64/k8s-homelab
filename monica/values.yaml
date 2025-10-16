@@ -6,7 +6,9 @@ monica:
         value: "https://people.robertclarke.co.uk"
       - name: APP_TRUSTED_PROXIES
         value: "*"
-    existingSecret: monica
+    existingSecret:
+      enabled: true
+      secretName: monica
 
   ingress:
     enabled: true
