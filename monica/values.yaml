@@ -2,7 +2,8 @@ monica:
   monica:
     host: people.robertclarke.co.uk
     extraEnv:
-      TRUSTED_PROXIES: "*"
+      - name: TRUSTED_PROXIES
+        value: "*"
 
   ingress:
     enabled: true
