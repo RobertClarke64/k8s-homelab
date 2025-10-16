@@ -1,0 +1,6 @@
+dependencies:
+- name: monica
+  repository: https://monicahq.github.io/helm/
+  version: 1.0.14
+digest: sha256:1484a5f044dffad3738f20534bb57dd243e396245c952de6736b1240124c2597
+generated: "2025-10-16T15:49:31.60424+01:00"

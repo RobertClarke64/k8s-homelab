@@ -1,0 +1,11 @@
+monica:
+  monica:
+    host: people.robertclarke.co.uk
+
+  ingress:
+    enabled: true
+    className: nginx
+
+  persistence:
+    enabled: true
+    storageClassName: unraid-nfs

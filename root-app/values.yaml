@@ -25,6 +25,7 @@ applications:
     valuesObject:
       args:
         - --kubelet-insecure-tls
+  monica: {}
   ingress-nginx: {}
   grafana: {}
   wanderer: {}
