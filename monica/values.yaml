@@ -9,6 +9,16 @@ monica:
     existingSecret:
       enabled: true
       secretName: monica
+      mailUsernameKey: emailUsername
+      mailPasswordKey: emailPassword
+    mail:
+      enabled: true
+      fromAddress: monica@robertclarke.co.uk
+      replyToAddress: monica@robertclarke.co.uk
+      smtp:
+        host: robertclarke.co.uk
+        encryption: tls
+        port: 587
 
   ingress:
     enabled: true
