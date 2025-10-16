@@ -1,0 +1,9 @@
+apiVersion: v2
+name: convertx
+description: A Helm Chart for deploying CyberChef
+type: application
+version: 0.1.0
+dependencies:
+  - name: cyberchef
+    version: v10.19.4
+    repository: https://tamcore.github.io/cyberchef

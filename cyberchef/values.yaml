@@ -1,0 +1,7 @@
+cyberchef:
+  ingress:
+    enabled: true
+    className: nginx
+    hosts:
+      - host: cyberchef.robertclarke.co.uk
+      - host: cyberchef.k8s.robertclarke.co.uk
