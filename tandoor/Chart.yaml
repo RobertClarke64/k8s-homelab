@@ -1,0 +1,9 @@
+apiVersion: v2
+name: tandoor-recipes
+description: A Helm Chart for deploying Tandoor Recipes
+type: application
+version: 0.1.0
+dependencies:
+  - name: tandoor-recipes
+    version: 20.9.1
+    repository: oci://oci.trueforge.org/truecharts

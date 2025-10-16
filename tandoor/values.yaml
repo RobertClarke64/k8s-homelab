@@ -1,0 +1,7 @@
+tandoor-recipes:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: nginx
+      hosts:
+        - host: tandoor.k8s.robertclarke.co.uk
