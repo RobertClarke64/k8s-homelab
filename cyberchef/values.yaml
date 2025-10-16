@@ -4,4 +4,10 @@ cyberchef:
     className: nginx
     hosts:
       - host: cyberchef.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
       - host: cyberchef.k8s.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
