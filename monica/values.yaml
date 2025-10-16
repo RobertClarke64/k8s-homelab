@@ -27,3 +27,7 @@ monica:
   persistence:
     enabled: true
     storageClassName: unraid-nfs
+
+cluster:
+  cluster:
+    instances: 1
