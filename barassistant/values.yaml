@@ -226,7 +226,7 @@ saltrim:
     - name: MEILISEARCH_URL
       value: "https://search.bar.robertclarke.co.uk"
     - name: AI_PROVIDER
-      value: "openai"
+      value: "ollama"
     - name: AI_API_KEY
       valueFrom:
         secretKeyRef:
