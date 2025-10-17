@@ -225,7 +225,7 @@ saltrim:
       value: "https://server.bar.robertclarke.co.uk"
     - name: MEILISEARCH_URL
       value: "https://search.bar.robertclarke.co.uk"
-    - name: AI_PROVIDER:
+    - name: AI_PROVIDER
       value: "openai"
     - name: AI_API_KEY
       valueFrom:
