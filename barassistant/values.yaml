@@ -230,6 +230,16 @@ saltrim:
         secretKeyRef:
           name: barassistant-ai-env
           key: AI_API_KEY
+    - name: AI_HOST
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-ai-env
+          key: AI_HOST
+    - name: AI_MODEL
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-ai-env
+          key: AI_MODEL
 
   imagePullSecrets: []
 
