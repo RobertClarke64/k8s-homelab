@@ -65,6 +65,9 @@ search:
     - name: MEILI_NO_ANALYTICS
       value: "true"
   args:
+    - "/bin/sh"
+    - "-c"
+    - "/bin/meilisearch"
     - --experimental-dumpless-upgrade
   persistentVolume:
     create: true
