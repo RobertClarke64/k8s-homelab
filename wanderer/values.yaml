@@ -67,8 +67,7 @@ search:
   args:
     - "/bin/sh"
     - "-c"
-    - "/bin/meilisearch"
-    - --experimental-dumpless-upgrade
+    - "/bin/meilisearch --experimental-dumpless-upgrade"
   persistentVolume:
     create: true
     name: "search-pvc"
