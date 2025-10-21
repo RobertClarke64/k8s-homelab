@@ -64,6 +64,8 @@ search:
   env:
     - name: MEILI_NO_ANALYTICS
       value: "true"
+  args:
+    - --experimental-dumpless-upgrade
   persistentVolume:
     create: true
     name: "search-pvc"
