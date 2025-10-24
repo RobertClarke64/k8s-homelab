@@ -11,6 +11,11 @@ applications:
     extraSyncOptions:
       - ServerSideApply=true
   convertx: {}
+  csi-driver-nfs:
+    repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+    chart: csi-driver-nfs
+    targetRevision: 4.11.0
+    namespace: kube-system
   cyberchef: {}
   dawarich: {}
   firefly-iii: {}
