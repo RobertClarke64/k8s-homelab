@@ -1,6 +1,7 @@
 {{- $root := . -}}
 {{- range $key, $value := .Values.storageClasses}}
 {{ if $value.create -}}
+---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -20,6 +21,9 @@ reclaimPolicy: {{ $value.reclaimPolicy }}
 parameters:
   server: {{ $.Values.nfs.server }}
   share: {{ $.Values.nfs.path }}
+  {{- if $value.subDir }}
+  subDir: {{ $value.subDir }}
+  {{- end }}
 {{- if $.Values.nfs.mountOptions }}
 volumeBindingMode: Immediate
 mountOptions:

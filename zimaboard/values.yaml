@@ -14,3 +14,12 @@ storageClasses:
     allowVolumeExpansion: true
     archiveOnDelete: false
     provisionerName: nfs.csi.k8s.io
+  - create: true
+    name: unraid-nfs-named
+    defaultClass: false
+    reclaimPolicy: Retain
+    accessModes: ReadWriteOnce
+    allowVolumeExpansion: true
+    archiveOnDelete: false
+    provisionerName: nfs.csi.k8s.io
+    subDir: ${pvc.namespace}/${pvc.name}
