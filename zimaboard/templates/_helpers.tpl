@@ -32,8 +32,8 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "nfs-client-provisioner.provisionerName" -}}
-{{- if .Values.storageClass.provisionerName -}}
-{{- printf .Values.storageClass.provisionerName -}}
+{{- if .provisionerName -}}
+{{- printf .provisionerName -}}
 {{- else -}}
 cluster.local/{{ template "nfs-client-provisioner.fullname" . -}}
 {{- end -}}

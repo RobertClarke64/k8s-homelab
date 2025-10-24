@@ -5,12 +5,12 @@ nfs:
     - hard
     - nfsvers=4.1
 
-storageClass:
-  create: true
-  name: unraid-nfs
-  defaultClass: true
-  reclaimPolicy: Retain
-  accessModes: ReadWriteOnce
-  allowVolumeExpansion: true
-  archiveOnDelete: false
-  provisionerName: nfs.csi.k8s.io
+storageClasses:
+  - create: true
+    name: unraid-nfs
+    defaultClass: true
+    reclaimPolicy: Retain
+    accessModes: ReadWriteOnce
+    allowVolumeExpansion: true
+    archiveOnDelete: false
+    provisionerName: nfs.csi.k8s.io
