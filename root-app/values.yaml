@@ -19,7 +19,14 @@ applications:
   cyberchef: {}
   dawarich: {}
   firefly-iii: {}
-  kube-prometheus-stack: {}
+  kube-prometheus-stack:
+    enabled: false
+  prometheus-operator:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 24.0.0
+    chart: prometheus-operator-crds
+    extraSyncOptions:
+      - ServerSideApply=true
   stirling-pdf: {}
   tandoor: {}
   linkwarden: {}
