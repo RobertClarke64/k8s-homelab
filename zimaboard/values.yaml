@@ -22,4 +22,4 @@ storageClasses:
     allowVolumeExpansion: true
     archiveOnDelete: false
     provisionerName: nfs.csi.k8s.io
-    subDir: ${pvc.namespace}/${pvc.name}
+    subDir: ${pvc.metadata.namespace}/${pvc.metadata.name}
