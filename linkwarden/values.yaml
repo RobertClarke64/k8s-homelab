@@ -16,7 +16,7 @@ linkwarden:
       filesystem:
         pvc:
           size: 10Gi
-          storageClass: unraid-nfs
+          storageClass: unraid-nfs-named
 
   postgresql:
     image:
