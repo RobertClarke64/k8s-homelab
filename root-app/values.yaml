@@ -36,3 +36,4 @@ applications:
   grafana: {}
   wanderer: {}
   karakeep: {}
+  zimaboard: {}
