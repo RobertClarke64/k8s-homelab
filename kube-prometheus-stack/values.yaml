@@ -1,64 +1,65 @@
-alertmanager:
-  enabled: true
-
-kubeApiServer:
-  enabled: true
-  serviceMonitor:
+kube-prometheus-stack:
+  alertmanager:
     enabled: true
-    interval: 15s
 
-kubelet:
-  enabled: true
-  serviceMonitor:
+  kubeApiServer:
     enabled: true
-    interval: 15s
-
-kubeControllerManager:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    interval: 15s
-
-coreDns:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    interval: 15s
-
-kubeEtcd:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    interval: 15s
-
-kubeScheduler:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    interval: 15s
-
-kubeProxy:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    interval: 15s
-
-prometheus:
-  enabled: false
-
-prometheus-node-exporter:
-  prometheus:
-    monitor:
+    serviceMonitor:
       enabled: true
       interval: 15s
 
+  kubelet:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
 
-prometheusOperator:
-  serviceMonitor:
-    selfMonitor: true
-    interval: 15s
+  kubeControllerManager:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
 
-grafana:
-  enabled: false
-  forceDeployDashboards: true
-  namespaceOverride: grafana
+  coreDns:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
+
+  kubeEtcd:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
+
+  kubeScheduler:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
+
+  kubeProxy:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
+
+  prometheus:
+    enabled: false
+
+  prometheus-node-exporter:
+    prometheus:
+      monitor:
+        enabled: true
+        interval: 15s
+
+
+  prometheusOperator:
+    serviceMonitor:
+      selfMonitor: true
+      interval: 15s
+
+  grafana:
+    enabled: false
+    forceDeployDashboards: true
+    namespaceOverride: grafana
