@@ -37,6 +37,9 @@ dawarich:
           - path: /
             pathType: ImplementationSpecific
 
+  redis:
+    replicas: 1
+
 cluster:
   cluster:
     instances: 1
