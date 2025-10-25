@@ -105,6 +105,7 @@ cluster:
         passwordSecret:
           name: immich-pgvectors-pass
         database: immich
+        sslMode: disable
 
 #### PGVECTORS CONFIG
 
