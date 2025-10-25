@@ -21,6 +21,7 @@ immich:
             DB_USERNAME: "postgres"
             DB_DATABASE_NAME: "immich"
             DB_PASSWORD: "postgres"
+            IMMICH_MEDIA_LOCATION: "/data"
 
   immich:
     metrics:
