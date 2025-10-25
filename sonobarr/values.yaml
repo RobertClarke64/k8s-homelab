@@ -43,6 +43,7 @@ service:
 
 ingress:
   main:
+    className: nginx
     hosts:
       - host: sonobarr.robertclarke.co.uk
         paths:
