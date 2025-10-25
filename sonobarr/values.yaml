@@ -9,6 +9,9 @@ controllers:
           tag: 0.9.0
           pullPolicy: IfNotPresent
         env:
+          sonobarr_superadmin_username: admin
+          sonobarr_superadmin_password: admin
+          sonobarr_superadmin_reset: "true"
           secret_key:
             valueFrom:
               secretKeyRef:
