@@ -71,7 +71,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "16-vectorchord0.3.0-pgvectors0.3.0"
+  tag: "17-vectorchord0.3.0-pgvectors0.3.0"
 
 environment:
   - name: POSTGRES_USER
