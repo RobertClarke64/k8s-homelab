@@ -1,0 +1,66 @@
+controllers:
+  main:
+    type: deployment
+    strategy: Recreate
+    containers:
+      main:
+        image:
+          repository: ghcr.io/dodelidoo-labs/sonobarr
+          tag: 0.9.0
+          pullPolicy: IfNotPresent
+        env:
+          secret_key:
+            valueFrom:
+              secretKeyRef:
+                name: sonobarr
+                key: SECRET_KEY
+          lidarr_address: "https://lidarr.robertclarke.co.uk"
+          lidarr_api_key:
+            valueFrom:
+              secretKeyRef:
+                name: sonobarr
+                key: LIDARR_API_KEY
+          last_fm_api_key:
+            valueFrom:
+              secretKeyRef:
+                name: sonobarr
+                key: LAST_FM_API_KEY
+          last_fm_api_secret:
+            valueFrom:
+              secretKeyRef:
+                name: sonobarr
+                key: LAST_FM_API_SECRET
+        volumes:
+          - name: config
+            mountPath: /app/config
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 5000
+
+ingress:
+  main:
+    hosts:
+      - host: sonobarr.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            service:
+              identifier: main
+              port: http
+
+persistence:
+  config:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /sonobarr/config
+            readOnly: false
+            subPath: config/

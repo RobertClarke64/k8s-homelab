@@ -28,6 +28,7 @@ applications:
     extraSyncOptions:
       - ServerSideApply=true
   stirling-pdf: {}
+  sonobarr: {}
   tandoor: {}
   linkwarden: {}
   metallb:
