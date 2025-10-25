@@ -16,6 +16,11 @@ immich:
         main:
           image:
             tag: v2.0.1
+          env:
+            DB_HOSTNAME: "immich-custom-pgvectors"
+            DB_USERNAME: "postgres"
+            DB_DATABASE_NAME: "immich"
+            DB_PASSWORD: "postgres"
 
   immich:
     metrics:
