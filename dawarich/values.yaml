@@ -38,5 +38,6 @@ dawarich:
             pathType: ImplementationSpecific
 
 cluster:
-  instances: 1
+  cluster:
+    instances: 1
   type: postgis
