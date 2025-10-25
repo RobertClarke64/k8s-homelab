@@ -11,7 +11,7 @@ grafana:
 
   persistence:
     enabled: true
-    storageClassName: unraid-nfs
+    storageClassName: unraid-nfs-named
 
   initChownData:
     enabled: false
