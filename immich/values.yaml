@@ -78,6 +78,7 @@ immich:
         storageClass: unraid-nfs
 
 cluster:
+  mode: recovery
   cluster:
     imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-0.4.3
     instances: 1
@@ -92,6 +93,18 @@ cluster:
         # Commands based on: https://immich.app/docs/administration/postgres-standalone/#without-superuser-permission
         - CREATE EXTENSION vchord CASCADE;
         - CREATE EXTENSION earthdistance CASCADE;
+  recovery:
+    method: import
+    import:
+      type: microservice
+      databases:
+        - immich
+      source:
+        host: immich-pgvectors
+        username: postgres
+        passwordSecret:
+          name: immich-pgvectors-pass
+        database: immich
 
 #### PGVECTORS CONFIG
 
