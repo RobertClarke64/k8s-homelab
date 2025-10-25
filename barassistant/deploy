@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-helm upgrade --install --create-namespace --namespace barassistant barassistant ./barassistant -f ./barassistant/values.yaml

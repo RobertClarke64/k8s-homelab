@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-
-helm dependency build ./linkwarden
-helm upgrade --install --create-namespace --namespace linkwarden linkwarden ./linkwarden

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -e
-
-helm repo add cogitri https://charts.cogitri.dev
-helm repo update
-
-helm upgrade --install dawarich cogitri/dawarich --namespace dawarich --create-namespace -f dawarich/values.yaml

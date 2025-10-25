@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-
-helm repo add stirling-pdf https://stirling-tools.github.io/Stirling-PDF-chart
-helm upgrade --install --create-namespace --namespace stirling-pdf stirling-pdf stirling-pdf/stirling-pdf-chart -f ./stirling-pdf/values.yaml

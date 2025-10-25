@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-helm upgrade --install immich-custom ./immich/custom -f ./immich/custom/values.yaml --namespace immich --create-namespace
-
-helm upgrade --install --create-namespace --namespace immich immich oci://ghcr.io/immich-app/immich-charts/immich -f ./immich/values.yaml
