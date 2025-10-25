@@ -2,8 +2,8 @@ immich:
 
   persistentVolume:
     create: true
-    name: immich-pvc
-    storageClass: unraid-nfs
+    name: immich
+    storageClass: unraid-nfs-named
     accessModes:
       - ReadWriteMany
     resources:
