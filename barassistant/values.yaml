@@ -39,7 +39,7 @@ ingress:
   #      - chart-example.local
 
 server:
-  replicaCount: 1
+  replicaCount: 0
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -105,8 +105,8 @@ server:
 
   persistentVolume:
     create: true
-    name: "server-pvc"
-    storageClass: "unraid-nfs"
+    name: "server"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
@@ -116,7 +116,7 @@ server:
   volumes:
     - name: server-data-pv
       persistentVolumeClaim:
-        claimName: server-pvc
+        claimName: server
 
   volumeMounts:
     - name: server-data-pv
@@ -129,7 +129,7 @@ server:
   affinity: {}
 
 search:
-  replicaCount: 1
+  replicaCount: 0
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -188,8 +188,8 @@ search:
 
   persistentVolume:
     create: true
-    name: "search-pvc"
-    storageClass: "unraid-nfs"
+    name: "search"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
@@ -199,7 +199,7 @@ search:
   volumes:
     - name: search-data-pv
       persistentVolumeClaim:
-        claimName: search-pvc
+        claimName: search
 
   volumeMounts:
     - name: search-data-pv
@@ -212,7 +212,7 @@ search:
   affinity: {}
 
 saltrim:
-  replicaCount: 1
+  replicaCount: 0
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -294,7 +294,7 @@ saltrim:
   affinity: {}
 
 redis:
-  replicaCount: 1
+  replicaCount: 0
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
