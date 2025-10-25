@@ -39,7 +39,7 @@ ingress:
   #      - chart-example.local
 
 server:
-  replicaCount: 0
+  replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -129,7 +129,7 @@ server:
   affinity: {}
 
 search:
-  replicaCount: 0
+  replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -212,7 +212,7 @@ search:
   affinity: {}
 
 saltrim:
-  replicaCount: 0
+  replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
@@ -294,7 +294,7 @@ saltrim:
   affinity: {}
 
 redis:
-  replicaCount: 0
+  replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
   image:
