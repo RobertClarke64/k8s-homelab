@@ -27,7 +27,7 @@ immich:
       enabled: true
     persistence:
       library:
-        existingClaim: immich-pvc
+        existingClaim: immich
 
   valkey:
     enabled: true
