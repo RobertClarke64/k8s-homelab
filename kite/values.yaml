@@ -1,0 +1,17 @@
+kite:
+  host: https://kite.robertclarke.co.uk
+
+  db:
+    sqlite:
+      persistence:
+        pvc:
+          enabled: true
+          storageClass: unraid-nfs-named
+
+  ingress:
+    enabled: true
+    hosts:
+      - host: kite.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
