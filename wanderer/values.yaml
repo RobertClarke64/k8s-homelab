@@ -51,7 +51,7 @@ search:
   volumes:
     - name: meili-data-pv
       persistentVolumeClaim:
-        claimName: search-pvc
+        claimName: search
   volumeMounts:
     - name: meili-data-pv
       mountPath: "/meili_data/data.ms"
@@ -70,8 +70,8 @@ search:
     - "/bin/meilisearch --experimental-dumpless-upgrade"
   persistentVolume:
     create: true
-    name: "search-pvc"
-    storageClass: "unraid-nfs"
+    name: "search"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteOncePod
     resources:
@@ -117,7 +117,7 @@ db:
   volumes:
     - name: db-data-pv
       persistentVolumeClaim:
-        claimName: db-pvc
+        claimName: db
   volumeMounts:
     - name: db-data-pv
       mountPath: "/pb_data"
@@ -129,8 +129,8 @@ db:
     # targetMemoryUtilizationPercentage: 80
   persistentVolume:
     create: true
-    name: "db-pvc"
-    storageClass: "unraid-nfs"
+    name: "db"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
@@ -204,7 +204,7 @@ web:
   volumes:
     - name: web-data-pv
       persistentVolumeClaim:
-        claimName: web-pvc
+        claimName: web
   volumeMounts:
     - name: web-data-pv
       mountPath: "/app/uploads"
@@ -237,8 +237,8 @@ web:
       value: https://nominatim.openstreetmap.org
   persistentVolume:
     create: true
-    name: "web-pvc"
-    storageClass: "unraid-nfs"
+    name: "web"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
