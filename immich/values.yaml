@@ -108,7 +108,7 @@ cluster:
 
 #### PGVECTORS CONFIG
 
-replicaCount: 0
+replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
