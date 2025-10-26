@@ -17,6 +17,7 @@ controllers:
     statefulset:
       volumeClaimTemplates:
         - name: data
+          storageClass: unraid-nfs-named
           accessMode: ReadWriteOnce
           size: 10Gi
           globalMounts:
