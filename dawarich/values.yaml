@@ -40,7 +40,7 @@ dawarich:
   redis:
     persistentVolume:
       storageClass: unraid-nfs-named
-    replicas: 1
+    replicas: 2
 
 cluster:
   cluster:
