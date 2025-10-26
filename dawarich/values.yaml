@@ -1,11 +1,8 @@
 dawarich:
   dawarich:
-    replicaCount: 0
+    replicaCount: 1
     hosts:
       - "map.robertclarke.co.uk"
-
-  sidekiq:
-    replicaCount: 0
 
   persistence:
     public:
@@ -43,7 +40,7 @@ dawarich:
   redis:
     persistentVolume:
       storageClass: unraid-nfs-named
-    replicas: 0
+    replicas: 1
 
 cluster:
   cluster:
