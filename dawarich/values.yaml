@@ -47,7 +47,7 @@ dawarich:
 
 cluster:
   cluster:
-    instances: 0
+    instances: 1
     storage:
       storageClass: unraid-nfs-named
   type: postgis
