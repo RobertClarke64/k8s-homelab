@@ -1,21 +1,24 @@
 dawarich:
   dawarich:
-    replicaCount: 1
+    replicaCount: 0
     hosts:
       - "map.robertclarke.co.uk"
+
+  sidekiq:
+    replicaCount: 0
 
   persistence:
     public:
       enabled: true
-      storageClass: "unraid-nfs"
+      storageClass: "unraid-nfs-named"
       size: 10Gi
     watched:
       enabled: true
-      storageClass: "unraid-nfs"
+      storageClass: "unraid-nfs-named"
       size: 10Gi
     storage:
       enabled: true
-      storageClass: "unraid-nfs"
+      storageClass: "unraid-nfs-named"
       size: 5Gi
 
   postgresql:
@@ -38,9 +41,13 @@ dawarich:
             pathType: ImplementationSpecific
 
   redis:
-    replicas: 1
+    persistentVolume:
+      storageClass: unraid-nfs-named
+    replicas: 0
 
 cluster:
   cluster:
-    instances: 1
+    instances: 0
+    storage:
+      storageClass: unraid-nfs-named
   type: postgis
