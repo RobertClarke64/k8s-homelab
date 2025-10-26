@@ -19,6 +19,7 @@ applications:
   cyberchef: {}
   dawarich: {}
   firefly-iii: {}
+  geopulse: {}
   immich: {}
   kite: {}
   prometheus-operator:
