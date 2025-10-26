@@ -8,5 +8,6 @@ dependencies:
     version: 1.0.4
     repository: https://charts.cogitri.dev
   - name: cluster
+    condition: cluster.enabled
     version: 0.3.1
     repository: https://cloudnative-pg.github.io/charts

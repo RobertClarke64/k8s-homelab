@@ -43,6 +43,7 @@ dawarich:
     replicas: 1
 
 cluster:
+  enabled: false
   cluster:
     instances: 1
     storage:
