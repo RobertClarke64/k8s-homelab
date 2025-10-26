@@ -21,7 +21,7 @@ dawarich:
   postgresql:
     host: dawarich-cluster-rw
     auth:
-      existingSecret: dawarich-cluster-superuser
+      existingSecret: dawarich-cluster-app
       secretKeys:
         adminPasswordKey: null
 
