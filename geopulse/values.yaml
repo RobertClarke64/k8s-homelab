@@ -215,10 +215,10 @@ postgres:
 
 # External PostgreSQL configuration (if postgres.enabled = false)
 externalPostgres:
-  host: ""
+  host: "geopulse-cluster-rw"
   port: 5432
-  database: geopulse
-  username: geopulse-user
+  database: app
+  username: app
   password: ""
 
 # MQTT Broker (Mosquitto) configuration - OPTIONAL
