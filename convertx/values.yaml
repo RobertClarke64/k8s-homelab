@@ -4,7 +4,6 @@ controllers:
   convertx:
     enabled: true
     type: statefulset
-    replicas: 0
     containers:
       convertx:
         image:
