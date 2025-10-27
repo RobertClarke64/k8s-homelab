@@ -1,0 +1,15 @@
+{{- range $service := .Values.proxy.services }}
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: {{ $service.name }}
+  labels:
+    kubernetes.io/service-name: {{ $service.name }}
+addressType: IPv4
+ports:
+  - port: {{ $service.port }}
+endpoints:
+  - addresses:
+    - {{ $.Values.proxy.ipAddress }}
+{{- end }}

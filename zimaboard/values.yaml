@@ -1,3 +1,10 @@
+proxy:
+  ipAddress: 192.168.1.101
+  services:
+    - name: lidarr
+      host: lidarr.k8s.robertclarke.co.uk
+      port: 8686
+
 nfs:
   server: 192.168.1.101
   path: /mnt/user/k8s-pv

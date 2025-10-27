@@ -1,0 +1,22 @@
+{{- range $service := .Values.proxy.services }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: {{ $service.name }}-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ $service.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ $service.name }}
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+{{- end }}

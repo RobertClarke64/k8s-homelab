@@ -1,0 +1,13 @@
+{{- range $service := .Values.proxy.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $service.name }}
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: $service.port
+      name: http
+{{- end }}
