@@ -6,7 +6,7 @@ metadata:
   name: {{ $service.name }}
 spec:
   ports:
-    - port: 80
+    - port: {{ $service.port }}
       protocol: TCP
       targetPort: {{ $service.port }}
       name: http

@@ -16,7 +16,7 @@ spec:
           service:
             name: {{ $service.name }}
             port:
-              number: 80
+              number: {{ $service.port }}
         path: /
         pathType: ImplementationSpecific
 {{- end }}

@@ -11,5 +11,6 @@ ports:
   - port: {{ $service.port }}
 endpoints:
   - addresses:
-    - {{ $.Values.proxy.ipAddress }}
+      - {{ $.Values.proxy.ipAddress }}
+    conditions: {}
 {{- end }}
