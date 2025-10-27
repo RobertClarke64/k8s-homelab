@@ -4,6 +4,7 @@ applications:
   alloy: {}
   argocd: {}
   barassistant: {}
+  cert-manager: {}
   cnpg:
     repoURL: https://cloudnative-pg.github.io/charts
     chart: cloudnative-pg
