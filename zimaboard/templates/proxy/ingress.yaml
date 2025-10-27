@@ -5,18 +5,23 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: {{ $.Values.proxy.certClusterIssuer }}
   name: {{ $service.name }}-ingress
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ $service.host }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ $service.name }}
-            port:
-              number: {{ $service.port }}
-        path: /
-        pathType: ImplementationSpecific
+    - host: {{ $service.host }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: {{ $service.name }}
+              port:
+                number: {{ $service.port }}
+          path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - {{ $service.host }}
+      secretName: {{ $service.name }}-tls
 {{- end }}
