@@ -9,6 +9,8 @@ proxy:
       host: think.robertclarke.co.uk
       port: 8006
       ipAddress: 192.168.1.135
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     - name: lidarr
       host: lidarr.robertclarke.co.uk
       port: 8686
