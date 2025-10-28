@@ -8,6 +8,7 @@ proxy:
     - name: homeassistant
       host: home.robertclarke.co.uk
       port: 8123
+      ipAddress: 192.168.1.49
 
 nfs:
   server: 192.168.1.101
