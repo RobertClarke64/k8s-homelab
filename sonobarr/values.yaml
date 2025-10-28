@@ -44,6 +44,8 @@ service:
 ingress:
   main:
     className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - host: sonobarr.robertclarke.co.uk
         paths:
@@ -52,6 +54,10 @@ ingress:
             service:
               identifier: main
               port: http
+    tls:
+      - hosts:
+          - sonobarr.robertclarke.co.uk
+        secretName: sonobarr-tls
 
 persistence:
   config:
