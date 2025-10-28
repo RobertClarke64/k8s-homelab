@@ -356,7 +356,7 @@ ingress:
   enabled: true
   className: "nginx"
   annotations:
-    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt"
     # nginx.ingress.kubernetes.io/ssl-redirect: "true"
 
   # Hostname for the ingress
@@ -364,7 +364,7 @@ ingress:
 
   # TLS configuration
   tls:
-    enabled: false
+    enabled: true
     secretName: geopulse-tls
 
   # Additional paths (for load balancers, etc.)
