@@ -8,6 +8,10 @@ grafana:
     hosts:
       - grafana.k8s.robertclarke.co.uk
       - grafana.robertclarke.co.uk
+    tls:
+      - hosts:
+          - grafana.robertclarke.co.uk
+        secretName: grafana-tls
 
   persistence:
     enabled: true
