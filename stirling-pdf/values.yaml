@@ -4,7 +4,12 @@ stirling-pdf-chart:
     enabled: true
     hosts:
       - name: pdf.robertclarke.co.uk
+    tls:
+      - hosts:
+          - pdf.robertclarke.co.uk
+        secretName: stirling-pdf-tls
     ingressClassName: "nginx"
     annotations:
       # proxy-body-size is set to 0 to remove the body limit on file uploads
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      cert-manager.io/cluster-issuer: letsencrypt
