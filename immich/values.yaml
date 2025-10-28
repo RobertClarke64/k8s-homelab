@@ -60,6 +60,7 @@ immich:
         annotations:
           # proxy-body-size is set to 0 to remove the body limit on file uploads
           nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          cert-manager.io/cluster-issuer: "letsencrypt"
         hosts:
           - host: photos.k8s.robertclarke.co.uk
             paths:
@@ -67,6 +68,10 @@ immich:
           - host: photos.robertclarke.co.uk
             paths:
               - path: "/"
+        tls:
+          - hosts:
+              - photos.robertclarke.co.uk
+            secretName: immich-tls
     podSecurityContext:
       runAsNonRoot: true
       runAsUser: 99
