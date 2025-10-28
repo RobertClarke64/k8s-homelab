@@ -33,6 +33,10 @@ proxy:
       host: amp.robertclarke.co.uk
       port: 8080
       ipAddress: 192.168.1.85
+    - name: minecraft-bluemap
+      host: mc.robertclarke.co.uk
+      port: 8100
+      ipAddress: 192.168.1.85
 
 nfs:
   server: 192.168.1.101
