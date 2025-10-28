@@ -2,6 +2,8 @@ cyberchef:
   ingress:
     enabled: true
     className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - host: cyberchef.robertclarke.co.uk
         paths:
@@ -11,3 +13,7 @@ cyberchef:
         paths:
           - path: /
             pathType: ImplementationSpecific
+    tls:
+      - hosts:
+          - cyberchef.robertclarke.co.uk
+        secretName: cyberchef-tls
