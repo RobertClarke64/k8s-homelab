@@ -14,6 +14,7 @@ ingress:
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
+    cert-manager.io/cluster-issuer: "letsencrypt"
   hosts:
     - host: bar.robertclarke.co.uk
       paths:
@@ -33,10 +34,12 @@ ingress:
           pathType: ImplementationSpecific
           service: barassistant-search
           port: 7700
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - hosts:
+        - bar.robertclarke.co.uk
+        - server.bar.robertclarke.co.uk
+        - search.bar.robertclarke.co.uk
+      secretName: barassistant-tls
 
 server:
   replicaCount: 1
