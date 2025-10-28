@@ -5,6 +5,11 @@ tandoor-recipes:
       ingressClassName: nginx
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+        cert-manager.io/cluster-issuer: "letsencrypt"
       hosts:
         - host: tandoor.k8s.robertclarke.co.uk
         - host: recipes.robertclarke.co.uk
+      tls:
+        - hosts:
+            - recipes.robertclarke.co.uk
+          secretName: tandoor-recipes-tls
