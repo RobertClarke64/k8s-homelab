@@ -273,8 +273,7 @@ ingress:
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: wanderer.robertclarke.co.uk
       paths:
@@ -286,7 +285,7 @@ ingress:
           pathType: Prefix
           service: wanderer-web
           port: 3000
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - hosts:
+        - wanderer.robertclarke.co.uk
+      secretName: wanderer-tls
