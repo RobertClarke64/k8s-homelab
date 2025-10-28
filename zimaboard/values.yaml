@@ -5,6 +5,9 @@ proxy:
     - name: lidarr
       host: lidarr.robertclarke.co.uk
       port: 8686
+    - name: plex
+      host: plex.robertclarke.co.uk
+      port: 32400
     - name: homeassistant
       host: home.robertclarke.co.uk
       port: 8123
