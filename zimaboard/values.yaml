@@ -8,6 +8,8 @@ proxy:
     - name: plex
       host: plex.robertclarke.co.uk
       port: 32400
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     - name: homeassistant
       host: home.robertclarke.co.uk
       port: 8123

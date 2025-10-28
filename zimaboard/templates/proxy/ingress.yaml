@@ -6,6 +6,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: {{ $.Values.proxy.certClusterIssuer }}
+    {{- with $service.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
   name: {{ $service.name }}-ingress
 spec:
   ingressClassName: nginx
