@@ -2,6 +2,13 @@ proxy:
   certClusterIssuer: letsencrypt
   ipAddress: 192.168.1.101
   services:
+    - name: unraid
+      host: zima.robertclarke.co.uk
+      port: 80
+    - name: thinkcentre
+      host: think.robertclarke.co.uk
+      port: 8006
+      ipAddress: 192.168.1.135
     - name: lidarr
       host: lidarr.robertclarke.co.uk
       port: 8686
