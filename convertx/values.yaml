@@ -41,6 +41,7 @@ ingress:
     className: nginx
     annotations:
       nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+      cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - host: "{{ .Values.applicationHost }}"
         paths:
@@ -49,4 +50,8 @@ ingress:
             service:
               identifier: convertx
               port: http
+    tls:
+      - hosts:
+          - "{{ .Values.applicationHost }}"
+        secretName: convertx-tls
 
