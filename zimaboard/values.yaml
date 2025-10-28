@@ -29,6 +29,10 @@ proxy:
     - name: overseerr
       host: requests.robertclarke.co.uk
       port: 5056
+    - name: amp-games
+      host: amp.robertclarke.co.uk
+      port: 8080
+      ipAddress: 192.168.1.85
 
 nfs:
   server: 192.168.1.101
