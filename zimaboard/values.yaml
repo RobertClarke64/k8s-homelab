@@ -5,6 +5,9 @@ proxy:
     - name: lidarr
       host: lidarr.robertclarke.co.uk
       port: 8686
+    - name: qbittorrent
+      host: qbit.robertclarke.co.uk
+      port: 8080
     - name: plex
       host: plex.robertclarke.co.uk
       port: 32400
