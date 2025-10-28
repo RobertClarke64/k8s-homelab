@@ -5,6 +5,8 @@ grafana:
   ingress:
     enabled: true
     ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - grafana.k8s.robertclarke.co.uk
       - grafana.robertclarke.co.uk
