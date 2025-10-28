@@ -5,12 +5,6 @@ proxy:
     - name: unraid
       host: zima.robertclarke.co.uk
       port: 80
-    - name: thinkcentre
-      host: think.robertclarke.co.uk
-      port: 8006
-      ipAddress: 192.168.1.135
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     - name: lidarr
       host: lidarr.robertclarke.co.uk
       port: 8686
@@ -22,13 +16,37 @@ proxy:
       port: 32400
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    - name: overseerr
+      host: requests.robertclarke.co.uk
+      port: 5056
+    - name: prowlarr
+      host: prowlarr.robertclarke.co.uk
+      port: 9696
+    - name: radarr
+      host: radarr.robertclarke.co.uk
+      port: 7878
+    - name: sonarr
+      host: sonarr.robertclarke.co.uk
+      port: 8989
+    - name: slskd
+      host: slskd.robertclarke.co.uk
+      port: 5030
+    - name: tautulli
+      host: tautulli.robertclarke.co.uk
+      port: 8181
+
+    - name: thinkcentre
+      host: think.robertclarke.co.uk
+      port: 8006
+      ipAddress: 192.168.1.135
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+
     - name: homeassistant
       host: home.robertclarke.co.uk
       port: 8123
       ipAddress: 192.168.1.49
-    - name: overseerr
-      host: requests.robertclarke.co.uk
-      port: 5056
+
     - name: amp-games
       host: amp.robertclarke.co.uk
       port: 8080
