@@ -11,8 +11,14 @@ firefly-iii-stack:
     ingress:
       enabled: true
       className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
       hosts:
         - firefly.robertclarke.co.uk
+      tls:
+        - hosts:
+            - firefly.robertclarke.co.uk
+          secretName: firefly-iii-tls
     config:
       existingSecret: firefly-iii
       env:
@@ -23,8 +29,14 @@ firefly-iii-stack:
     ingress:
       enabled: true
       className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
       hosts:
         - importer.firefly.robertclarke.co.uk
+      tls:
+        - hosts:
+            - importer.firefly.robertclarke.co.uk
+          secretName: firefly-iii-importer-tls
     fireflyiii:
       url: http://firefly-iii:80
       vanityUrl: https://firefly.robertclarke.co.uk
