@@ -259,8 +259,7 @@ ingress:
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: adventures.robertclarke.co.uk
       paths:
@@ -281,8 +280,8 @@ ingress:
               port:
                 number: 80
 
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
+  tls:
+    - hosts:
+        - adventures.robertclarke.co.uk
+        - adventures-backend.robertclarke.co.uk
+      secretName: adventurelog-tls
