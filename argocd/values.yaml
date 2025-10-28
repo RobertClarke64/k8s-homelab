@@ -9,6 +9,8 @@ argo-cd:
       ingressClassName: "nginx"
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        cert-manager.io/cluster-issuer: letsencrypt
+      tls: true
     metrics:
       enabled: true
       serviceMonitor:
