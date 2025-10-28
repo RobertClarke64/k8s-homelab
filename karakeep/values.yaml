@@ -3,6 +3,12 @@ karakeep:
   ingress:
     karakeep:
       className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt"
+      tls:
+        - hosts:
+            - "{{ .Values.applicationHost}}"
+          secretName: karakeep-tls
 
   secrets:
     meilesearch:
