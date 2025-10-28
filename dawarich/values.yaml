@@ -31,11 +31,16 @@ dawarich:
     annotations:
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
+      cert-manager.io/cluster-issuer: "letsencrypt"
     hosts:
       - host: map.robertclarke.co.uk
         paths:
           - path: /
             pathType: ImplementationSpecific
+    tls:
+      - hosts:
+          - map.robertclarke.co.uk
+        secretName: dawarich-tls
 
   redis:
     persistentVolume:
