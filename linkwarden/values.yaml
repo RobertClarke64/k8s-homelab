@@ -28,3 +28,7 @@ linkwarden:
   ingress:
     enabled: true
     className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt"
+    tls:
+      enabled: true
