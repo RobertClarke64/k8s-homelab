@@ -15,5 +15,7 @@ tandoor-recipes:
           secretName: tandoor-recipes-tls
 
   cnpg:
-    storage:
-      storageClass: unraid-nfs-named
+    main:
+      cluster:
+        storage:
+          storageClass: unraid-nfs-named
