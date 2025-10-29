@@ -1,14 +1,3 @@
-# GeoPulse Helm Chart Values
-# For detailed configuration information, see: https://github.com/tess1o/geopulse
-
-# Global settings
-global:
-  # Image pull policy for all containers
-  imagePullPolicy: IfNotPresent
-  # Image pull secrets (if using private registry)
-  imagePullSecrets: []
-  # storageClass: ""
-
 geopulse:
   postgres:
     enabled: false
