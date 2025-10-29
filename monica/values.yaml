@@ -33,7 +33,7 @@ monica:
 
   persistence:
     enabled: true
-    storageClassName: unraid-nfs
+    storageClass: unraid-nfs-named
 
   internalDatabase:
     enabled: false
@@ -51,3 +51,5 @@ monica:
 cluster:
   cluster:
     instances: 1
+    storage:
+      storageClass: unraid-nfs-named
