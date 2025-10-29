@@ -1,13 +1,14 @@
 firefly-iii-stack:
   firefly-db:
     storage:
-      class: unraid-nfs
+      class: unraid-nfs-named
       accessModes: ReadWriteOnce
     backup:
       pvc:
-        class: unraid-nfs
+        class: unraid-nfs-named
 
   firefly-iii:
+    replicaCount: 0
     ingress:
       enabled: true
       className: nginx
@@ -24,6 +25,8 @@ firefly-iii-stack:
       env:
         APP_URL: https://firefly.robertclarke.co.uk
         TRUSTED_PROXIES: "*"
+    persistence:
+      storageClassName: unraid-nfs-named
 
   importer:
     ingress:
