@@ -26,3 +26,7 @@ cluster-migration:
         passwordSecret:
           name: tandoor-tandoor-recipes-cnpg-main-superuser
           key: "password"
+
+  cluster:
+    storage:
+      storageClass: unraid-nfs-named
