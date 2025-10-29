@@ -19,3 +19,5 @@ tandoor-recipes:
       cluster:
         storage:
           storageClass: unraid-nfs-named
+        walStorage:
+          storageClass: unraid-nfs-named
