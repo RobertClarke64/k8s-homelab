@@ -161,7 +161,7 @@ backend:
   persistentVolume:
     create: true
     name: "adventurelog-backend-pv"
-    storageClass: "unraid-nfs"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
@@ -228,7 +228,7 @@ db:
   persistentVolume:
     create: true
     name: "adventurelog-db-pv"
-    storageClass: "unraid-nfs"
+    storageClass: "unraid-nfs-named"
     accessModes:
       - ReadWriteMany
     resources:
