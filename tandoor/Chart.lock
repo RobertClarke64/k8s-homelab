@@ -2,5 +2,8 @@ dependencies:
 - name: tandoor-recipes
   repository: oci://oci.trueforge.org/truecharts
   version: 20.12.1
-digest: sha256:c31c7588382cfc37155df7c9e59a0832370be2aa76230ae0a92fb36a5f018ae0
-generated: "2025-10-19T18:32:27.813949344Z"
+- name: cluster
+  repository: https://cloudnative-pg.github.io/charts
+  version: 0.3.1
+digest: sha256:91e8fcaa583f60ca8f678078c66e7a019ecdd604a8ee08428f0024850cb21f2f
+generated: "2025-10-29T21:29:31.891272Z"
