@@ -14,20 +14,6 @@ tandoor-recipes:
             - recipes.robertclarke.co.uk
           secretName: tandoor-recipes-tls
 
-cluster-migration:
-  mode: recovery
-  recovery:
-    method: pg_basebackup
-    pgBaseBackup:
-      source:
-        host: tandoor-tandoor-recipes-cnpg-main-rw
-        username: postgres
-        database: recipes
-        sslMode: require
-        passwordSecret:
-          name: tandoor-tandoor-recipes-cnpg-main-superuser
-          key: "password"
-
-  cluster:
+  cnpg:
     storage:
       storageClass: unraid-nfs-named
