@@ -80,7 +80,7 @@ immich:
     persistence:
       cache:
         type: persistentVolumeClaim
-        storageClass: unraid-nfs
+        storageClass: unraid-nfs-named
 
 cluster:
   cluster:
