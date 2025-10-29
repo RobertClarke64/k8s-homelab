@@ -21,6 +21,9 @@ linkwarden:
   postgresql:
     image:
       repository: bitnamilegacy/postgresql
+    primary:
+      persistence:
+        storageClass: unraid-nfs-named
 
   ingress:
     enabled: true
