@@ -31,4 +31,6 @@ linkwarden:
     annotations:
       cert-manager.io/cluster-issuer: "letsencrypt"
     tls:
-      enabled: true
+      - hosts:
+          - links.robertclarke.co.uk
+        secretName: linkwarden-tls
