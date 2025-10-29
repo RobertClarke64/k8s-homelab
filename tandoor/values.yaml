@@ -23,6 +23,7 @@ cluster-migration:
         host: tandoor-tandoor-recipes-cnpg-main-rw
         username: postgres
         database: recipes
+        sslMode: disable
         passwordSecret:
           name: tandoor-tandoor-recipes-cnpg-main-superuser
           key: "password"
