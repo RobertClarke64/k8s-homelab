@@ -1,4 +1,7 @@
 tandoor-recipes:
+  persistence:
+    media:
+      storageClass: unraid-nfs-named
   ingress:
     main:
       enabled: true
