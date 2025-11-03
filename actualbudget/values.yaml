@@ -1,7 +1,7 @@
 actualbudget:
   persistence:
     enabled: true
-    storageClass: unraid-nfs
+    storageClass: unraid-nfs-named
 
   ingress:
     enabled: true
