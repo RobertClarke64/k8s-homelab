@@ -303,7 +303,7 @@ redis:
   image:
     repository: redis
     pullPolicy: IfNotPresent
-    tag: "8.2.2"
+    tag: "8.2.3"
 
   env:
     - name: ALLOW_EMPTY_PASSWORD
