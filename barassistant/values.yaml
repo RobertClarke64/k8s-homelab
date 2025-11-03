@@ -48,7 +48,7 @@ server:
   image:
     repository: barassistant/server
     pullPolicy: IfNotPresent
-    tag: "5.9.0"
+    tag: "5.9.1"
 
   env:
     - name: APP_URL
