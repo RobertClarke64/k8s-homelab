@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: dawarich
-    version: 1.0.4
+    version: 1.0.5
     repository: https://charts.cogitri.dev
   - name: cluster
     version: 0.3.1
