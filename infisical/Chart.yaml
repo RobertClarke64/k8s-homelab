@@ -4,7 +4,7 @@ description: A Helm Chart for deploying Infisical
 type: application
 version: 0.1.0
 dependencies:
-  - name: infisical
+  - name: infisical-standalone
     version: 0.4.2
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: valkey

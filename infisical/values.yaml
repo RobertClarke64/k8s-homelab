@@ -8,6 +8,12 @@ infisical:
 
   postgresql:
     enabled: false
+    useExistingPostgresSecret:
+      enabled: true
+      existingConnectionStringSecret:
+        name: infisical-cluster-app
+        key: uri
+
 
   redis:
     enabled: false
