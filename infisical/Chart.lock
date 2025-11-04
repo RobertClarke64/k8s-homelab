@@ -1,0 +1,12 @@
+dependencies:
+- name: infisical
+  repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
+  version: 0.4.2
+- name: valkey
+  repository: https://valkey.io/valkey-helm/
+  version: 0.7.7
+- name: cluster
+  repository: https://cloudnative-pg.github.io/charts
+  version: 0.3.1
+digest: sha256:b0b319b8485ac65186a36e319e5f52662ca3f519ef388a8937e9eea825073a0c
+generated: "2025-11-04T21:15:39.397677Z"

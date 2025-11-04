@@ -1,0 +1,17 @@
+infisical:
+  ingress:
+    hostName: infisical.robertclarke.co.uk
+    tls:
+      - hosts:
+          - infisical.robertclarke.co.uk
+        secretName: infisical-tls
+
+  postgresql:
+    enabled: false
+
+  redis:
+    enabled: false
+
+cluster:
+  cluster:
+    instances: 1
