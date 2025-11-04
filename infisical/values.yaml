@@ -1,4 +1,4 @@
-infisical:
+infisical-standalone:
   ingress:
     hostName: infisical.robertclarke.co.uk
     nginx:
