@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: infisical-standalone
-    version: 0.4.2
+    version: 1.7.2
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: valkey
     version: 0.7.7
