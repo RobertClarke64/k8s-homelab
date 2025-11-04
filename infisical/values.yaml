@@ -3,6 +3,8 @@ infisical-standalone:
     hostName: infisical.robertclarke.co.uk
     nginx:
       enabled: false
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
     tls:
       - hosts:
           - infisical.robertclarke.co.uk
