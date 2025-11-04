@@ -1,6 +1,8 @@
 infisical:
   ingress:
     hostName: infisical.robertclarke.co.uk
+    nginx:
+      enabled: false
     tls:
       - hosts:
           - infisical.robertclarke.co.uk
@@ -13,7 +15,6 @@ infisical:
       existingConnectionStringSecret:
         name: infisical-cluster-app
         key: uri
-
 
   redis:
     enabled: false
