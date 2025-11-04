@@ -6,9 +6,15 @@ actualbudget:
   ingress:
     enabled: true
     className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - host: actual.robertclarke.co.uk
         paths:
           - path: /
             pathType: ImplementationSpecific
+    tls:
+      - hosts:
+          - actual.robertclarke.co.uk
+        secretName: actualbudget-tls
 
