@@ -1,6 +1,10 @@
 loki:
   deploymentMode: SingleBinary
+  singleBinary:
+    replicas: 1
   loki:
+    commonConfig:
+      replication_factor: 1
     schemaConfig:
       configs:
         - from: 2020-10-24
