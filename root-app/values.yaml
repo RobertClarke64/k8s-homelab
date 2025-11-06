@@ -32,7 +32,8 @@ applications:
       prometheus:
         monitor:
           enabled: true
-  prometheus: {}
+  prometheus:
+    enabled: false
   prometheus-operator:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 24.0.0
