@@ -1,0 +1,16 @@
+{{ range $key, $value := .Values.dashboards }}
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: {{ $key }}
+spec:
+  allowCrossNamespaceImport: true
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  folder: {{ $value.folder | default "General" }}
+  {{- if $value.url }}
+  url: {{ $value.url }}
+  {{- end }}
+{{ end }}

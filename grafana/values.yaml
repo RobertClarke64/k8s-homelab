@@ -27,3 +27,23 @@ grafana:
       enabled: true
       provider:
         folder: "Kubernetes"
+
+dashboards:
+  k8s-system-api-server:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json"
+  k8s-system-coredns:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json"
+  k8s-views-global:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json"
+  k8s-views-namespaces:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json"
+  k8s-views-nodes:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json"
+  k8s-views-pods:
+    folder: Kubernetes
+    url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json"
