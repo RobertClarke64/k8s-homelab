@@ -17,8 +17,8 @@ alloy:
           readOnly: true
     extraPorts:
       - name: prom-receive
-        port: 9999
-        targetPort: 9999
+        port: 8080
+        targetPort: 8080
 
   controller:
     volumes:
