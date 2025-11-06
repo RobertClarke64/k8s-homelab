@@ -1,5 +1,5 @@
 loki:
-  deploymentMode: SimpleBinary
+  deploymentMode: SingleBinary
   loki:
     schemaConfig:
       configs:
