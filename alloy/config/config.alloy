@@ -138,6 +138,6 @@ loki.write "zimaboard_loki" {
 
 prometheus.remote_write "zimaboard_prometheus" {
 	endpoint {
-		url = "http://192.168.1.101:9090/api/v1/write"
+		url = "http://prometheus-server.prometheus.svc.cluster.local/api/v1/write"
 	}
 }
