@@ -2,3 +2,6 @@ prometheus:
   server:
     extraFlags:
       - web.enable-remote-write-receiver
+    service:
+      type: LoadBalancer
+      loadBalancerIP: 192.168.1.243
