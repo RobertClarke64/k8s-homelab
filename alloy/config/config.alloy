@@ -136,6 +136,10 @@ loki.write "zimaboard_loki" {
 	}
 }
 
+prometheus.receive_http "listen_prometheus" {
+	forward_to = [prometheus.remote_write.prometheus.receiver]
+}
+
 prometheus.remote_write "prometheus" {
 	endpoint {
 		url = "http://prometheus-server.prometheus.svc.cluster.local/api/v1/write"
