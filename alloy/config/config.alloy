@@ -47,7 +47,7 @@ prometheus.relabel "pods" {
 		target_label = "namespace"
 	}
 
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
+	forward_to = [prometheus.relabel.add_cluster_label.receiver]
 }
 
 discovery.relabel "pod_logs" {
@@ -81,6 +81,12 @@ discovery.relabel "pod_logs" {
 		target_label = "app"
 	}
 
+	// Label creation - "cluster" field with static value
+	rule {
+		target_label = "cluster"
+		replacement = "home-cluster"
+	}
+
 	// Label creation -  "job" field from "__meta_kubernetes_namespace" and "__meta_kubernetes_pod_container_name"
 	// Concatenate values __meta_kubernetes_namespace/__meta_kubernetes_pod_container_name
 	rule {
@@ -112,7 +118,16 @@ discovery.relabel "pod_logs" {
 }
 
 prometheus.operator.servicemonitors "k8s_servicemonitors" {
-    forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
+    forward_to = [prometheus.relabel.add_cluster_label.receiver]
+}
+
+prometheus.relabel "add_cluster_label" {
+	rule {
+		target_label = "cluster"
+		replacement = "home-cluster"
+	}
+
+	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
 }
 
 loki.write "zimaboard_loki" {
