@@ -19,6 +19,9 @@ alloy:
       - name: prom-receive
         port: 8080
         targetPort: 8080
+      - name: loki-receive
+        port: 3100
+        targetPort: 3100
 
   controller:
     volumes:
