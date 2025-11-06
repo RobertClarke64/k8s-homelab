@@ -16,7 +16,7 @@ alloy:
           mountPath: /sys/
           readOnly: true
     extraPorts:
-      - name: prometheus-receive-http
+      - name: prometheus-receive
         port: 9999
         targetPort: 9999
 
