@@ -35,6 +35,7 @@ applications:
   sonobarr: {}
   tandoor: {}
   linkwarden: {}
+  loki: {}
   metallb:
     namespace: metallb-system
   metrics-server:
