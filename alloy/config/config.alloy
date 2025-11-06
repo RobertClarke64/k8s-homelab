@@ -127,7 +127,7 @@ prometheus.relabel "add_cluster_label" {
 		replacement = "home-cluster"
 	}
 
-	forward_to = [prometheus.remote_write.zimaboard_prometheus.receiver]
+	forward_to = [prometheus.remote_write.prometheus.receiver]
 }
 
 loki.write "zimaboard_loki" {
@@ -136,7 +136,7 @@ loki.write "zimaboard_loki" {
 	}
 }
 
-prometheus.remote_write "zimaboard_prometheus" {
+prometheus.remote_write "prometheus" {
 	endpoint {
 		url = "http://prometheus-server.prometheus.svc.cluster.local/api/v1/write"
 	}
