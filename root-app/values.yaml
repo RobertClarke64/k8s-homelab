@@ -33,7 +33,6 @@ applications:
   stirling-pdf: {}
   sonobarr: {}
   tandoor: {}
-  linkwarden: {}
   loki: {}
   metallb:
     namespace: metallb-system

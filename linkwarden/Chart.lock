@@ -1,6 +1,0 @@
-dependencies:
-- name: linkwarden
-  repository: https://fmjstudios.github.io/helm
-  version: 0.3.3
-digest: sha256:c4461af215a6676b1dd2ae26556d93b4d36b0a8d3ebbf857935b018b4f459b03
-generated: "2025-10-05T22:27:37.540976+01:00"
