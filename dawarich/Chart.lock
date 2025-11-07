@@ -1,9 +1,0 @@
-dependencies:
-- name: dawarich
-  repository: https://charts.cogitri.dev
-  version: 1.0.5
-- name: cluster
-  repository: https://cloudnative-pg.github.io/charts
-  version: 0.3.1
-digest: sha256:1d70fcff58045c3cd7e4dba209fd7190ac8df5704fc164f35674e4b1e8a32ae7
-generated: "2025-11-03T13:35:43.814729005Z"

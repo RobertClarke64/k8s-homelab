@@ -18,7 +18,6 @@ applications:
     targetRevision: 4.11.0
     namespace: kube-system
   cyberchef: {}
-  dawarich: {}
   firefly-iii: {}
   geopulse: {}
   immich: {}
