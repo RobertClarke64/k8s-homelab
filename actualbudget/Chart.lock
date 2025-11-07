@@ -1,6 +1,0 @@
-dependencies:
-- name: actualbudget
-  repository: https://community-charts.github.io/helm-charts
-  version: 1.8.4
-digest: sha256:d0eb3c735a747aac4a373009edb1ca8a091f15ce5e7041a87e356456749c5681
-generated: "2025-11-04T01:57:01.588838417Z"
