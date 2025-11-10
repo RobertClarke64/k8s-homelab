@@ -1,9 +1,9 @@
 dependencies:
 - name: immich
   repository: oci://ghcr.io/immich-app/immich-charts
-  version: 0.10.1
+  version: 0.10.2
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.3.1
-digest: sha256:a72de183b3e4da761dc6f1708f94261771906525d548be64f132ef8d5f994bb7
-generated: "2025-10-25T13:53:31.183538+01:00"
+digest: sha256:2283d9d12a97fec66e618c1781c2459ac43a0e062914f4439f4634236406af7f
+generated: "2025-11-10T13:36:02.250758387Z"
