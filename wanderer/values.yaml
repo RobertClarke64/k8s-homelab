@@ -83,6 +83,9 @@ db:
     repository: flomp/wanderer-db
     pullPolicy: IfNotPresent
     tag: "v0.18.3"
+  args:
+    - "--queryTimeout"
+    - "600"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}

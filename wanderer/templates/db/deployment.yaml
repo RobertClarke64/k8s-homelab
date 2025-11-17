@@ -69,6 +69,10 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
           {{- end }}
+          {{- with .Values.db.args }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       {{- with .Values.db.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
