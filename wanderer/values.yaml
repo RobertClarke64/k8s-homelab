@@ -85,7 +85,7 @@ db:
     tag: "v0.18.3"
   args:
     - "--queryTimeout"
-    - "600"
+    - "3600"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
