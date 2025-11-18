@@ -23,6 +23,8 @@ applications:
     repoURL: https://charts.external-secrets.io
     chart: external-secrets
     targetRevision: 1.0.0
+    extraSyncOptions:
+      - ServerSideApply=true
   firefly-iii: {}
   geopulse: {}
   immich: {}
