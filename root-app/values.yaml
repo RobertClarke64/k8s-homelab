@@ -19,6 +19,10 @@ applications:
     targetRevision: 4.11.0
     namespace: kube-system
   cyberchef: {}
+  external-secrets:
+    repoURL: https://charts.external-secrets.io
+    chart: external-secrets
+    targetRevision: 1.0.0
   firefly-iii: {}
   geopulse: {}
   immich: {}
