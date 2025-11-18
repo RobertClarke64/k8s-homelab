@@ -6,5 +6,8 @@ metadata:
   labels:
     kubernetes.io/metadata.name: {{ $value.namespace | default $key}}
     name: {{ $value.namespace | default $key}}
+    {{- with $value.extraNamespaceLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
   name: {{ $value.namespace | default $key}}
 {{ end }}

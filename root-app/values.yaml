@@ -1,6 +1,8 @@
 applications:
   adventurelog: {}
-  alloy: {}
+  alloy:
+    extraNamespaceLabels:
+      pod-security.kubernetes.io/enforce: privileged
   argocd: {}
   barassistant: {}
   cert-manager: {}
