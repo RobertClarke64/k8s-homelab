@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: grafana
-    version: 10.1.4
+    version: 10.1.5
     repository: https://grafana.github.io/helm-charts
   - name: grafana-operator
     version: v5.20.0
