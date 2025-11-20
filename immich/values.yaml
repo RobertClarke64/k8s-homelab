@@ -20,12 +20,12 @@ immich:
             DB_HOSTNAME:
               valueFrom:
                 secretKeyRef:
-                  name: immich-cluster-app
+                  name: immich-cluster-superuser
                   key: host
             DB_USERNAME:
               valueFrom:
                 secretKeyRef:
-                  name: immich-cluster-app
+                  name: immich-cluster-superuser
                   key: username
             DB_DATABASE_NAME:
               valueFrom:
@@ -35,7 +35,7 @@ immich:
             DB_PASSWORD:
               valueFrom:
                 secretKeyRef:
-                  name: immich-cluster-app
+                  name: immich-cluster-superuser
                   key: password
 
   immich:
