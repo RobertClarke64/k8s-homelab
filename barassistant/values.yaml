@@ -230,21 +230,15 @@ saltrim:
       value: "https://search.bar.robertclarke.co.uk"
     - name: AI_PROVIDER
       value: "ollama"
+    - name: AI_HOST
+      value: "https://api.openai.com/v1"
+    - name: AI_MODEL
+      value: gpt-4o
     - name: AI_API_KEY
       valueFrom:
         secretKeyRef:
-          name: barassistant-ai-env
+          name: barassistant-secrets
           key: AI_API_KEY
-    - name: AI_HOST
-      valueFrom:
-        secretKeyRef:
-          name: barassistant-ai-env
-          key: AI_HOST
-    - name: AI_MODEL
-      valueFrom:
-        secretKeyRef:
-          name: barassistant-ai-env
-          key: AI_MODEL
 
   imagePullSecrets: []
 
