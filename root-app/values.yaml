@@ -1,5 +1,4 @@
 applications:
-  adventurelog: {}
   alloy:
     extraNamespaceLabels:
       pod-security.kubernetes.io/enforce: privileged
