@@ -1,4 +1,8 @@
 geopulse:
+  backend:
+    repository: tess1o/geopulse-backend
+    tag: "1.6.0-native-compat"
+
   postgres:
     enabled: false
 
@@ -41,4 +45,7 @@ cluster:
     instances: 1
     storage:
       storageClass: unraid-nfs-named
+    initdb:
+      secret:
+        name:
   type: postgis
