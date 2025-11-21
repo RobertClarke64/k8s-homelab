@@ -37,6 +37,13 @@ karakeep:
             globalMounts:
               - path: /data
 
+    chrome:
+      containers:
+        chrome:
+          securityContext:
+            capabilities:
+              add: ~
+
   meilisearch:
     persistence:
       storageClass: unraid-nfs-named
