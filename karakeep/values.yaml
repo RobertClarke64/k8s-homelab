@@ -25,6 +25,9 @@ karakeep:
             CRAWLER_FULL_PAGE_SCREENSHOT: true
             CRAWLER_VIDEO_DOWNLOAD: true
             CRAWLER_VIDEO_DOWNLOAD_MAX_SIZE: 500
+          envFrom:
+            - secretRef:
+                name: karakeep-secrets
       statefulset:
         volumeClaimTemplates:
           - name: data
@@ -37,3 +40,5 @@ karakeep:
   meilisearch:
     persistence:
       storageClass: unraid-nfs-named
+    auth:
+      existingMasterKeySecret: karakeep-secrets
