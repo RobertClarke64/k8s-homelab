@@ -55,5 +55,7 @@ applications:
   ingress-nginx: {}
   grafana: {}
   wanderer: {}
-  karakeep: {}
+  karakeep:
+    extraNamespaceLabels:
+      pod-security.kubernetes.io/enforce: privileged
   zimaboard: {}
