@@ -9,7 +9,7 @@ global:
     - name: MEILI_MASTER_KEY
       valueFrom:
         secretKeyRef:
-          name: wanderer-search-master-key
+          name: wanderer-secrets
           key: MEILI_MASTER_KEY
 
 search:
@@ -143,7 +143,7 @@ db:
     - name: POCKETBASE_ENCRYPTION_KEY
       valueFrom:
         secretKeyRef:
-          name: wanderer-search-master-key
+          name: wanderer-secrets
           key: POCKETBASE_ENCRYPTION_KEY
     - name: POCKETBASE_CRON_SYNC_SCHEDULE
       value: "*/30 * * * *"
@@ -158,7 +158,7 @@ db:
     - name: POCKETBASE_SMTP_PASSWORD
       valueFrom:
         secretKeyRef:
-          name: wanderer-search-master-key
+          name: wanderer-secrets
           key: POCKETBASE_SMTP_PASSWORD
     - name: POCKETBASE_SMTP_SENDER_ADDRESS
       value: "wanderer@robertclarke.co.uk"
