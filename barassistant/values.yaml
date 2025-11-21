@@ -58,7 +58,7 @@ server:
     - name: MEILISEARCH_KEY
       valueFrom:
         secretKeyRef:
-          name: barassistant-search-master-key
+          name: barassistant-secrets
           key: MEILI_MASTER_KEY
     - name: CACHE_DRIVER
       value: "redis"
