@@ -42,7 +42,8 @@ karakeep:
         chrome:
           securityContext:
             capabilities:
-              add: ~
+              add:
+                - CAP_SYS_RESOURCE
 
   meilisearch:
     persistence:
