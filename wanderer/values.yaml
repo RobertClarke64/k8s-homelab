@@ -18,7 +18,7 @@ search:
     pullPolicy: IfNotPresent
     tag: "v1.25.0"
   imagePullSecrets: []
-  replicaCount: 0
+  replicaCount: 1
   podAnnotations: {}
   podLabels: {}
   podSecurityContext: {}
@@ -174,7 +174,7 @@ web:
     pullPolicy: IfNotPresent
     tag: "v0.18.3-print-waypoints"
   imagePullSecrets: []
-  replicaCount: 0
+  replicaCount: 1
   podAnnotations: {}
   podLabels: {}
   podSecurityContext: {}
