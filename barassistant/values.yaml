@@ -221,7 +221,7 @@ saltrim:
   image:
     repository: barassistant/salt-rim
     pullPolicy: IfNotPresent
-    tag: "4.10.0"
+    tag: "4.11.0"
 
   env:
     - name: API_URL
