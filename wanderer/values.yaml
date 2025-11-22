@@ -87,7 +87,7 @@ db:
     - "--queryTimeout"
     - "3600"
   imagePullSecrets: []
-  replicaCount: 0
+  replicaCount: 1
   podAnnotations: {}
   podLabels: {}
   podSecurityContext: {}
