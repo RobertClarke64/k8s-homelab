@@ -1,9 +1,0 @@
-apiVersion: v2
-name: Firefly iii
-description: Firefly III is a free and open source personal finance manager.
-type: application
-version: 0.1.0
-dependencies:
-  - name: firefly-iii-stack
-    version: 0.9.0
-    repository: https://firefly-iii.github.io/kubernetes/

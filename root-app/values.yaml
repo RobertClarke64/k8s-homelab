@@ -21,7 +21,6 @@ applications:
   external-secrets:
     extraSyncOptions:
       - ServerSideApply=true
-  firefly-iii: {}
   geopulse: {}
   immich: {}
   infisical: {}

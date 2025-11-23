@@ -1,6 +1,0 @@
-dependencies:
-- name: firefly-iii-stack
-  repository: https://firefly-iii.github.io/kubernetes/
-  version: 0.9.0
-digest: sha256:9475a7d6c3c97af0a3febbb8440df8d732e75d0e7d916cc927fa895e8a777cdb
-generated: "2025-10-13T15:35:27.477946+01:00"
