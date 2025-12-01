@@ -20,9 +20,6 @@ controllers:
               secretKeyRef:
                 name: journiv
                 key: SECRET_KEY
-        volumes:
-          - name: app-data
-            mountPath: /data
 
   app:
     type: deployment
@@ -45,9 +42,6 @@ controllers:
               secretKeyRef:
                 name: journiv
                 key: SECRET_KEY
-        volumes:
-          - name: app-data
-            mountPath: /data
 
 service:
   app:
@@ -75,7 +69,7 @@ ingress:
         secretName: journiv-tls
 
 persistence:
-  app-data:
+  data:
     type: persistentVolumeClaim
     accessMode: ReadWriteOnce
     size: 1Gi
