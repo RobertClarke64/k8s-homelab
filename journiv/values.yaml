@@ -6,14 +6,20 @@ controllers:
       celery-worker:
         image:
           repository: swalabtech/journiv-app
-          tag: v0.1.0-beta.8
+          tag: 0.1.0-beta.8
           pullPolicy: IfNotPresent
         command: ["celery", "-A", "app.core.celery_app", "worker", "--loglevel=info"]
         env:
           ENVIRONMENT: production
+          DOMAIN_NAME: journiv.robertclarke.co.uk
           REDIS_URL: redis://journiv-valkey:6379/0
           CELERY_BROKER_URL: redis://journiv-valkey:6379/0
           CELERY_RESULT_BACKEND: redis://journiv-valkey:6379/0
+          SECRET_KEY:
+            valueFrom:
+              secretKeyRef:
+                name: journiv
+                key: SECRET_KEY
         volumes:
           - name: app-data
             mountPath: /data
@@ -25,14 +31,20 @@ controllers:
       app:
         image:
           repository: swalabtech/journiv-app
-          tag: v0.1.0-beta.8
+          tag: 0.1.0-beta.8
           pullPolicy: IfNotPresent
         env:
           ENVIRONMENT: production
+          DOMAIN_NAME: journiv.robertclarke.co.uk
           REDIS_URL: redis://journiv-valkey:6379/0
           CELERY_BROKER_URL: redis://journiv-valkey:6379/0
           CELERY_RESULT_BACKEND: redis://journiv-valkey:6379/0
           RATE_LIMIT_STORAGE_URI: redis://journiv-valkey:6379/1
+          SECRET_KEY:
+            valueFrom:
+              secretKeyRef:
+                name: journiv
+                key: SECRET_KEY
         volumes:
           - name: app-data
             mountPath: /data
