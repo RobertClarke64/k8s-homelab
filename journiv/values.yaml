@@ -1,0 +1,63 @@
+controllers:
+  celery-worker:
+    type: deployment
+    strategy: Recreate
+    containers:
+      celery-worker:
+        image:
+          repository: swalabtech/journiv-app
+          tag: v0.1.0-beta.8
+          pullPolicy: IfNotPresent
+        command: ["celery", "-A", "app.core.celery_app", "worker", "--loglevel=info"]
+        env:
+          ENVIRONMENT: production
+        volumes:
+          - name: app-data
+            mountPath: /data
+
+  app:
+    type: deployment
+    strategy: Recreate
+    containers:
+      app:
+        image:
+          repository: swalabtech/journiv-app
+          tag: v0.1.0-beta.8
+          pullPolicy: IfNotPresent
+        env:
+          ENVIRONMENT: production
+        volumes:
+          - name: app-data
+            mountPath: /data
+
+service:
+  app:
+    controller: app
+    ports:
+      http:
+        port: 8000
+
+ingress:
+  app:
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - host: journiv.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            service:
+              identifier: app
+              port: http
+    tls:
+      - hosts:
+          - journiv.robertclarke.co.uk
+        secretName: journiv-tls
+
+persistence:
+  app-data:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: unraid-nfs-named
