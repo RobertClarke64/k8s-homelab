@@ -13,4 +13,4 @@ stirling-pdf-chart:
       cert-manager.io/cluster-issuer: letsencrypt
   image:
     repository: stirlingtools/stirling-pdf
-    tag: "2.0.2"
+    tag: "2.1.0"
