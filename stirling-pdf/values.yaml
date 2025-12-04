@@ -16,7 +16,9 @@ stirling-pdf-chart:
     tag: "2.1.0"
   probes:
     liveness:
-      initialDelaySeconds: 120
+      enabled: false
+    readiness:
+      enabled: false
   persistence:
     enabled: true
     storageClass: "unraid-nfs-named"
