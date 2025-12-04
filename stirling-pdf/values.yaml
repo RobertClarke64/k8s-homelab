@@ -22,3 +22,4 @@ stirling-pdf-chart:
   persistence:
     enabled: true
     storageClass: "unraid-nfs-named"
+    path: "/configs"
