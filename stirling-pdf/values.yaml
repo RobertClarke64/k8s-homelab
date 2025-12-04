@@ -19,6 +19,10 @@ stirling-pdf-chart:
       enabled: false
     readiness:
       enabled: false
+  deployment:
+    extraVolumeMounts:
+      - name: storage-volume
+        mountPath: /configs
   persistence:
     enabled: true
     storageClass: "unraid-nfs-named"
