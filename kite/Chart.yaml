@@ -1,9 +1,0 @@
-apiVersion: v2
-name: kite
-description: A Helm Chart for deploying kite
-type: application
-version: 0.1.0
-dependencies:
-  - name: kite
-    version: 0.7.2
-    repository: https://zxh326.github.io/kite

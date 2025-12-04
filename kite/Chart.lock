@@ -1,6 +1,0 @@
-dependencies:
-- name: kite
-  repository: https://zxh326.github.io/kite
-  version: 0.7.2
-digest: sha256:9cffb28d285f1244428d8ffd13d14b4b6518c50b8b6823add4a36b12fe7890ce
-generated: "2025-11-12T18:34:58.065735868Z"

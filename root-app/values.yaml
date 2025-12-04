@@ -25,7 +25,6 @@ applications:
   immich: {}
   infisical: {}
   journiv: {}
-  kite: {}
   prometheus:
     extraNamespaceLabels:
       pod-security.kubernetes.io/enforce: privileged
