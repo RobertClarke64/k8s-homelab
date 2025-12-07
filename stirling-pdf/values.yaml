@@ -13,7 +13,7 @@ stirling-pdf-chart:
       cert-manager.io/cluster-issuer: letsencrypt
   image:
     repository: stirlingtools/stirling-pdf
-    tag: "2.1.0"
+    tag: "2.1.1"
   probes:
     liveness:
       enabled: false
