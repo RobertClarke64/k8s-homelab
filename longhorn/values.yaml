@@ -8,3 +8,12 @@ longhorn:
         operator: "Equal"
         value: "true"
         effect: "NoSchedule"
+
+  ingress:
+    enabled: true
+    host: longhorn.robertclarke.co.uk
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    tls: true
+    tlsSecret: longhorn-tls
