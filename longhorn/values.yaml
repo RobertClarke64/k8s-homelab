@@ -1,6 +1,7 @@
 longhorn:
   defaultSettings:
     createDefaultDiskLabeledNodes: true
+    taintToleration: "storageNode=true:NoSchedule"
 
   longhornManager:
     tolerations:
