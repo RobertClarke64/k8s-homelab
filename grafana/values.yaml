@@ -28,6 +28,11 @@ grafana:
       provider:
         folder: "Kubernetes"
 
+  grafana.ini:
+    feature_toggles:
+      alertingListViewV2: true
+
+
 dashboards:
   k8s-system-api-server:
     folder: Kubernetes
