@@ -60,6 +60,11 @@ server:
         secretKeyRef:
           name: barassistant-secrets
           key: MEILI_MASTER_KEY
+    - name: MEILISEARCH_API_KEY_UID
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-secrets
+          key: MEILISEARCH_API_KEY_UID
     - name: CACHE_DRIVER
       value: "redis"
     - name: SESSION_DRIVER
