@@ -8,5 +8,5 @@ dependencies:
     version: 4.5.0
     repository: https://bjw-s-labs.github.io/helm-charts/
   - name: valkey
-    version: 0.8.1
+    version: 0.9.0
     repository: https://valkey.io/valkey-helm/
