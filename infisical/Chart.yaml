@@ -8,7 +8,7 @@ dependencies:
     version: 1.7.2
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: secrets-operator
-    version: 0.10.16
+    version: 0.10.17
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: valkey
     version: 0.9.1
