@@ -1,6 +1,6 @@
 dependencies:
 - name: tandoor-recipes
   repository: oci://oci.trueforge.org/truecharts
-  version: 20.14.2
-digest: sha256:140b13e5982c61b5494bb07f873a0236b447d8d79c7824984e8f60f192ff3dad
-generated: "2025-12-14T18:36:31.709952705Z"
+  version: 20.14.3
+digest: sha256:87e33bc9e14ee018c535b55a2abb1052c06171a450e42b00fbba9fa4f6bbb5ab
+generated: "2025-12-19T13:37:53.786187721Z"
