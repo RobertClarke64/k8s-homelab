@@ -14,11 +14,6 @@ stirling-pdf-chart:
   image:
     repository: stirlingtools/stirling-pdf
     tag: "2.1.5"
-  probes:
-    liveness:
-      enabled: false
-    readiness:
-      enabled: false
   deployment:
     extraVolumeMounts:
       - name: storage-volume
