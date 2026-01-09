@@ -20,6 +20,9 @@ karakeep:
     karakeep:
       containers:
         karakeep:
+          image:
+            repository: ghcr.io/karakeep-app/karakeep
+            tag: v0.27.0
           env:
             CRAWLER_FULL_PAGE_ARCHIVE: true
             CRAWLER_FULL_PAGE_SCREENSHOT: true
@@ -40,6 +43,10 @@ karakeep:
     chrome:
       containers:
         chrome:
+          chrome:
+            image:
+              repository: gcr.io/zenika-hub/alpine-chrome
+              tag: 124
           args:
             - --remote-debugging-address=0.0.0.0
             - --remote-debugging-port=9222
