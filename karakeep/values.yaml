@@ -22,7 +22,7 @@ karakeep:
         karakeep:
           image:
             repository: ghcr.io/karakeep-app/karakeep
-            tag: v0.27.0
+            tag: 0.30.0
           env:
             CRAWLER_FULL_PAGE_ARCHIVE: true
             CRAWLER_FULL_PAGE_SCREENSHOT: true
