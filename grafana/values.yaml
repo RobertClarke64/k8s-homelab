@@ -52,3 +52,6 @@ dashboards:
   k8s-views-pods:
     folder: Kubernetes
     url: "https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json"
+  k8s-persistent-volumes:
+    folder: Kubernetes
+    url: "https://grafana.com/api/dashboards/11349/revisions/1/download"
