@@ -2,7 +2,7 @@ geopulse:
   backend:
     image:
       repository: tess1o/geopulse-backend
-      tag: "1.12.0-native-compat"
+      tag: "1.13.0-native-compat"
 
   postgres:
     enabled: false
