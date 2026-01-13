@@ -8,7 +8,7 @@ controllers:
       convertx:
         image:
           repository: ghcr.io/c4illin/convertx
-          tag: v0.16.1
+          tag: v0.17.0
 
         envFrom:
           - secretRef:
