@@ -6,7 +6,7 @@ controllers:
       main:
         image:
           repository: ghcr.io/dodelidoo-labs/sonobarr
-          tag: 0.10.0
+          tag: 0.10.1
           pullPolicy: IfNotPresent
         env:
           secret_key:
