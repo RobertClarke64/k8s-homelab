@@ -7,8 +7,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^root-app/values\\.yaml$"
+      "managerFilePatterns": [
+        "/^root-app/values\\.yaml$/"
       ],
       "matchStrings": [
         "# renovate: datasource=helm depName=(?<depName>\\S+) repo=(?<registryUrl>\\S+)\\n\\s*targetRevision:\\s*(?<currentValue>\\S+)"
