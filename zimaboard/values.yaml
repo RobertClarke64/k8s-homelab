@@ -16,9 +16,6 @@ proxy:
       port: 32400
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    - name: overseerr
-      host: requests.robertclarke.co.uk
-      port: 5056
     - name: prowlarr
       host: prowlarr.robertclarke.co.uk
       port: 9696
