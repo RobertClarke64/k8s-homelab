@@ -5,14 +5,10 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Helm charts in root-app/values.yaml",
-      "managerFilePatterns": ["values\\.yaml"],
+      "fileMatch": ["values\\.ya?ml$"],
       "matchStrings": [
-        "#\\s?renovate:\\n\\s+targetRevision: (?<currentValue>\\S+).*"
+        "# renovate: datasource=helm depName=(?<depName>[^\\s]+) repo=(?<registryUrl>[^\\s]+)\\ntargetRevision:\\s*(?<currentValue>[^\\s]+)"
       ],
-      "depNameTemplate": "cloudnative-pg",
-      "registryUrlTemplate": "https://cloudnative-pg.github.io/charts",
-      "depTypeTemplate": "helm",
       "datasourceTemplate": "helm",
       "versioningTemplate": "helm"
     }

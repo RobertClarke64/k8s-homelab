@@ -8,7 +8,7 @@ applications:
   cnpg:
     repoURL: https://cloudnative-pg.github.io/charts
     chart: cloudnative-pg
-    # renovate:
+      # renovate: datasource=helm depName=cloudnative-pg repo=https://cloudnative-pg.github.io/charts
     targetRevision: 0.26.0
     extraSyncOptions:
       - ServerSideApply=true
