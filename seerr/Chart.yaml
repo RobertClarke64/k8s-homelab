@@ -1,0 +1,10 @@
+apiVersion: v2
+name: seerr
+description: A Helm Chart for deploying seerr
+type: application
+version: 0.1.0
+dependencies:
+  - name: jellyseerr-chart
+    version: 2.7.0
+    repository: oci://ghcr.io/fallenbagel/jellyseerr
+    alias: seerr
