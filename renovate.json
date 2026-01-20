@@ -11,7 +11,7 @@
         "^root-app/values\\.yaml$"
       ],
       "matchStrings": [
-        "# renovate: datasource=helm depName=(?<depName>\\S+) repo=(?<registryUrl>\\S+)\\n\\s*targetRevision:\\s*(?<currentValue>\\S+)"
+        "# renovate: datasource=helm\\n\\s*repoURL:\\s*(?<registryUrl>\\S+)\\n\\s*chart: (?<depName>\\S+)\\n\\s*targetRevision:\\s*(?<currentValue>\\S+)"
       ],
       "datasourceTemplate": "helm",
       "versioningTemplate": "helm"
