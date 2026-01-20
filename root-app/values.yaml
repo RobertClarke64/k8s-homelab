@@ -35,6 +35,7 @@ applications:
     extraSyncOptions:
       - ServerSideApply=true
   stirling-pdf: {}
+  seerr: {}
   sonobarr: {}
   tandoor: {}
   loki: {}
