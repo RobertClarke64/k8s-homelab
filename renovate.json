@@ -1,16 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
   "prHourlyLimit": 10,
   "customManagers": [
     {
       "customType": "regex",
       "description": "Helm charts in root-app/values.yaml",
-      "managerFilePatterns": ["root-app/values\\.yaml"],
+      "managerFilePatterns": ["values\\.yaml"],
       "matchStrings": [
-        "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) chart=(?<registryUrl>.*?)\\s?targetRevision:\\s?\\'?(?<currentValue>[\\w+\\.\\-]*)'"
+        "#\\s?renovate:\\n\\s+targetRevision: (?<currentValue>\\S+).*"
       ],
-      "depNameTemplate": "helm",
-      "datasourceTemplate": "helm"
+      "depNameTemplate": "cloudnative-pg",
+      "registryUrlTemplate": "https://cloudnative-pg.github.io/charts",
+      "depTypeTemplate": "helm",
+      "datasourceTemplate": "helm",
+      "versioningTemplate": "helm"
     }
   ]
 }
