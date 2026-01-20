@@ -9,7 +9,7 @@ seerr:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
-      - name: seerr.robertclarke.co.uk
+      - host: seerr.robertclarke.co.uk
         paths:
           - path: /
             pathType: ImplementationSpecific
