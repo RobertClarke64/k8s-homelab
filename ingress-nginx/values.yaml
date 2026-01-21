@@ -15,5 +15,6 @@ ingress-nginx:
         more_set_headers -a "X-Robots-Tag: ChatGPT-User: none";
         more_set_headers -a "X-Robots-Tag: anthropic-ai: none";
         more_set_headers -a "X-Robots-Tag: CCBot: none";
+      block-user-agents: ".*ClaudeBot.*,.*Bytespider.*"
     service:
       externalTrafficPolicy: Local
