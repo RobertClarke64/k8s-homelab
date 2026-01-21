@@ -8,8 +8,6 @@ ingress-nginx:
       brotli-types: "text/css text/plain text/xml text/x-component text/javascript application/x-javascript application/javascript application/json application/manifest+json application/vnd.api+json application/xml application/xhtml+xml application/rss+xml application/atom+xml application/vnd.ms-fontobject application/x-font-ttf application/x-font-opentype application/x-font-truetype image/svg+xml image/x-icon image/vnd.microsoft.icon font/ttf font/eot font/otf font/opentype"
       brotli-level: 6
       use-forwarded-headers: "true"
-    service:
-      externalTrafficPolicy: Local
       http-snippet: |
         more_set_headers -a "X-Robots-Tag: noai";
         more_set_headers -a "X-Robots-Tag: Google-Extended: none";
@@ -17,3 +15,5 @@ ingress-nginx:
         more_set_headers -a "X-Robots-Tag: ChatGPT-User: none";
         more_set_headers -a "X-Robots-Tag: anthropic-ai: none";
         more_set_headers -a "X-Robots-Tag: CCBot: none";
+    service:
+      externalTrafficPolicy: Local
