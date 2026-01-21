@@ -277,6 +277,7 @@ ingress:
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
+    nginx.ingress.kubernetes.io/limit-rps: "2"
     cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: wanderer.robertclarke.co.uk
