@@ -17,7 +17,7 @@ applications:
     # renovate: datasource=helm
     repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
     chart: csi-driver-nfs
-    targetRevision: 4.11.0
+    targetRevision: 4.12.1
     namespace: kube-system
   cyberchef: {}
   external-secrets:
