@@ -273,7 +273,7 @@ tolerations: []
 affinity: {}
 
 ingress:
-  enabled: false
+  enabled: true
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "512m"
