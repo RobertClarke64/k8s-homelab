@@ -173,7 +173,7 @@ web:
     # repository: flomp/wanderer-web
     repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.18.4-no-unauthorised-profile-v3"
+    tag: "v0.18.4-no-unauthorised-profile-v4"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
