@@ -283,8 +283,6 @@ ingress:
       location /robots.txt {
         return 200 "User-agent: *\nDisallow: /\n";
       }
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      add_header X-Robots-Tag none;
   hosts:
     - host: wanderer.robertclarke.co.uk
       paths:
