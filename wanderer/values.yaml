@@ -81,12 +81,12 @@ search:
 db:
   image:
     # repository: flomp/wanderer-db
-    repository: robertclarke64/wanderer-web
+    repository: robertclarke64/wanderer-db
     pullPolicy: IfNotPresent
     tag: "v0.18.4"
-  # args:
-  #   - "--queryTimeout"
-  #   - "3600"
+  args:
+    - "--queryTimeout"
+    - "3600"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
