@@ -80,9 +80,10 @@ search:
 
 db:
   image:
-    repository: flomp/wanderer-db
+    # repository: flomp/wanderer-db
+    repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.18.3"
+    tag: "v0.18.4"
   args:
     - "--queryTimeout"
     - "3600"
