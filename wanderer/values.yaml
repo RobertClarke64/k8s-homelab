@@ -105,7 +105,7 @@ db:
     httpGet:
       path: /health
       port: http
-    initialDelaySeconds: 300
+    initialDelaySeconds: 900
   readinessProbe:
     httpGet:
       path: /health
