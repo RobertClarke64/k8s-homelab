@@ -12,6 +12,10 @@ lubelogger:
     connect: true
     name: lubelogger-postgres
 
+  config:
+    userConfig:
+      EnableAuth: false
+
 cluster:
   cluster:
     instances: 1
