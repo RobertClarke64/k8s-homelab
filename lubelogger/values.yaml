@@ -18,6 +18,9 @@ lubelogger:
     userConfig:
       UserNameHash: 4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2
       UserPasswordHash: 409596dd3cf418baa86ba7fd4c22df214dd223c2f7d6cb6f9d0d7e00cce5f66e
+      VisibleTabs: [8, 0, 1, 4, 2, 10, 3, 6, 5, 12]
+      UseSystemColorMode: true
+      UseUKMPK: true
 
   ingress:
     enabled: true
