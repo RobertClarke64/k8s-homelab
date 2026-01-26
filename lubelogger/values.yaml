@@ -1,4 +1,9 @@
-persistence:
-  data:
-    enabled: true
-    storageClass: unraid-nfs-named
+lubelogger:
+  persistence:
+    data:
+      enabled: true
+      storageClass: unraid-nfs-named
+
+  secret:
+    create: false
+    name: lubelogger-email
