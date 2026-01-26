@@ -8,6 +8,11 @@ lubelogger:
     create: false
     name: lubelogger-email
 
+  postgres:
+    connect: true
+    name: lubelogger-postgres
+    keyRef: connectionString
+
 cluster:
   cluster:
     instances: 1
