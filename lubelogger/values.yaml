@@ -7,3 +7,9 @@ lubelogger:
   secret:
     create: false
     name: lubelogger-email
+
+cluster:
+  cluster:
+    instances: 1
+    storage:
+      storageClass: unraid-nfs-named
