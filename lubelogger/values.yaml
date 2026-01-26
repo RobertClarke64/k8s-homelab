@@ -7,3 +7,7 @@ lubelogger:
   secret:
     create: false
     name: lubelogger-email
+
+  config:
+    userConfig:
+      EnableAuth: false
