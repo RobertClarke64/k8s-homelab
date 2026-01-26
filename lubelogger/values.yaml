@@ -17,6 +17,21 @@ lubelogger:
       UserNameHash: 4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2
       UserPasswordHash: 409596dd3cf418baa86ba7fd4c22df214dd223c2f7d6cb6f9d0d7e00cce5f66e
 
+  ingress:
+    enabled: true
+    className: nginx
+    hosts:
+      - host: lubelogger.robertclarke.co.uk
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    tls:
+      - hosts:
+          - lubelogger.robertclarke.co.uk
+        secretName: lubelogger-tls
+
 cluster:
   cluster:
     instances: 1
