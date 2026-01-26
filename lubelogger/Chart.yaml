@@ -1,0 +1,9 @@
+apiVersion: v2
+name: lubelogger
+description: A Helm Chart for deploying lubelogger
+type: application
+version: 0.1.0
+dependencies:
+  - name: lubelogger
+    version: 1.4.1
+    repository: https://anza-labs.github.io/charts

@@ -1,0 +1,4 @@
+persistence:
+  data:
+    enabled: true
+    storageClass: unraid-nfs-named

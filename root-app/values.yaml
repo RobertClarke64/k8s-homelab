@@ -42,6 +42,7 @@ applications:
   sonobarr: {}
   tandoor: {}
   loki: {}
+  lubelogger: {}
   metallb:
     namespace: metallb-system
     extraNamespaceLabels:
