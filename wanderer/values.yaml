@@ -83,7 +83,7 @@ db:
     # repository: flomp/wanderer-db
     repository: robertclarke64/wanderer-db
     pullPolicy: IfNotPresent
-    tag: "v0.18.4-certs"
+    tag: "v0.18.4-v5"
   args:
     - "--queryTimeout"
     - "3600"
@@ -174,7 +174,7 @@ web:
     # repository: flomp/wanderer-web
     repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.18.4-no-unauthorised-profile-v4"
+    tag: "v0.18.4-no-unauthorised-profile-v5"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
