@@ -1,9 +1,9 @@
 dependencies:
 - name: geopulse
   repository: https://tess1o.github.io/geopulse/charts
-  version: 1.15.0
+  version: 1.16.0
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.5.0
-digest: sha256:9cb8382a77d2bf657e85c1aafea89557ff3c561c3b785832342e0362990a1ddc
-generated: "2026-01-25T16:33:54.681964085Z"
+digest: sha256:96d5e3332cf6bf09b98931b2d2e5c09f817aaf1fbff602db2073ac2a3e4eef3f
+generated: "2026-01-29T15:43:31.557203926Z"
