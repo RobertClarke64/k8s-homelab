@@ -17,6 +17,18 @@ tandoor-recipes:
             - recipes.robertclarke.co.uk
           secretName: tandoor-recipes-tls
 
+  workload:
+    main:
+      podSpec:
+        containers:
+          main:
+            env:
+              SECRET_KEY:
+                secretKeyRef:
+                  name: tandoor
+                  key: SECRET_KEY
+                  expandObjectName: false
+
   cnpg:
     main:
       cluster:
