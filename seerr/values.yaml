@@ -17,3 +17,7 @@ seerr:
       - secretName: seerr-tls
         hosts:
           - seerr.robertclarke.co.uk
+
+  probes:
+    livenessProbe:
+      initialDelaySeconds: 60
