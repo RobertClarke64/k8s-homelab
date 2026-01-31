@@ -20,6 +20,7 @@ jobs:
       - name: Get list of changed directories
         id: git_diff
         run: |
+          git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq
           echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
 
       - name: Display changed directories
