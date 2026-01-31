@@ -18,9 +18,9 @@ jobs:
       - name: Get list of changed directories
         id: git_diff
         run: |
-          echo "::set-output name=changed::$(git diff --name-only | cut -d/ -f1 | uniq)"
+          echo changed=$(git diff --name-only | cut -d/ -f1 | uniq) >> $GITHUB_OUTPUT
 
       - name: Display changed directories
         run: |
           echo "Changed files:"
-          echo "${{ steps.git_diff.outputs.changed }}"
+          echo "${{ steps.git-diff.outputs.changed }}"
