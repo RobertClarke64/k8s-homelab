@@ -24,6 +24,8 @@ jobs:
           echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
 
       - name: Display changed directories
+        env:
+          CHANGED_DIRS: ${{ steps.git_diff.outputs.changed }}
         run: |
           echo "Changed files:"
-          echo "${{ steps.git-diff.outputs.changed }}"
+          echo "$CHANGED_DIRS"
