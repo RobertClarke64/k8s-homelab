@@ -1,0 +1,26 @@
+name: CI Pipeline
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  git-diff:
+    name: Git Diff Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get list of changed directories
+        id: git_diff
+        run: |
+          echo "::set-output name=changed::$(git diff --name-only | cut -d/ -f1 | uniq)"
+
+      - name: Display changed directories
+        run: |
+          echo "Changed files:"
+          echo "${{ steps.git_diff.outputs.changed }}"
