@@ -14,11 +14,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Get list of changed directories
         id: git_diff
         run: |
-          echo "changed=\"$(git diff --name-only main..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
+          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
 
       - name: Display changed directories
         run: |
