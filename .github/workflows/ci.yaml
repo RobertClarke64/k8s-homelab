@@ -18,14 +18,12 @@ jobs:
           fetch-depth: 2
 
       - name: Get list of changed directories
-        id: git_diff
+        id: git-diff
         run: |
           git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq
           echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
 
       - name: Display changed directories
-        env:
-          CHANGED_DIRS: ${{ steps.git_diff.outputs.changed }}
         run: |
           echo "Changed files:"
-          echo "$CHANGED_DIRS"
+          echo "${{ steps.git-diff.outputs.changed }}"
