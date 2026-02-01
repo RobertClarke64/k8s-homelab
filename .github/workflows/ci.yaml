@@ -11,6 +11,8 @@ jobs:
   git-diff:
     name: Git diff Changes
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.git-diff.outputs.changed }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
