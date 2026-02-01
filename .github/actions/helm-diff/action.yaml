@@ -15,7 +15,12 @@ runs:
       id: template-new
       shell: bash
       run: |
-        cat grafana/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' > repositories.yaml
+        echo <<EOF
+        apiVersion: ""
+        generated: "0001-01-01T00:00:00Z"
+        repositories:
+        EOF > repositories.yaml
+        cat grafana/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
         helm dependency build ./${{ inputs.helm-chart }} --repository-config repositories.yaml
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
 
@@ -24,7 +29,12 @@ runs:
       shell: bash
       run: |
         git checkout HEAD^ -- ./${{ inputs.helm-chart }}
-        cat grafana/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' > repositories.yaml
+        echo <<EOF
+        apiVersion: ""
+        generated: "0001-01-01T00:00:00Z"
+        repositories:
+        EOF > repositories.yaml
+        cat grafana/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
         helm dependency build ./${{ inputs.helm-chart }} --repository-config repositories.yaml
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
         git reset --hard
