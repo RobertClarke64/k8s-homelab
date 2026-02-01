@@ -23,7 +23,7 @@ jobs:
         id: git-diff
         run: |
           git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")'
-          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")')\"" >> $GITHUB_OUTPUT
+          echo "changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")')" >> $GITHUB_OUTPUT
 
       - name: Output changed directories
         run: |
