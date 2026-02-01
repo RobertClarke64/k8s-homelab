@@ -14,7 +14,7 @@ runs:
     - name: Template new chart
       id: template-new
       shell: bash
-      ruh: |
+      run: |
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
 
     - name: Template old chart
