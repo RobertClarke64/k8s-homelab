@@ -15,6 +15,7 @@ runs:
       id: template-new
       shell: bash
       run: |
+        helm dependency build ./${{ inputs.helm-chart }}
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
 
     - name: Template old chart
@@ -22,6 +23,7 @@ runs:
       shell: bash
       run: |
         git checkout HEAD^ -- ./${{ inputs.helm-chart }}
+        helm dependency build ./${{ inputs.helm-chart }}
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
         git reset --hard
 
