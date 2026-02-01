@@ -15,7 +15,7 @@ runs:
       id: template-new
       shell: bash
       run: |
-        echo <<EOF
+        cat << EOF
         apiVersion: ""
         generated: "0001-01-01T00:00:00Z"
         repositories:
@@ -29,7 +29,7 @@ runs:
       shell: bash
       run: |
         git checkout HEAD^ -- ./${{ inputs.helm-chart }}
-        echo <<EOF
+        cat << EOF
         apiVersion: ""
         generated: "0001-01-01T00:00:00Z"
         repositories:
