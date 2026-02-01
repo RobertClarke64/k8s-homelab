@@ -21,7 +21,7 @@ jobs:
         id: git-diff
         run: |
           git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq
-          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(\" \")')\"" >> $GITHUB_OUTPUT
+          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")')\"" >> $GITHUB_OUTPUT
           echo "Changed files:"
           echo "${{ steps.git-diff.outputs.changed }}"
   
