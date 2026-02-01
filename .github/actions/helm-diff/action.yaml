@@ -21,6 +21,7 @@ runs:
         repositories:
         EOF
         cat ${{ inputs.helm-chart }}/Chart.lock | yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
+        helm repo update --repository-config repositories.yaml
         helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
 
@@ -35,6 +36,7 @@ runs:
         repositories:
         EOF
         cat ${{ inputs.helm-chart }}/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
+        helm repo update --repository-config repositories.yaml
         helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
         git reset --hard
