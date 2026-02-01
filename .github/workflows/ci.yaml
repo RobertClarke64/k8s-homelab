@@ -9,7 +9,7 @@ on:
       - reopened
 jobs:
   git-diff:
-    name: Git Diff Check
+    name: Git diff Changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,9 +21,29 @@ jobs:
         id: git-diff
         run: |
           git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq
-          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq)\"" >> $GITHUB_OUTPUT
-
-      - name: Display changed directories
-        run: |
+          echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(\" \")')\"" >> $GITHUB_OUTPUT
           echo "Changed files:"
           echo "${{ steps.git-diff.outputs.changed }}"
+  
+  helm-diff:
+    name: Helm Diff Changes
+    runs-on: ubuntu-latest
+    needs: git-diff
+    strategy:
+      matrix:
+        chart: ${{ fromJson(needs.git-diff.outputs.changed) }}
+        exclude:
+          - chart: ".github"
+          - chart: ".gitignore"
+          - chart: ".renovate.json"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Helm Diff
+        uses: ./.github/actions/helm-diff
+        with:
+          helm-chart: ${{ matrix.chart }}

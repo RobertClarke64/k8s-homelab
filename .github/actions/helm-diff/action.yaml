@@ -1,0 +1,32 @@
+name: 'Helm Diff'
+description: 'Diff Helm chart changes'
+inputs:
+  helm-chart:
+    description: 'Helm chart to diff'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Install Helm
+      uses: azure/setup-helm@v3
+      id: install-helm
+
+    - name: Template new chart
+      id: template-new
+      run: |
+        helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
+
+    - name: Template old chart
+      id: template-old
+      run: |
+        git checkout HEAD^ -- ./${{ inputs.helm-chart }}
+        helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
+        git reset --hard
+
+    - name: Diff charts
+      id: diff
+      run: |
+        diff_output=$(diff -u old-chart.yaml new-chart.yaml || true)
+        echo "$diff_output"
+        echo "::set-output name=diff::$diff_output"
+
