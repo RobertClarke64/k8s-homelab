@@ -13,11 +13,13 @@ runs:
 
     - name: Template new chart
       id: template-new
-      run: |
+      shell: bash
+      ruh: |
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
 
     - name: Template old chart
       id: template-old
+      shell: bash
       run: |
         git checkout HEAD^ -- ./${{ inputs.helm-chart }}
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
@@ -25,6 +27,7 @@ runs:
 
     - name: Diff charts
       id: diff
+      shell: bash
       run: |
         diff_output=$(diff -u old-chart.yaml new-chart.yaml || true)
         echo "$diff_output"
