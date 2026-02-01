@@ -10,6 +10,8 @@ runs:
     - name: Install Helm
       uses: azure/setup-helm@v4
       id: install-helm
+      with:
+        version: 'v4.1.0'
 
     - name: Template new chart
       id: template-new
