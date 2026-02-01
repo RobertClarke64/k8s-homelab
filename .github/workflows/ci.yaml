@@ -33,7 +33,7 @@ jobs:
     needs: git-diff
     strategy:
       matrix:
-        chart: ${{ fromJson(needs.git-diff.outputs.changed) }}
+        chart: ${{ fromJSON(needs.git-diff.outputs.changed) }}
         exclude:
           - chart: ".github"
           - chart: ".gitignore"
