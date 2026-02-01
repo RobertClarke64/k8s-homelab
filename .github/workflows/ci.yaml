@@ -20,10 +20,12 @@ jobs:
       - name: Get list of changed directories
         id: git-diff
         run: |
-          git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq
+          git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")'
           echo "changed=\"$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")')\"" >> $GITHUB_OUTPUT
-          echo "Changed files:"
-          echo "${{ steps.git-diff.outputs.changed }}"
+
+      - name: Output changed directories
+        run: |
+          echo "Changed directories: ${{ steps.git-diff.outputs.changed }}"
   
   helm-diff:
     name: Helm Diff Changes
