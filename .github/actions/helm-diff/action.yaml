@@ -7,41 +7,25 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install Helm
-      uses: azure/setup-helm@v4.3.0
-      id: install-helm
-      with:
-        version: 'v4.1.0'
-
     - name: Template new chart
-      id: template-new
+      uses: ./.github/actions/helm-template
+      with:
+        helm-chart: ${{ matrix.chart }}
+        output-file: new-chart.yaml
+
+    - name: Switch to old commit
       shell: bash
-      run: |
-        cat << EOF > repositories.yaml
-        apiVersion: ""
-        generated: "0001-01-01T00:00:00Z"
-        repositories:
-        EOF
-        cat ${{ inputs.helm-chart }}/Chart.lock | yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
-        helm repo update --repository-config repositories.yaml
-        helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
-        helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > new-chart.yaml
+      run: git checkout HEAD^ -- ./${{ inputs.helm-chart }}
 
     - name: Template old chart
-      id: template-old
+      uses: ./.github/actions/helm-template
+      with:
+        helm-chart: ${{ matrix.chart }}
+        output-file: old-chart.yaml
+
+    - name: git reset --hard
       shell: bash
-      run: |
-        git checkout HEAD^ -- ./${{ inputs.helm-chart }}
-        cat << EOF > repositories.yaml
-        apiVersion: ""
-        generated: "0001-01-01T00:00:00Z"
-        repositories:
-        EOF
-        cat ${{ inputs.helm-chart }}/Chart.lock | yq '.dependencies | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
-        helm repo update --repository-config repositories.yaml
-        helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
-        helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > old-chart.yaml
-        git reset --hard
+      run: git reset --hard
 
     - name: Diff charts
       id: diff

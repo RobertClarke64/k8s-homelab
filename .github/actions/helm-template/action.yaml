@@ -1,0 +1,45 @@
+name: 'Helm Template'
+description: 'Generate Helm Template'
+inputs:
+  helm-chart:
+    description: 'Helm chart to template'
+    required: true
+  output-file:
+    description: 'Path to file to output template to'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Install Helm
+      uses: azure/setup-helm@v4.3.0
+      id: install-helm
+      with:
+        version: 'v4.1.0'
+
+    - name: Generate repositories config
+      id: repositories-config
+      shell: bash
+      run: | 
+        cat << EOF > repositories.yaml
+        apiVersion: ""
+        generated: "0001-01-01T00:00:00Z"
+        repositories:
+        EOF
+        cat ${{ inputs.helm-chart }}/Chart.lock | yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
+
+    - name: Template chart
+      id: template
+      shell: bash
+      run: |
+        helm repo update --repository-config repositories.yaml
+        helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
+        helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > ${{ inputs.output-file }}
+
+    - name: Diff charts
+      id: diff
+      shell: bash
+      run: |
+        diff_output=$(diff -u old-chart.yaml new-chart.yaml || true)
+        echo "$diff_output"
+        echo "diff=$diff_output" >> $GITHUB_OUTPUT
+
