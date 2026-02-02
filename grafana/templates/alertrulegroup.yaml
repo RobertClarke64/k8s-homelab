@@ -37,6 +37,7 @@ spec:
       record:
         from: A
         metric: "provisioned_nginx_status_code:rate"
+        targetDatasourceUid: fe6hpvnhzbta8a
 ---
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaFolder
