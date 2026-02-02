@@ -37,4 +37,13 @@ spec:
       record:
         from: A
         metric: "provisioned_nginx_status_code:rate"
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: test-folder
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
 
