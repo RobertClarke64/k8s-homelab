@@ -1,0 +1,40 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaAlertRuleGroup
+metadata:
+  name: grafanaalertrulegroup-sample
+spec:
+  folderRef: test-folder
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  interval: 1m
+  rules:
+    - condition: A
+      data:
+        - datasourceUid: ce6q3kei56y9sb
+          model:
+            datasource:
+              type: loki
+              uid: ce6q3kei56y9sb
+            editorMode: code
+            expr: sum by (status) (rate(({namespace="ingress-nginx"} | pattern `<ip> - - <_> "<method> <uri> <_>" <status> <size> <_> "<agent>" <_> <_> [<service>]` | line_format "{{.status}} {{.ip}} {{.method}} {{.uri}}") [1m]))
+            instant: true
+						queryType: instant
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: A
+          refId: A
+					queryType: instant
+          relativeTimeRange:
+            from: 600
+						to: 0
+      execErrState: Error
+      for: 5m0s
+      noDataState: NoData
+      title: "Nginx Rate of Status Codes"
+      uid: 4843de5c-4f8a-4af0-9509-23526a04faf8
+
+      record:
+        from: A
+        metric: "provisioned_nginx_status_code:rate"
+
