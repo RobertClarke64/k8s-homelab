@@ -40,6 +40,7 @@ jobs:
           - chart: ".github"
           - chart: ".gitignore"
           - chart: ".renovate.json"
+          - chart: ""
 
     steps:
       - name: Checkout code
