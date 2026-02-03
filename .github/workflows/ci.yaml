@@ -22,7 +22,7 @@ jobs:
       - name: Get list of changed directories
         id: git-diff
         run: |
-          changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -R . | jq -cs .)
+          changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -R . | jq -cs '. - [".github", ".gitignore", "renovate.json", ]')
           echo $changed
           echo "changed=$changed" >> $GITHUB_OUTPUT
 
@@ -37,11 +37,6 @@ jobs:
     strategy:
       matrix:
         chart: ${{ fromJSON(needs.git-diff.outputs.changed) }}
-        exclude:
-          - chart: ".github"
-          - chart: ".gitignore"
-          - chart: ".renovate.json"
-          - chart: ""
 
     steps:
       - name: Checkout code
