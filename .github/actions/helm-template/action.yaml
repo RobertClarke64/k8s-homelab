@@ -36,8 +36,10 @@ runs:
       id: template
       shell: bash
       run: |
-        helm repo update --repository-config repositories.yaml
-        helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
+        if [ -f repositories.yaml ]; then
+          helm repo update --repository-config repositories.yaml
+          helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
+        fi;
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > ${{ inputs.output-file }}
 
     - name: Diff charts
