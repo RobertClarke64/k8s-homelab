@@ -42,9 +42,3 @@ runs:
         fi;
         helm template ${{ inputs.helm-chart }} ./${{ inputs.helm-chart }} > ${{ inputs.output-file }}
 
-    - name: Diff charts
-      id: diff
-      shell: bash
-      run: |
-        diff -u old-chart.yaml new-chart.yaml || true
-
