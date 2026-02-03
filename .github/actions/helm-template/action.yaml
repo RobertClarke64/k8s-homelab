@@ -36,7 +36,7 @@ runs:
       id: template
       shell: bash
       run: |
-        if [ -f Chart.lock ]; then
+        if [ -f ${{ inputs.helm-chart }}/Chart.lock ]; then
           helm repo update --repository-config repositories.yaml
           helm dependency update ./${{ inputs.helm-chart }} --repository-config repositories.yaml
         fi;
