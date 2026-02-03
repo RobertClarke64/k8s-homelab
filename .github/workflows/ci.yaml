@@ -22,7 +22,7 @@ jobs:
       - name: Get list of changed directories
         id: git-diff
         run: |
-          changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -R . | jq -cs '. - [".github", ".gitignore", "renovate.json", ]')
+          changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -R . | jq -cs '. - [".github", ".gitignore", "renovate.json"]')
           echo $changed
           echo "changed=$changed" >> $GITHUB_OUTPUT
 
