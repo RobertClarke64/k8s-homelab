@@ -22,7 +22,7 @@ jobs:
       - name: Get list of changed directories
         id: git-diff
         run: |
-          git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | js -R . | jq -cs .
+          git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -R . | jq -cs .
           echo "changed=$(git diff --name-only HEAD^..HEAD | cut -d/ -f1 | uniq | jq -Rc 'split(" ")')" >> $GITHUB_OUTPUT
 
       - name: Output changed directories
