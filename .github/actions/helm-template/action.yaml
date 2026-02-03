@@ -30,7 +30,7 @@ runs:
           exit
         fi;
 
-        cat ${{ inputs.helm-chart }}/Chart.lock | yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' >> repositories.yaml
+        cat ${{ inputs.helm-chart }}/Chart.lock | yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' | sed "s/\[\]//" >> repositories.yaml
 
     - name: Template chart
       id: template
