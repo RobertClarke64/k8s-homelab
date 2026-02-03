@@ -46,7 +46,5 @@ runs:
       id: diff
       shell: bash
       run: |
-        diff_output=$(diff -u old-chart.yaml new-chart.yaml || true)
-        echo "$diff_output"
-        echo "diff=$diff_output" >> $GITHUB_OUTPUT
+        diff -u old-chart.yaml new-chart.yaml || true
 
