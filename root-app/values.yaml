@@ -2,7 +2,9 @@ applications:
   alloy:
     extraNamespaceLabels:
       pod-security.kubernetes.io/enforce: privileged
-  argocd: {}
+  argocd:
+    extraSyncOptions:
+      - ServerSideApply=true
   barassistant: {}
   cert-manager: {}
   cnpg:
