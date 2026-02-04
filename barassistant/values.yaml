@@ -68,6 +68,15 @@ server:
       value: "barassistant-redis"
     - name: ALLOW_REGISTRATION
       value: "true"
+    - name: GEN_AI_PROVIDER
+      value: "openai"
+    - name: GEN_AI_MODEL
+      value: gpt-4o
+    - name: OPENAI_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: barassistant-secrets
+          key: AI_API_KEY
 
   imagePullSecrets: []
 
@@ -228,17 +237,6 @@ saltrim:
       value: "https://server.bar.robertclarke.co.uk"
     - name: MEILISEARCH_URL
       value: "https://search.bar.robertclarke.co.uk"
-    - name: AI_PROVIDER
-      value: "ollama"
-    - name: AI_HOST
-      value: "https://api.openai.com/v1"
-    - name: AI_MODEL
-      value: gpt-4o
-    - name: AI_API_KEY
-      valueFrom:
-        secretKeyRef:
-          name: barassistant-secrets
-          key: AI_API_KEY
 
   imagePullSecrets: []
 
