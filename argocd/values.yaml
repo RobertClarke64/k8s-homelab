@@ -3,15 +3,6 @@ global:
 
 argo-cd:
   server:
-    ingress:
-      enabled: true
-      hostname: argo.robertclarke.co.uk
-      ingressClassName: "nginx"
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-        cert-manager.io/cluster-issuer: letsencrypt
-      tls: true
-
     httproute:
       enabled: true
       parentRefs:
@@ -20,20 +11,6 @@ argo-cd:
           sectionName: https
           group: gateway.networking.k8s.io
           kind: Gateway
-
-    backendTLSPolicy:
-      enabled: true
-      targetRefs:
-        - group: ""
-          kind: Service
-          name: argocd-server
-          sectionName: https
-      validation:
-        caCertificateRefs:
-          - kind: Secret
-            group: ""
-            name: argocd-server-tls
-        hostname: argocd-server.argocd.svc.cluster.local
 
     metrics:
       enabled: true
