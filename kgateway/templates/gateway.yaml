@@ -3,6 +3,8 @@ apiVersion: gateway.networking.k8s.io/v1
 metadata:
   name: http
   namespace: kgateway-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   gatewayClassName: kgateway
   listeners:
