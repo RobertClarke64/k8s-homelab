@@ -24,13 +24,14 @@ argo-cd:
     backendTLSPolicy:
       enabled: true
       targetRefs:
-        - group: ''
+        - group: ""
           kind: Service
           name: argocd-server
           sectionName: https
       validation:
         caCertificateRefs:
           - kind: Secret
+            group: ""
             name: argocd-server-tls
         hostname: argocd-server.argocd.svc.cluster.local
 
