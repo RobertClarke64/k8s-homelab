@@ -11,6 +11,14 @@ argo-cd:
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         cert-manager.io/cluster-issuer: letsencrypt
       tls: true
+
+    httproute:
+      enabled: true
+      parentRefs:
+        - name: http
+          namespace: kgateway-system
+          sectionName: https
+
     metrics:
       enabled: true
       serviceMonitor:
