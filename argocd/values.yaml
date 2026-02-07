@@ -21,6 +21,11 @@ argo-cd:
           group: gateway.networking.k8s.io
           kind: Gateway
 
+    backendTLSPolicy:
+      enabled: true
+      hostname: argocd-server.argocd.svc.cluster.local
+      wellKnownCACertificates: System
+
     metrics:
       enabled: true
       serviceMonitor:
