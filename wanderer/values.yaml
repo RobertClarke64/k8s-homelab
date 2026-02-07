@@ -273,6 +273,12 @@ tolerations: []
 
 affinity: {}
 
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+
 ingress:
   enabled: true
   className: "nginx"
