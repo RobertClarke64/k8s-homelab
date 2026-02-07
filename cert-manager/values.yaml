@@ -2,6 +2,9 @@ cert-manager:
   crds:
     enabled: true
 
+  config:
+    enableGatewayAPI: true
+
 issuer:
   name: letsencrypt
   server: https://acme-v02.api.letsencrypt.org/directory

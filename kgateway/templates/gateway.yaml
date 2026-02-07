@@ -7,12 +7,20 @@ spec:
   gatewayClassName: kgateway
   listeners:
   - protocol: HTTPS
+    hostnames:
+      - *.robertclarke.co.uk
     port: 443
     name: https
     allowedRoutes:
       namespaces:
         from: All
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: robertclarke-co-uk-tls
   - protocol: HTTP
+    hostnames:
+      - *.robertclarke.co.uk
     port: 80
     name: http
     allowedRoutes:
