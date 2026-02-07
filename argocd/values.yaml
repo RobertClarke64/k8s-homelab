@@ -32,6 +32,7 @@ argo-cd:
         caCertificateRefs:
           - kind: Secret
             name: argocd-server-tls
+        hostname: argocd-server.argocd.svc.cluster.local
 
     metrics:
       enabled: true
