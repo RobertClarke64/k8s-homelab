@@ -28,6 +28,10 @@ argo-cd:
           kind: Service
           name: argocd-server
           sectionName: https
+      validation:
+        caCertificateRefs:
+          - kind: Secret
+            name: argocd-server-tls
 
     metrics:
       enabled: true
