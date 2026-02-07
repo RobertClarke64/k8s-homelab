@@ -77,6 +77,9 @@ argo-cd:
         enabled: true
 
   configs:
+    params:
+      server.insecure: true
+
     cm:
       resource.exclusions: |
         ### Network resources created by the Kubernetes control plane and excluded to reduce the number of watched events and UI clutter
