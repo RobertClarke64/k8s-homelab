@@ -278,6 +278,8 @@ httpRoute:
   parentRefs:
     - name: http
       namespace: kgateway-system
+  hostnames:
+    - wanderer.robertclarke.co.uk
 
 ingress:
   enabled: true

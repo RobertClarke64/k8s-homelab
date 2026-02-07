@@ -1,5 +1,5 @@
 {{- if .Values.httpRoute.enabled -}}
-{{- $fullName := include "wanderer.fullname" . -}}
+{{- $fullName := include "wanderer.web.fullname" . -}}
 {{- $svcPort := .Values.web.service.port -}}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
