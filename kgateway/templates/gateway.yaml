@@ -18,5 +18,5 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
-	addresses:
-		- value: 192.168.1.242
+  addresses:
+    - value: 192.168.1.242
