@@ -19,7 +19,7 @@ httpRoute:
       namespace: kgateway-system
 
 server:
-  hostname: "server.bar.robertclarke.co.uk"
+  hostname: "barassistant-server.robertclarke.co.uk"
   replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
@@ -30,7 +30,7 @@ server:
 
   env:
     - name: APP_URL
-      value: "https://server.bar.robertclarke.co.uk"
+      value: "https://barassistant-server.robertclarke.co.uk"
     - name: MEILISEARCH_HOST
       value: "http://barassistant-search:7700"
     - name: MEILISEARCH_KEY
@@ -119,7 +119,7 @@ server:
   affinity: {}
 
 search:
-  hostname: "search.bar.robertclarke.co.uk"
+  hostname: "barassistant-search.robertclarke.co.uk"
   replicaCount: 1
 
   # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
@@ -214,9 +214,9 @@ saltrim:
 
   env:
     - name: API_URL
-      value: "https://server.bar.robertclarke.co.uk"
+      value: "https://barassistant-server.robertclarke.co.uk"
     - name: MEILISEARCH_URL
-      value: "https://search.bar.robertclarke.co.uk"
+      value: "https://barassistant-search.robertclarke.co.uk"
 
   imagePullSecrets: []
 
