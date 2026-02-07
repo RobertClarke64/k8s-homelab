@@ -23,8 +23,11 @@ argo-cd:
 
     backendTLSPolicy:
       enabled: true
-      hostname: argocd-server.argocd.svc.cluster.local
-      wellKnownCACertificates: System
+      targetRefs:
+        - group: ''
+          kind: Service
+          name: argocd-server
+          sectionName: https
 
     metrics:
       enabled: true
