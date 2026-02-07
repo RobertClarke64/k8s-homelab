@@ -1,3 +1,8 @@
+httpRoute:
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+
 proxy:
   certClusterIssuer: letsencrypt
   ipAddress: 192.168.1.101

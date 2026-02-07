@@ -1,0 +1,32 @@
+{{- range $service := .Values.proxy.services }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ $service.name }}
+  labels:
+    {{- with ($service.httpRoute).labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with ($service.httpRoute).annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  parentRefs:
+    {{- required "A valid .Values.httpRoute.parentRefs entry is required when httpRoute.enabled is true" $.Values.httpRoute.parentRefs | toYaml | nindent 4 }}
+  hostnames:
+    - {{ $service.host | quote }}
+  rules:
+    {{- if ($service.httpRoute).rules }}
+    {{- toYaml $service.httpRoute.rules | nindent 4 }}
+    {{- else }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: {{ $service.name }}
+          port: {{ $service.port }}
+    {{- end }}
+{{- end }}
