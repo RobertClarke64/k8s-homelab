@@ -17,6 +17,8 @@ spec:
       mode: Terminate
       certificateRefs:
         - name: robertclarke-co-uk-tls
+          group: ''
+          kind: Secret
   - protocol: HTTP
     hostname: "*.robertclarke.co.uk"
     port: 80
