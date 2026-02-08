@@ -1,5 +1,6 @@
 {{- range $service := .Values.proxy.services }}
 {{- if ($service.tlsPolicy).enabled }}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:

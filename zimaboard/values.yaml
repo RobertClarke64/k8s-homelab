@@ -20,7 +20,7 @@ proxy:
       host: plex.robertclarke.co.uk
       tlsPolicy:
         enabled: true
-        caHost: "*.9470edbc31af4c7cad7199ba8e364e82.plex.direct"
+        caHost: "192-168-1-101.9470edbc31af4c7cad7199ba8e364e82.plex.direct"
         caCertificate: |
           -----BEGIN CERTIFICATE-----
           MIIFPzCCBCegAwIBAgISBQ93fQuF2dTmrs4JaFs7quEpMA0GCSqGSIb3DQEBCwUA
