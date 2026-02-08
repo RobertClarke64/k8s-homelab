@@ -1,0 +1,16 @@
+{{- range $service := .Values.proxy.services }}
+{{- if ($service.tls).enabled }}
+---
+apiVersion: gateway.kgateway.dev/v1alpha1
+kind: BackendConfigPolicy
+metadata:
+  name: {{ $service.name }}-config-policy
+spec:
+  targetRefs:
+    - kind: Service
+      name: {{ $service.name }}
+      group: ""
+  tls:
+    insecureSkipVerify: true
+{{- end }}
+{{- end }}

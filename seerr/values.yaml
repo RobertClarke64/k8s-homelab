@@ -1,22 +1,17 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - seerr.robertclarke.co.uk
+
 seerr:
   config:
     persistence:
       storageClass: "unraid-nfs-named"
-
-  ingress:
-    enabled: true
-    ingressClassName: "nginx"
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    hosts:
-      - host: seerr.robertclarke.co.uk
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    tls:
-      - secretName: seerr-tls
-        hosts:
-          - seerr.robertclarke.co.uk
 
   probes:
     livenessProbe:

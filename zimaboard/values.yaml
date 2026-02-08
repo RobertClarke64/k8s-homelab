@@ -1,3 +1,8 @@
+httpRoute:
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+
 proxy:
   certClusterIssuer: letsencrypt
   ipAddress: 192.168.1.101
@@ -13,9 +18,9 @@ proxy:
       port: 8080
     - name: plex
       host: plex.robertclarke.co.uk
+      tls:
+        enabled: true
       port: 32400
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     - name: prowlarr
       host: prowlarr.robertclarke.co.uk
       port: 9696
@@ -36,8 +41,8 @@ proxy:
       host: think.robertclarke.co.uk
       port: 8006
       ipAddress: 192.168.1.135
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      tls:
+        enabled: true
 
     - name: homeassistant
       host: home.robertclarke.co.uk

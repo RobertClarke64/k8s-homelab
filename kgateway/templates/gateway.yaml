@@ -3,16 +3,26 @@ apiVersion: gateway.networking.k8s.io/v1
 metadata:
   name: http
   namespace: kgateway-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   gatewayClassName: kgateway
   listeners:
   - protocol: HTTPS
+    hostname: "*.robertclarke.co.uk"
     port: 443
     name: https
     allowedRoutes:
       namespaces:
         from: All
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: robertclarke-co-uk-tls
+          group: ''
+          kind: Secret
   - protocol: HTTP
+    hostname: "*.robertclarke.co.uk"
     port: 80
     name: http
     allowedRoutes:
@@ -20,4 +30,4 @@ spec:
         from: All
   addresses:
     - type: IPAddress
-      value: 192.168.1.242
+      value: 192.168.1.244

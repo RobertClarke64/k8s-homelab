@@ -1,3 +1,13 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - geopulse.robertclarke.co.uk
+
 geopulse:
   backend:
     image:
@@ -25,17 +35,6 @@ geopulse:
   # Application configuration
   config:
     uiUrl: "https://geopulse.robertclarke.co.uk"
-
-  ingress:
-    enabled: true
-    className: "nginx"
-    annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt"
-      # nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    hostname: geopulse.robertclarke.co.uk
-    tls:
-      enabled: true
-      secretName: geopulse-tls
 
   secrets:
     useExistingSecret: true

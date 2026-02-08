@@ -1,3 +1,14 @@
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - "sonobarr.robertclarke.co.uk"
+
 controllers:
   main:
     type: deployment
@@ -40,24 +51,6 @@ service:
     ports:
       http:
         port: 5000
-
-ingress:
-  main:
-    className: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    hosts:
-      - host: sonobarr.robertclarke.co.uk
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            service:
-              identifier: main
-              port: http
-    tls:
-      - hosts:
-          - sonobarr.robertclarke.co.uk
-        secretName: sonobarr-tls
 
 persistence:
   config:

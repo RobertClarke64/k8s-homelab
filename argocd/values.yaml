@@ -3,14 +3,17 @@ global:
 
 argo-cd:
   server:
-    ingress:
+    httproute:
       enabled: true
-      hostname: argo.robertclarke.co.uk
-      ingressClassName: "nginx"
-      annotations:
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-        cert-manager.io/cluster-issuer: letsencrypt
-      tls: true
+      parentRefs:
+        - name: http
+          namespace: kgateway-system
+          sectionName: https
+          group: gateway.networking.k8s.io
+          kind: Gateway
+      hostnames:
+        - argo.robertclarke.co.uk
+
     metrics:
       enabled: true
       serviceMonitor:
@@ -53,6 +56,9 @@ argo-cd:
         enabled: true
 
   configs:
+    params:
+      server.insecure: true
+
     cm:
       resource.exclusions: |
         ### Network resources created by the Kubernetes control plane and excluded to reduce the number of watched events and UI clutter

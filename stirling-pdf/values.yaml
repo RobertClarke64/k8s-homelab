@@ -1,16 +1,14 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - pdf.robertclarke.co.uk
 
-stirling-pdf-chart:
-  ingress:
-    enabled: true
-    hosts:
-      - name: pdf.robertclarke.co.uk
-        tls: true
-        tlsSecret: stirling-pdf-tls
-    ingressClassName: "nginx"
-    annotations:
-      # proxy-body-size is set to 0 to remove the body limit on file uploads
-      nginx.ingress.kubernetes.io/proxy-body-size: "0"
-      cert-manager.io/cluster-issuer: letsencrypt
+stirling-pdf:
   image:
     repository: stirlingtools/stirling-pdf
     tag: "2.4.3"

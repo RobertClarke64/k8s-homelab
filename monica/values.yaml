@@ -1,3 +1,13 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - people.robertclarke.co.uk
+
 monica:
   monica:
     host: people.robertclarke.co.uk
@@ -19,17 +29,6 @@ monica:
         host: robertclarke.co.uk
         encryption: tls
         port: 587
-
-  ingress:
-    enabled: true
-    className: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
-      cert-manager.io/cluster-issuer: letsencrypt
-    tls:
-      - hosts:
-          - people.robertclarke.co.uk
-        secretName: monica-tls
 
   persistence:
     enabled: true

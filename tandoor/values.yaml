@@ -1,21 +1,21 @@
+httpRoute:
+  enabled: true
+  service:
+    name: tandoor-tandoor-recipes
+    port: 10029
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - recipes.robertclarke.co.uk
+
 tandoor-recipes:
+
   persistence:
     media:
       storageClass: unraid-nfs-named
-  ingress:
-    main:
-      enabled: true
-      ingressClassName: nginx
-      annotations:
-        nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-        cert-manager.io/cluster-issuer: "letsencrypt"
-      hosts:
-        - host: tandoor.k8s.robertclarke.co.uk
-        - host: recipes.robertclarke.co.uk
-      tls:
-        - hosts:
-            - recipes.robertclarke.co.uk
-          secretName: tandoor-recipes-tls
 
   workload:
     main:

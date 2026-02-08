@@ -2,8 +2,18 @@ grafana:
   serviceMonitor:
     enabled: true
 
+  route:
+    main:
+      enabled: true
+      parentRefs:
+        - name: http
+          namespace: kgateway-system
+      hostnames:
+        - grafana.robertclarke.co.uk
+
+
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt

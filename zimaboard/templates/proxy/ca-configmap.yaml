@@ -1,0 +1,12 @@
+{{- range $service := .Values.proxy.services }}
+{{- if ($service.tlsPolicy).enabled }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $service.name }}-ca
+data:
+  ca.crt: |-
+    {{- $service.tlsPolicy.caCertificate | nindent 4 }}
+{{- end }}
+{{- end }}
