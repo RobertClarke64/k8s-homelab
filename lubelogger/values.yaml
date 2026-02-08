@@ -1,3 +1,13 @@
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - lubelogger.robertclarke.co.uk
+
 lubelogger:
   persistence:
     data:
@@ -22,21 +32,6 @@ lubelogger:
       VisibleTabs: [8, 0, 1, 4, 2, 10, 3, 6, 5, 12]
       UseSystemColorMode: true
       UseUKMPK: true
-
-  ingress:
-    enabled: true
-    className: nginx
-    hosts:
-      - host: lubelogger.robertclarke.co.uk
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    tls:
-      - hosts:
-          - lubelogger.robertclarke.co.uk
-        secretName: lubelogger-tls
 
 cluster:
   cluster:
