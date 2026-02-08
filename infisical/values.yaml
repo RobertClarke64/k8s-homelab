@@ -9,6 +9,8 @@ httpRoute:
     - infisical.robertclarke.co.uk
 
 infisical:
+  name: infisical
+  nameOverride: ""
   fullnameOverride: ""
 
 infisical-standalone:
