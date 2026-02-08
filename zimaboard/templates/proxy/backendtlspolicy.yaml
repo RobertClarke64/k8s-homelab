@@ -2,19 +2,15 @@
 {{- if ($service.tlsPolicy).enabled }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
-kind: BackendTLSPolicy
+kind: BackendConfigPolicy
 metadata:
-  name: {{ $service.name }}-tls-policy
+  name: {{ $service.name }}-config-policy
 spec:
   targetRefs:
     - kind: Service
       name: {{ $service.name }}
       group: ""
-  validation:
-    caCertificateRefs:
-      - kind: ConfigMap
-        name: {{ $service.name }}-ca
-        group: ""
-    hostname: {{ $service.tlsPolicy.caHost }}
+  tls:
+    insecureSkipVerify: true
 {{- end }}
 {{- end }}
