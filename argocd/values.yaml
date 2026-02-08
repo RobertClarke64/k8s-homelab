@@ -11,6 +11,8 @@ argo-cd:
           sectionName: https
           group: gateway.networking.k8s.io
           kind: Gateway
+      hostnames:
+        - argo.robertclarke.co.uk
 
     metrics:
       enabled: true
