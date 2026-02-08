@@ -18,6 +18,10 @@ karakeep:
               name: karakeep
               port: 3000
 
+  ingress:
+    karakeep:
+      enabled: false
+
   secrets:
     meilesearch:
       enabled: false
