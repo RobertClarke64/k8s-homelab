@@ -1,14 +1,22 @@
 karakeep:
   applicationHost: keep.robertclarke.co.uk
-  ingress:
+
+  route:
     karakeep:
-      className: nginx
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt"
-      tls:
-        - hosts:
-            - "{{ .Values.applicationHost}}"
-          secretName: karakeep-tls
+      enabled: true
+      parentRefs:
+        - name: http
+          namespace: kgateway-system
+          group: gateway.networking.k8s.io
+          kind: Gateway
+      hostnames:
+        - "{{ .Values.applicationHost }}"
+      rules:
+        - backendRefs:
+            - group: ""
+              kind: Service
+              name: karakeep
+              port: 3000
 
   secrets:
     meilesearch:
