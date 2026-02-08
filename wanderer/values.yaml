@@ -280,3 +280,6 @@ httpRoute:
       namespace: kgateway-system
   hostnames:
     - wanderer.robertclarke.co.uk
+
+ingress:
+  enabled: false
