@@ -8,7 +8,7 @@ httpRoute:
   hostnames:
     - pdf.robertclarke.co.uk
 
-stirling-pdf-chart:
+stirling-pdf:
   ingress:
     enabled: true
     hosts:
