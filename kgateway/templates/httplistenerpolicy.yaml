@@ -9,4 +9,5 @@ spec:
     kind: Gateway
     name: http
   upgradeConfig:
-    enabledUpgrades: "websocket"
+    enabledUpgrades: 
+      - "websocket"
