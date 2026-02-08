@@ -1,5 +1,5 @@
 {{- range $service := .Values.proxy.services }}
-{{- if ($service.tlsPolicy).enabled }}
+{{- if ($service.tls).enabled }}
 ---
 apiVersion: gateway.kgateway.dev/v1alpha1
 kind: BackendConfigPolicy
