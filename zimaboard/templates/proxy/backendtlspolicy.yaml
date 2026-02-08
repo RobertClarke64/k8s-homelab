@@ -1,16 +1,19 @@
+{{- range $service := .Values.proxy.services }}
+{{- if ($service.tlsPolicy).enabled }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: BackendTLSPolicy
 metadata:
-  name: thinkcentre-tls-policy
+  name: {{ $service.name }}-tls-policy
 spec:
   targetRefs:
     - kind: Service
-      name: thinkcentre
+      name: {{ $service.name }}
       group: ""
   validation:
     caCertificateRefs:
       - kind: ConfigMap
-        name: thinkcentre-ca
+        name: {{ $service.name }}-ca
         group: ""
-    hostname: "thinkcentre.localdomain"
-
+    hostname: {{ $service.tlsPolicy.caHost }}
+{{- end }}
+{{- end }}
