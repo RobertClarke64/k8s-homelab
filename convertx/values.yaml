@@ -46,13 +46,4 @@ route:
         kind: Gateway
     hostnames:
       - "{{ .Values.applicationHost }}"
-    rules:
-      - backendRefs:
-          - kind: Service
-            name: convertx
-            port: 3000
-        matches:
-          - path:
-              type: PathPrefix
-              value: /
 
