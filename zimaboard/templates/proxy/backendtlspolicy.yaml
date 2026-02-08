@@ -1,0 +1,16 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: plex-tls-policy
+spec:
+  targetRefs:
+    - kind: Service
+      name: plex
+      group: ""
+  validation:
+		caCertificateRefs:
+      - kind: ConfigMap
+        name: plex-ca-cert
+        group: ""
+    hostname: dev.example.com
+
