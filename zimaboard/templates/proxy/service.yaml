@@ -10,4 +10,5 @@ spec:
       protocol: TCP
       targetPort: {{ $service.port }}
       name: http
+      appProtocol: kubernetes.io/ws
 {{- end }}
