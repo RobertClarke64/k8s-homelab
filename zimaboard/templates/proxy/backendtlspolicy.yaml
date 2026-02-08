@@ -10,7 +10,7 @@ spec:
   validation:
     caCertificateRefs:
       - kind: ConfigMap
-        name: plex-ca-cert
+        name: plex-ca
         group: ""
     hostname: dev.example.com
 
