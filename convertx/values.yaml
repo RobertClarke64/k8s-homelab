@@ -36,22 +36,23 @@ service:
       http:
         port: 3000
 
-ingress:
+route:
   convertx:
-    className: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/proxy-body-size: "100m"
-      cert-manager.io/cluster-issuer: letsencrypt
-    hosts:
-      - host: "{{ .Values.applicationHost }}"
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: convertx
-              port: http
-    tls:
-      - hosts:
-          - "{{ .Values.applicationHost }}"
-        secretName: convertx-tls
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - "{{ .Values.applicationHost }}"
+    rules:
+      - backendRefs:
+          - kind: Service
+            name: convertx
+            port: http
+        matches:
+          - path:
+              type: PathPrefix
+              value: /
 
