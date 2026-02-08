@@ -1,19 +1,9 @@
-cyberchef:
-  ingress:
-    enabled: true
-    className: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    hosts:
-      - host: cyberchef.robertclarke.co.uk
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-      - host: cyberchef.k8s.robertclarke.co.uk
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    tls:
-      - hosts:
-          - cyberchef.robertclarke.co.uk
-        secretName: cyberchef-tls
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - cyberchef.robertclarke.co.uk
