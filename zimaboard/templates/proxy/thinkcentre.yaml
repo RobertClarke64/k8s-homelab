@@ -1,0 +1,30 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: thinkcentre-backend
+spec:
+  endpoints:
+    - fqdn:
+        hostname: 192.168.1.135
+        port: 8006
+  tls:
+    insecureSkipVerify: true
+---
+kind: HTTPRoute
+metadata:
+  name: thinkcentre
+spec:
+  parentRefs:
+    - name: http
+      namespace: kgateway
+  hostnames:
+    - "think.robertclarke.co.uk"
+  rules:
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: thinkcentre-backend
+      matches:
+        - path:
+            type: PathPrefix
+            value: /

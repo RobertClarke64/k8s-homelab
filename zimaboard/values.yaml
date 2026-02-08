@@ -70,44 +70,44 @@ proxy:
       host: tautulli.robertclarke.co.uk
       port: 8181
 
-    - name: thinkcentre
-      host: think.robertclarke.co.uk
-      port: 8006
-      ipAddress: 192.168.1.135
-      tlsPolicy:
-        enabled: true
-        caHost: thinkcentre.localdomain
-        caCertificate: |
-          -----BEGIN CERTIFICATE-----
-          MIIFEjCCAvqgAwIBAgIBATANBgkqhkiG9w0BAQsFADB2MSQwIgYDVQQDDBtQcm94
-          bW94IFZpcnR1YWwgRW52aXJvbm1lbnQxLTArBgNVBAsMJDU2NmM2MmRmLTllY2Et
-          NGFlNC1hODMzLTE0NTI2YzJkNTQ5OTEfMB0GA1UECgwWUFZFIENsdXN0ZXIgTWFu
-          YWdlciBDQTAeFw0yNTA0MDExNTE4NTVaFw0yNzA0MDExNTE4NTVaMGMxGTAXBgNV
-          BAsTEFBWRSBDbHVzdGVyIE5vZGUxJDAiBgNVBAoTG1Byb3htb3ggVmlydHVhbCBF
-          bnZpcm9ubWVudDEgMB4GA1UEAxMXdGhpbmtjZW50cmUubG9jYWxkb21haW4wggEi
-          MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4UPwBWGNYlEzewBHo0J/piOUy
-          YsUpsYB9CCgFNzcsBOqPR9MGjg4CeDvmOe7mPzlIV2xIkAU53eExXVwCmSKqISxv
-          srHjwBaWQU4gvYiSvcXALYPDg92FhWY/qJLvZhU2NH3myiyItkNndHt1DGlNQvLP
-          E0eaNgS5FjxrHhlMJxS/OfHM1h2atlA3p+MCtdHRBb7SxI98/LNp09h5ZdEjRG29
-          3u3N1F6YtGy50XXBu8LEEpscXaEVdp3QYt3JcsdDdoPCbWNQHoN1+s4qo1Hk4nzT
-          2NxzcVhNQtlOk4GdBh+xc5o3440QTNr93tVqfE1lS0I94ETkBP/6xk72tkWBAgMB
-          AAGjgb0wgbowCQYDVR0TBAIwADATBgNVHSUEDDAKBggrBgEFBQcDATBYBgNVHREE
-          UTBPhwR/AAABhxAAAAAAAAAAAAAAAAAAAAABgglsb2NhbGhvc3SHBMCoAYeCC3Ro
-          aW5rY2VudHJlghd0aGlua2NlbnRyZS5sb2NhbGRvbWFpbjAdBgNVHQ4EFgQU5x+C
-          lf1novYFComXJ3f3ACkndQkwHwYDVR0jBBgwFoAUmCEGaqazxiL/655tTpsEuGjT
-          K2gwDQYJKoZIhvcNAQELBQADggIBAJH7SsyvKL/IokMZBja6PTo2+A4vcYqOCFaZ
-          wwOBoDWGvXICPFAC4L4knPzBfBF7RjzXlPrs7Hlfa+vkfMtScNimEXcK4B9bKSby
-          ajQAlo9rgLM2zMUHP/XLA50cv7qefIkXjPNo8yx8laLDKR9+6MErenYfXv8guhZ9
-          W9cCFESVjjcpGUr4OpYEGwGhpYNlVmF6aYIfw7vLouLz2r8cIchUMFQl18GED8+S
-          HaTsLzQTU27g7/wARaC8HYLZBQSOwGBXvuG+uHiwOktO4vcxct3qvmNrhT1ihTTL
-          aQaaFCld1+yflCGYXlPjMipRuHCd7qoRYqUY3+PvbfDUcykwaCKm+miwdd27uSEy
-          7vMxR3BTgHZ/FMoeyHv3VOwJJyIP9lGQv0rKxmA0S0En8EGeAZjgYPq9OZcrKnhT
-          +/1MkEP6vbE0v13PiDKF2T1lkNv1f7m6gACyL/l3C47ZpSg1SbpHOAjQC4Nvq3lq
-          4UhYt1j0syGVhtiYJ3m7QZ77dUSIttnS3FEEiAu0lC1hsMauqUHiGDgKx8+AZ2GI
-          FfMF4wDu3wk6S49CftlDuuC/f59cD9syGKlqVPzX31jjmvP/mzvdHrhQm1okW3cg
-          fIlnrlLZcCURu8v/o68czeGvDqc4TG/yu9A9O0VAwo7m0XIGmQWBjsjKMvnoU2Kh
-          PiNAJjW7
-          -----END CERTIFICATE-----
+    # - name: thinkcentre
+    #   host: think.robertclarke.co.uk
+    #   port: 8006
+    #   ipAddress: 192.168.1.135
+    #   tlsPolicy:
+    #     enabled: true
+    #     caHost: thinkcentre.localdomain
+    #     caCertificate: |
+    #       -----BEGIN CERTIFICATE-----
+    #       MIIFEjCCAvqgAwIBAgIBATANBgkqhkiG9w0BAQsFADB2MSQwIgYDVQQDDBtQcm94
+    #       bW94IFZpcnR1YWwgRW52aXJvbm1lbnQxLTArBgNVBAsMJDU2NmM2MmRmLTllY2Et
+    #       NGFlNC1hODMzLTE0NTI2YzJkNTQ5OTEfMB0GA1UECgwWUFZFIENsdXN0ZXIgTWFu
+    #       YWdlciBDQTAeFw0yNTA0MDExNTE4NTVaFw0yNzA0MDExNTE4NTVaMGMxGTAXBgNV
+    #       BAsTEFBWRSBDbHVzdGVyIE5vZGUxJDAiBgNVBAoTG1Byb3htb3ggVmlydHVhbCBF
+    #       bnZpcm9ubWVudDEgMB4GA1UEAxMXdGhpbmtjZW50cmUubG9jYWxkb21haW4wggEi
+    #       MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4UPwBWGNYlEzewBHo0J/piOUy
+    #       YsUpsYB9CCgFNzcsBOqPR9MGjg4CeDvmOe7mPzlIV2xIkAU53eExXVwCmSKqISxv
+    #       srHjwBaWQU4gvYiSvcXALYPDg92FhWY/qJLvZhU2NH3myiyItkNndHt1DGlNQvLP
+    #       E0eaNgS5FjxrHhlMJxS/OfHM1h2atlA3p+MCtdHRBb7SxI98/LNp09h5ZdEjRG29
+    #       3u3N1F6YtGy50XXBu8LEEpscXaEVdp3QYt3JcsdDdoPCbWNQHoN1+s4qo1Hk4nzT
+    #       2NxzcVhNQtlOk4GdBh+xc5o3440QTNr93tVqfE1lS0I94ETkBP/6xk72tkWBAgMB
+    #       AAGjgb0wgbowCQYDVR0TBAIwADATBgNVHSUEDDAKBggrBgEFBQcDATBYBgNVHREE
+    #       UTBPhwR/AAABhxAAAAAAAAAAAAAAAAAAAAABgglsb2NhbGhvc3SHBMCoAYeCC3Ro
+    #       aW5rY2VudHJlghd0aGlua2NlbnRyZS5sb2NhbGRvbWFpbjAdBgNVHQ4EFgQU5x+C
+    #       lf1novYFComXJ3f3ACkndQkwHwYDVR0jBBgwFoAUmCEGaqazxiL/655tTpsEuGjT
+    #       K2gwDQYJKoZIhvcNAQELBQADggIBAJH7SsyvKL/IokMZBja6PTo2+A4vcYqOCFaZ
+    #       wwOBoDWGvXICPFAC4L4knPzBfBF7RjzXlPrs7Hlfa+vkfMtScNimEXcK4B9bKSby
+    #       ajQAlo9rgLM2zMUHP/XLA50cv7qefIkXjPNo8yx8laLDKR9+6MErenYfXv8guhZ9
+    #       W9cCFESVjjcpGUr4OpYEGwGhpYNlVmF6aYIfw7vLouLz2r8cIchUMFQl18GED8+S
+    #       HaTsLzQTU27g7/wARaC8HYLZBQSOwGBXvuG+uHiwOktO4vcxct3qvmNrhT1ihTTL
+    #       aQaaFCld1+yflCGYXlPjMipRuHCd7qoRYqUY3+PvbfDUcykwaCKm+miwdd27uSEy
+    #       7vMxR3BTgHZ/FMoeyHv3VOwJJyIP9lGQv0rKxmA0S0En8EGeAZjgYPq9OZcrKnhT
+    #       +/1MkEP6vbE0v13PiDKF2T1lkNv1f7m6gACyL/l3C47ZpSg1SbpHOAjQC4Nvq3lq
+    #       4UhYt1j0syGVhtiYJ3m7QZ77dUSIttnS3FEEiAu0lC1hsMauqUHiGDgKx8+AZ2GI
+    #       FfMF4wDu3wk6S49CftlDuuC/f59cD9syGKlqVPzX31jjmvP/mzvdHrhQm1okW3cg
+    #       fIlnrlLZcCURu8v/o68czeGvDqc4TG/yu9A9O0VAwo7m0XIGmQWBjsjKMvnoU2Kh
+    #       PiNAJjW7
+    #       -----END CERTIFICATE-----
 
     - name: homeassistant
       host: home.robertclarke.co.uk
