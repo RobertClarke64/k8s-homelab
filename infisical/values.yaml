@@ -1,15 +1,17 @@
-infisical-standalone:
-  ingress:
-    hostName: infisical.robertclarke.co.uk
-    nginx:
-      enabled: false
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    tls:
-      - hosts:
-          - infisical.robertclarke.co.uk
-        secretName: infisical-tls
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      group: gateway.networking.k8s.io
+      kind: Gateway
+  hostnames:
+    - infisical.robertclarke.co.uk
 
+infisical:
+  fullnameOverride: ""
+
+infisical-standalone:
   postgresql:
     enabled: false
     useExistingPostgresSecret:
