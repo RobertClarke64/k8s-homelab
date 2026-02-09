@@ -62,7 +62,6 @@ applications:
       args:
         - --kubelet-insecure-tls
   monica: {}
-  ingress-nginx: {}
   grafana: {}
   wanderer: {}
   karakeep:
