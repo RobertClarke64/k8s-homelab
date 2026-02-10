@@ -6,7 +6,7 @@ metadata:
 spec:
   parentRefs:
     - group: gateway.networking.k8s.io
-      kind: gateway
+      kind: Gateway
       name: http
       sectionName: http
   hostnames:
