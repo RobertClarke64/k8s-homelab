@@ -2,6 +2,7 @@ httpRoute:
   parentRefs:
     - name: http
       namespace: kgateway-system
+      sectionName: https
 
 proxy:
   certClusterIssuer: letsencrypt

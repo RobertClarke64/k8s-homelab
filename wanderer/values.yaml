@@ -278,6 +278,7 @@ httpRoute:
   parentRefs:
     - name: http
       namespace: kgateway-system
+      sectionName: https
   hostnames:
     - wanderer.robertclarke.co.uk
 

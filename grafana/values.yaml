@@ -8,6 +8,7 @@ grafana:
       parentRefs:
         - name: http
           namespace: kgateway-system
+          sectionName: https
       hostnames:
         - grafana.robertclarke.co.uk
 

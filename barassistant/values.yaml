@@ -17,6 +17,7 @@ httpRoute:
   parentRefs:
     - name: http
       namespace: kgateway-system
+      sectionName: https
 
 server:
   hostname: "barassistant-server.robertclarke.co.uk"
