@@ -5,7 +5,9 @@ metadata:
   namespace: kgateway-system
 spec:
   parentRefs:
-    - name: http
+    - group: gateway.networking.k8s.io
+      kind: gateway
+      name: http
       sectionName: http
   hostnames:
     - "*.robertclarke.co.uk"
@@ -15,3 +17,7 @@ spec:
           requestRedirect:
             scheme: https
             statusCode: 301
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
