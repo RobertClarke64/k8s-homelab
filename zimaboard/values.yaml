@@ -65,6 +65,10 @@ nfs:
   mountOptions:
     - hard
     - nfsvers=4.1
+    - noresvport
+    - softreval
+    - timeo=600
+    - retrans=3
 
 storageClasses:
   - create: true
