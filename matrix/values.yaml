@@ -20,9 +20,8 @@ matrix:
     web_client_location: "https://chat.robertclarke.co.uk"
 
     enable_registration: true
-    enable_registration_without_verification: true
-    # registrations_require_3pid:
-    #   - email
+    registrations_require_3pid:
+      - email
 
 
     email:

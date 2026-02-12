@@ -26,6 +26,8 @@ spec:
       backendRefs:
         - name: {{ include "matrix.fullname" .Subcharts.matrix }}
           port: {{ .Values.matrix.service.port }}
+      timeouts:
+        request: "10s"
     - matches:
         - path:
             type: PathPrefix
@@ -33,6 +35,8 @@ spec:
       backendRefs:
         - name: {{ include "matrix.fullname" .Subcharts.matrix }}
           port: {{ .Values.matrix.service.port }}
+      timeouts:
+        request: "10s"
     - matches:
         - path:
             type: PathPrefix
@@ -40,6 +44,8 @@ spec:
       backendRefs:
         - name: {{ include "matrix.fullname" .Subcharts.matrix }}
           port: {{ .Values.matrix.service.port }}
+      timeouts:
+        request: "10s"
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
