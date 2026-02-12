@@ -38,7 +38,7 @@ matrix:
 
   secret:
     jobAnnotations:
-      - helm.sh/hook: pre-install
+      helm.sh/hook: pre-install
 
   element:
     config:
