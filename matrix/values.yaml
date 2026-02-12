@@ -19,6 +19,8 @@ matrix:
     public_baseurl: "https://matrix.robertclarke.co.uk"
     web_client_location: "https://chat.robertclarke.co.uk"
 
+    enable_registration: true
+
     email:
       client_base_url: https://chat.robertclarke.co.uk
       notif_from: Matrix <matrix@robertclarke.co.uk>
