@@ -22,7 +22,21 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /_matrix
+      backendRefs:
+        - name: {{ include "matrix.fullname" .Subcharts.matrix }}
+          port: {{ .Values.matrix.service.port }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /_synapse
+      backendRefs:
+        - name: {{ include "matrix.fullname" .Subcharts.matrix }}
+          port: {{ .Values.matrix.service.port }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /.well_known/matrix
       backendRefs:
         - name: {{ include "matrix.fullname" .Subcharts.matrix }}
           port: {{ .Values.matrix.service.port }}
