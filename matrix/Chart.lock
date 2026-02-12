@@ -5,8 +5,8 @@ dependencies:
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.5.0
-- name: mautrix-discord
-  repository: https://mjohnson9.github.io/helm/
-  version: 0.2.1
-digest: sha256:1309af19ab895f6fa6cc42b6cc0d225168611afc2f20daaf3e864d13628a25ab
-generated: "2026-02-12T23:23:47.439276Z"
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts/
+  version: 4.6.2
+digest: sha256:d019e7a2c1c923cbab4cfa96302ff9125ebd4a265a168de7f7cc3c10c43b8e09
+generated: "2026-02-12T23:41:28.690087Z"
