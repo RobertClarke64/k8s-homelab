@@ -30,6 +30,7 @@ matrix:
       smtp_host: robertclarke.co.uk
       smtp_port: 587
       smtp_user: matrix@robertclarke.co.uk
+      force_tls: true
 
   extraConfig:
     - key: email.smpt_pass
