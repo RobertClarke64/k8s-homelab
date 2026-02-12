@@ -484,8 +484,8 @@ configMaps:
             #     mxid - Specific user
             permissions:
                 "*": relay
-                "example.com": user
-                "@admin:example.com": admin
+                "robertclarke.co.uk": user
+                "@robertclarke64:robertclarke.co.uk": admin
 
         # Logging config. See https://github.com/tulir/zeroconfig for details.
         logging:
