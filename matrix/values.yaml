@@ -1,3 +1,18 @@
+httpRoute:
+  parentRefs:
+    - name: http
+      namespace: kgateway-system
+      sectionName: https
+      group: gateway.networking.k8s.io
+      kind: Gateway
+
+  matrix:
+    hostnames:
+      - matrix.robertclarke.co.uk
+  element:
+    hostnames:
+      - chat.robertclarke.co.uk
+
 matrix:
   homeserverConfig:
     server_name: "matrix.robertclarke.co.uk"
