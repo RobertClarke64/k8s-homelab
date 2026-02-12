@@ -37,7 +37,7 @@ matrix:
       invite_client_location: https://chat.robertclarke.co.uk
 
   extraConfig:
-    - key: email.smpt_pass
+    - key: email.smtp_pass
       secret:
         name: matrix-email
         key: emailPassword
