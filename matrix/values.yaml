@@ -56,10 +56,6 @@ matrix:
   storage:
     storageClass: unraid-nfs-named
 
-  secret:
-    jobAnnotations:
-      helm.sh/hook: pre-install
-
   element:
     config:
       default_server_config:
