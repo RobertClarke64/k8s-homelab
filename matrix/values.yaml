@@ -15,7 +15,7 @@ httpRoute:
 
 matrix:
   homeserverConfig:
-    server_name: "matrix.robertclarke.co.uk"
+    server_name: "robertclarke.co.uk"
     public_baseurl: "https://matrix.robertclarke.co.uk"
     web_client_location: "https://chat.robertclarke.co.uk"
 
