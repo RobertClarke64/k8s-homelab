@@ -49,6 +49,7 @@ applications:
   tandoor: {}
   loki: {}
   lubelogger: {}
+  matrix: {}
   metallb:
     namespace: metallb-system
     extraNamespaceLabels:
