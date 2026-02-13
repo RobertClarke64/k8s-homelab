@@ -37,6 +37,10 @@ spec:
           args:
             - "/usr/bin/mautrix-discord"
             - "--no-update"
+            - "-c"
+            - "/data/config.yaml"
+            - "-r"
+            - "/data/registration.yaml"
 
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
