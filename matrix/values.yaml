@@ -69,7 +69,7 @@ matrix:
             path: registration.yaml
 
   extraVolumeMounts:
-    - name: registration
+    - name: discord-registration
       mountPath: /data/discord-registration.yaml
       subPath: registration.yaml
 
