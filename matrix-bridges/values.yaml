@@ -20,6 +20,10 @@ mautrix-discord:
           welcome_connected: "Use `help` for help."
           welcome_unconnected: "Use `help` for help or `login` to log in."
           additional_help: ""
+      encryption:
+        allow: true
+        default: true
+
 
       backfill:
         forward_limits:
@@ -31,10 +35,6 @@ mautrix-discord:
             dm: 50
             channel: 50
             thread: 50
-
-    encryption:
-      allow: true
-      default: true
 
     homeserver:
       address: "https://matrix.robertclarke.co.uk"
