@@ -34,8 +34,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           args:
-            - "/docker-run.sh"
-            - "--no-update"
+            - "/usr/bin/mautrix-discord"
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- with .Values.image }}
