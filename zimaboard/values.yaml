@@ -8,6 +8,10 @@ proxy:
   certClusterIssuer: letsencrypt
   ipAddress: 192.168.1.101
   services:
+    - name: personal-website
+      host: robertclarke.co.uk
+      ipAddress: 77.68.54.170
+      port: 443
     - name: unraid
       host: zima.robertclarke.co.uk
       port: 80
