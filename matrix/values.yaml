@@ -9,6 +9,7 @@ httpRoute:
   matrix:
     hostnames:
       - matrix.robertclarke.co.uk
+      - robertclarke.co.uk
   element:
     hostnames:
       - chat.robertclarke.co.uk
