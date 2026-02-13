@@ -75,7 +75,7 @@ spec:
                 path: config.yaml
         - name: registration
           secret:
-            secretName: {{ include "mautrix-bridge.fullname" . }}-discord-registration
+            secretName: mautrix-discord-registration
             items:
               - key: registration.yaml
                 path: registration.yaml
