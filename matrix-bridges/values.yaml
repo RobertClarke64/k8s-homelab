@@ -39,3 +39,12 @@ mautrix-discord:
 
   persistence:
     storageClass: unraid-nfs-named
+
+  registration:
+    namespaces:
+      users:
+        - regex: ^@discordbot:robertclarke.co.uk$
+          exclusive: true
+        - regex: ^@discord_.*:robertclarke.co.uk$
+          exclusive: true
+

@@ -36,7 +36,15 @@ spec:
           workingDir: /data
           args:
             - "/usr/bin/mautrix-discord"
-            - "--no-update"
+            - "-g"
+            - "-c"
+            - "/data/config.yaml"
+            - "-r"
+            - "/data/registration.yaml"
+            - "&&"
+            - "cat"
+            - "/data/registration.yaml"
+
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- with .Values.image }}
