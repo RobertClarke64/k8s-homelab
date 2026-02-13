@@ -12,6 +12,8 @@ proxy:
       host: robertclarke.co.uk
       ipAddress: 77.68.54.170
       port: 443
+      tls:
+        enabled: true
     - name: unraid
       host: zima.robertclarke.co.uk
       port: 80
