@@ -15,7 +15,7 @@ mautrix-discord:
       channel_name_template: '{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{end}}'
       guild_name_template: '{{.Name}}'
       command_prefix: '!discord'
-      startup_private_channel_create_limit: 50
+      startup_private_channel_create_limit: 10
       management_room_text:
           welcome: "Hello, I'm a Discord bridge bot."
           welcome_connected: "Use `help` for help."
