@@ -31,7 +31,7 @@ mautrix-discord:
       database:
         type: sqlite3-fk-wal
         uri: "file:/data/discord.db?_txlock=immediate"
-      address: http://matrix-bridges-discord-bridge.matrix-bridges.svc.cluster.local:29328
+      address: http://matrix-bridges-mautrix-discord.matrix-bridges.svc.cluster.local:29328
       id: discord
       bot:
         username: discordbot
