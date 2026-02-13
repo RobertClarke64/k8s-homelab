@@ -5,8 +5,5 @@ dependencies:
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.5.0
-- name: common
-  repository: https://bjw-s-labs.github.io/helm-charts/
-  version: 4.6.2
-digest: sha256:d019e7a2c1c923cbab4cfa96302ff9125ebd4a265a168de7f7cc3c10c43b8e09
-generated: "2026-02-12T23:41:28.690087Z"
+digest: sha256:7ae96173230165787bf54797426286efa5385f2b2f681f939be3cb826db613ce
+generated: "2026-02-13T14:54:59.303967Z"
