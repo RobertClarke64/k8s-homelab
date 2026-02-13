@@ -36,10 +36,8 @@ spec:
           workingDir: /data
           args:
             - "/usr/bin/mautrix-discord"
-            - "-g"
             - "-c"
             - "/data/config.yaml"
-            - "--no-update"
             - "-r"
             - "/data/registration.yaml"
             - "&&"
