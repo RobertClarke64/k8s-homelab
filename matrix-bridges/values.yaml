@@ -32,6 +32,10 @@ mautrix-discord:
             channel: 50
             thread: 50
 
+    encryption:
+      allow: true
+      default: true
+
     homeserver:
       address: "https://matrix.robertclarke.co.uk"
       domain: robertclarke.co.uk
