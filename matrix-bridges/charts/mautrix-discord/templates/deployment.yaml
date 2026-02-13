@@ -39,6 +39,7 @@ spec:
             - "-g"
             - "-c"
             - "/data/config.yaml"
+            - "--no-update"
             - "-r"
             - "/data/registration.yaml"
             - "&&"
