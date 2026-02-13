@@ -77,8 +77,6 @@ spec:
             items:
               - key: config.yaml
                 path: config.yaml
-              - key: registration.yaml
-                path: registration.yaml
         - name: "data"
           {{- if .Values.persistence.enabled }}
           {{- if .Values.persistence.hostPath }}
