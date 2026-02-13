@@ -21,6 +21,17 @@ mautrix-discord:
           welcome_unconnected: "Use `help` for help or `login` to log in."
           additional_help: ""
 
+      backfill:
+        forward_limits:
+          initial:
+            dm: 50
+            channel: 50
+            thread: 50
+          missed:
+            dm: 50
+            channel: 50
+            thread: 50
+
     homeserver:
       address: "https://matrix.robertclarke.co.uk"
       domain: robertclarke.co.uk
