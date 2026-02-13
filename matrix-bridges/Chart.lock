@@ -1,6 +1,0 @@
-dependencies:
-- name: mautrix-bridge
-  repository: oci://codeberg.org/wrenix/helm-charts
-  version: 0.0.30
-digest: sha256:dc2ebcf7907e7efa904ab89c267b5e19f04d64c52a6afd7ce498f981a5c9538f
-generated: "2026-02-13T13:39:56.814298Z"

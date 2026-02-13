@@ -1,4 +1,4 @@
-discord-bridge:
+mautrix-discord:
   image:
     registry: dock.mau.dev
     repository: mautrix/discord
