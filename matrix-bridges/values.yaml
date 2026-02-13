@@ -1,0 +1,42 @@
+discord-bridge:
+  image:
+    registry: dock.mau.dev
+    repository: mautrix/discord
+    tag: "v0.7.5"
+
+  config:
+    bridge:
+      permissions:
+        "*": relay
+        "robertclarke.co.uk": user
+        "@robertclarke64:robertclarke.co.uk": admin
+      username_template: discord_{{.}}
+      displayname_template: '{{if .Webhook}}Webhook{{else}}{{or .GlobalName .Username}}{{if .Bot}} (bot){{end}}{{end}}'
+      channel_name_template: '{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{end}}'
+      guild_name_template: '{{.Name}}'
+      command_prefix: '!discord'
+      management_room_text:
+          welcome: "Hello, I'm a Discord bridge bot."
+          welcome_connected: "Use `help` for help."
+          welcome_unconnected: "Use `help` for help or `login` to log in."
+          additional_help: ""
+
+    database:
+      type: sqlite3-fk-wal
+      uri: "file:/data/discord.db?_txlock=immediate"
+
+    homeserver:
+      address: "https://matrix.robertclarke.co.uk"
+      domain: robertclarke.co.uk
+
+    appservice:
+      address: http://discord-bridge.matrix-bridges.svc.cluster.local:29328
+      id: discord
+      bot:
+        username: discordbot
+        displayname: "Discord Bot"
+        avatar: mxc://maunium.net/nIdEykemnwdisvHbpxflpDlC
+
+
+  persistence:
+    storageClass: unraid-nfs-named

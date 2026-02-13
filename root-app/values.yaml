@@ -50,6 +50,7 @@ applications:
   loki: {}
   lubelogger: {}
   matrix: {}
+  matrix-bridges: {}
   metallb:
     namespace: metallb-system
     extraNamespaceLabels:

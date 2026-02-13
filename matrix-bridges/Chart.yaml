@@ -1,0 +1,10 @@
+apiVersion: v2
+name: matrix-bridges
+description: A Helm Chart for deploying matrix bridges
+type: application
+version: 0.1.0
+dependencies:
+  - name: mautrix-bridge
+    version: 0.0.30
+    repository: oci://codeberg.org/wrenix/helm-charts
+    alias: discord-bridge
