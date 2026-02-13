@@ -33,6 +33,11 @@ prometheus.relabel "pods" {
 	}
 
 	rule {
+		source_labels = ["instance"]
+		target_label = "node"
+	}
+
+	rule {
 		source_labels = ["container_label_io_kubernetes_container_name"]
 		target_label = "container"
 	}
