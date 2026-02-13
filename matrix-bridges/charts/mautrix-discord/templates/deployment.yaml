@@ -36,6 +36,7 @@ spec:
           workingDir: /data
           args:
             - "/usr/bin/mautrix-discord"
+            - "--no-update"
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- with .Values.image }}
