@@ -69,6 +69,8 @@ nfs:
     - softreval
     - timeo=600
     - retrans=3
+    - lookupcache=none
+    - actimeo=0
 
 storageClasses:
   - create: true
