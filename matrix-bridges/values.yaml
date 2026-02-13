@@ -26,6 +26,8 @@ mautrix-discord:
       domain: robertclarke.co.uk
 
     appservice:
+      as_token: OsFvRAvHEVTquMsRIOIV7iaxSMeA2M46aflj1e6N3iLns1WuDkR5oahtpx5KYZUE
+      hs_token: ic6fFEIJfKLWAHnSFkqDTSSSbn73fs6HzgrH8dAW97uLdTzBIfx2QM1bkbJHZLvz
       database:
         type: sqlite3-fk-wal
         uri: "file:/data/discord.db?_txlock=immediate"
@@ -41,8 +43,6 @@ mautrix-discord:
     storageClass: unraid-nfs-named
 
   registration:
-    as_token: OsFvRAvHEVTquMsRIOIV7iaxSMeA2M46aflj1e6N3iLns1WuDkR5oahtpx5KYZUE
-    hs_token: ic6fFEIJfKLWAHnSFkqDTSSSbn73fs6HzgrH8dAW97uLdTzBIfx2QM1bkbJHZLvz
     namespaces:
       users:
         - regex: ^@discordbot:robertclarke.co.uk$
