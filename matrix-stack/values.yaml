@@ -1,5 +1,4 @@
 matrix-stack:
-  enabled: false
   serverName: robertclarke.co.uk
 
   synapse:
