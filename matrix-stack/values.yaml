@@ -50,10 +50,11 @@ matrix-stack:
         configSecretKey: emailConfig
       user-config.yaml:
         config: |
-          password_registration_enabled: true
-          password_recovery_enabled: true
-          account_deactivation_allowed: true
-          login_with_email_allowed: true
+          account:
+            password_registration_enabled: true
+            password_recovery_enabled: true
+            account_deactivation_allowed: true
+            login_with_email_allowed: true
 
   matrixRTC:
     ingress:
