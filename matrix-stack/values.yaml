@@ -47,6 +47,12 @@ cluster:
     instances: 1
     storage:
       storageClass: unraid-nfs-named
+    annotations:
+      argocd.argoproj.io/hook: PreSync
   databases:
     - name: synapse
+      annotations:
+        argocd.argoproj.io/hook: PreSync
     - name: mas
+      annotations:
+        argocd.argoproj.io/hook: PreSync
