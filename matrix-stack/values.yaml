@@ -27,7 +27,9 @@ matrix-stack:
     media:
       storage:
         storageClassName: unraid-nfs-named
-    appservices: []
+    appservices:
+      - secret: matrix-appservices
+        secretKey: discord
 
   matrixAuthenticationService:
     ingress:
