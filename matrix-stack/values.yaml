@@ -49,6 +49,13 @@ cluster:
       storageClass: unraid-nfs-named
     annotations:
       argocd.argoproj.io/hook: PreSync
+    roles:
+      - name: synapse
+        login: true
+        superuser: false
+      - name: mas
+        login: true
+        superuser: false
   databases:
     - name: synapse
       annotations:
