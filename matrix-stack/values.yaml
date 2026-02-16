@@ -39,6 +39,11 @@ matrix-stack:
     ingress: 
       host: madmin.robertclarke.co.uk
 
+
+  ingress:
+    annotations:
+      argocd.argoproj.io/ignore-resource-updates: "true"
+
   wellKnownDelegation:
     enabled: false
 
