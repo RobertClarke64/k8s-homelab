@@ -39,6 +39,9 @@ matrix-stack:
     ingress: 
       host: madmin.robertclarke.co.uk
 
+  wellKnownDelegation:
+    enabled: false
+
   postgres:
     enabled: false
 
