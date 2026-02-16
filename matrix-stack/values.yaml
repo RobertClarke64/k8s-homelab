@@ -51,11 +51,13 @@ cluster:
       - name: synapse
         login: true
         superuser: false
-        passwordSecret: matrix-cnpg-synapse
+        passwordSecret:
+          name: matrix-cnpg-synapse
       - name: mas
         login: true
         superuser: false
-        passwordSecret: matrix-cnpg-mas
+        passwordSecret:
+          name: matrix-cnpg-mas
   databases:
     - name: synapse
       owner: synapse
