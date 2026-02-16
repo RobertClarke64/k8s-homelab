@@ -49,7 +49,6 @@ applications:
   tandoor: {}
   loki: {}
   lubelogger: {}
-  matrix: {}
   matrix-bridges: {}
   matrix-stack: {}
   metallb:
