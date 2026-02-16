@@ -53,6 +53,8 @@ cluster:
     - name: synapse
       annotations:
         argocd.argoproj.io/hook: PreSync
+      owner: synapse
     - name: mas
       annotations:
         argocd.argoproj.io/hook: PreSync
+      owner: mas
