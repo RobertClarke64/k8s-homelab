@@ -54,24 +54,24 @@ matrix-stack:
           password_recovery_enabled: true
           account_deactivation_allowed: true
           login_with_email_allowed: true
-        rate_limiting:
-          account_recovery:
-            per_ip:
+          rate_limiting:
+            account_recovery:
+              per_ip:
+                burst: 3
+                per_second: 0.0008
+              per_address:
+                burst: 3
+                per_second: 0.0002
+            login:
+              per_ip:
+                burst: 3
+                per_second: 0.05
+              per_account:
+                burst: 1800
+                per_second: 0.5
+            registration:
               burst: 3
               per_second: 0.0008
-            per_address:
-              burst: 3
-              per_second: 0.0002
-          login:
-            per_ip:
-              burst: 3
-              per_second: 0.05
-            per_account:
-              burst: 1800
-              per_second: 0.5
-          registration:
-            burst: 3
-            per_second: 0.0008
 
   matrixRTC:
     ingress:
