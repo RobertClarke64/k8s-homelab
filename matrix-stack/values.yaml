@@ -54,24 +54,6 @@ matrix-stack:
           password_recovery_enabled: true
           account_deactivation_allowed: true
           login_with_email_allowed: true
-          rate_limiting:
-            account_recovery:
-              per_ip:
-                burst: 3
-                per_second: 0.0008
-              per_address:
-                burst: 3
-                per_second: 0.0002
-            login:
-              per_ip:
-                burst: 3
-                per_second: 0.05
-              per_account:
-                burst: 1800
-                per_second: 0.5
-            registration:
-              burst: 3
-              per_second: 0.0008
 
   matrixRTC:
     ingress:
@@ -106,7 +88,13 @@ matrix-stack:
       argocd.argoproj.io/ignore-resource-updates: "true"
 
   wellKnownDelegation:
-    enabled: false
+    enabled: true
+    ingress:
+      enabled: false
+    httpRoute:
+      enabled: true
+      hostnames:
+        - well-known.robertclarke.co.uk
 
   postgres:
     enabled: false
