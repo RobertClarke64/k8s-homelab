@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: matrix-stack
-    version: 26.2.2-httproutes-12
+    version: 26.2.2-httproutes-13
     repository: oci://ghcr.io/robertclarke64/ess-helm
   - name: cluster
     version: 0.5.0
