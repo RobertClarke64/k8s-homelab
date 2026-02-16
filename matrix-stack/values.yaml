@@ -47,8 +47,6 @@ cluster:
     instances: 1
     storage:
       storageClass: unraid-nfs-named
-    annotations:
-      argocd.argoproj.io/hook: PreSync
     roles:
       - name: synapse
         login: true
@@ -58,10 +56,6 @@ cluster:
         superuser: false
   databases:
     - name: synapse
-      annotations:
-        argocd.argoproj.io/hook: PreSync
       owner: synapse
     - name: mas
-      annotations:
-        argocd.argoproj.io/hook: PreSync
       owner: mas
