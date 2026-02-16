@@ -1,9 +1,22 @@
 matrix-stack:
   serverName: robertclarke.co.uk
 
+  httpRoute:
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        sectionName: https
+        group: gateway.networking.k8s.io
+        kind: Gateway
+
   synapse:
     ingress:
+      enabled: false
       host: matrix.robertclarke.co.uk
+    httpRoute:
+      enabled: true
+      hostnames:
+        - matrix.robertclarke.co.uk
     postgres:
       host: matrix-stack-cluster-rw
       user: synapse
@@ -18,7 +31,12 @@ matrix-stack:
 
   matrixAuthenticationService:
     ingress:
+      enabled: false
       host: mas.robertclarke.co.uk
+    httpRoute:
+      enabled: true
+      hostnames:
+        - mas.robertclarke.co.uk
     postgres:
       host: matrix-stack-cluster-rw
       user: mas
@@ -29,15 +47,30 @@ matrix-stack:
 
   matrixRTC:
     ingress:
+      enabled: false
       host: mrtc.robertclarke.co.uk
+    httpRoute:
+      enabled: true
+      hostnames:
+        - mrtc.robertclarke.co.uk
 
   elementWeb:
     ingress:
+      enabled: false
       host: chat.robertclarke.co.uk
+    httpRoute:
+      enabled: true
+      hostnames:
+        - chat.robertclarke.co.uk
 
   elementAdmin:
     ingress: 
+      enabled: false
       host: madmin.robertclarke.co.uk
+    httpRoute:
+      enabled: true
+      hostnames:
+        - madmin.robertclarke.co.uk
 
 
   ingress:
