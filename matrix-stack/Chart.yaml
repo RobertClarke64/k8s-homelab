@@ -1,0 +1,12 @@
+apiVersion: v2
+name: matrix-stack
+description: A Helm Chart for deploying a matrix stack
+type: application
+version: 0.1.0
+dependencies:
+  - name: matrix-stack
+    version: 26.2.1
+    repository: oci://ghcr.io/element-hq/ess-helm
+  - name: cluster
+    version: 0.5.0
+    repository: https://cloudnative-pg.github.io/charts

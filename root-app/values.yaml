@@ -51,6 +51,7 @@ applications:
   lubelogger: {}
   matrix: {}
   matrix-bridges: {}
+  matrix-stack: {}
   metallb:
     namespace: metallb-system
     extraNamespaceLabels:

@@ -1,0 +1,9 @@
+dependencies:
+- name: matrix-stack
+  repository: oci://ghcr.io/element-hq/ess-helm
+  version: 26.2.1
+- name: cluster
+  repository: https://cloudnative-pg.github.io/charts
+  version: 0.5.0
+digest: sha256:1b37a6c0b4d2f888d270de31b50d488836def34529ab79ca013e362db54b4583
+generated: "2026-02-15T16:15:57.808369Z"

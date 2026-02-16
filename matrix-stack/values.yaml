@@ -1,0 +1,52 @@
+matrix-stack:
+  serverName: robertclarke.co.uk
+
+  synapse:
+    ingress:
+      host: matrix.robertclarke.co.uk
+    postgres:
+      host: matrix-stack-cluster-rw
+      user: synapse
+      database: synapse
+      password:
+        secret: matrix-stack-cluster-synapse
+        secretKey: password
+    media:
+      storage:
+        storageClassName: unraid-nfs-named
+    appservices: []
+
+  matrixAuthenticationService:
+    ingress:
+      host: mas.robertclarke.co.uk
+    postgres:
+      host: matrix-stack-cluster-rw
+      user: mas
+      database: mas
+      password:
+        secret: matrix-stack-cluster-mas
+        secretKey: password
+
+  matrixRTC:
+    ingress:
+      host: mrtc.robertclarke.co.uk
+
+  elementWeb:
+    ingress:
+      host: chat.robertclarke.co.uk
+
+  elementAdmin:
+    ingress: 
+      host: madmin.robertclarke.co.uk
+
+  postgres:
+    enabled: false
+
+cluster:
+  cluster:
+    instances: 1
+    storage:
+      storageClass: unraid-nfs-named
+  databases:
+    - name: synapse
+    - name: mas
