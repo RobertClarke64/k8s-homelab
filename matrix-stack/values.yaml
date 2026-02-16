@@ -9,8 +9,8 @@ matrix-stack:
       user: synapse
       database: synapse
       password:
-        secret: matrix-stack-cluster-synapse
-        secretKey: password
+        secret: matrix-cnpg-users
+        secretKey: synapse
     media:
       storage:
         storageClassName: unraid-nfs-named
@@ -24,8 +24,8 @@ matrix-stack:
       user: mas
       database: mas
       password:
-        secret: matrix-stack-cluster-mas
-        secretKey: password
+        secret: matrix-cnpg-users
+        secretKey: mas
 
   matrixRTC:
     ingress:
