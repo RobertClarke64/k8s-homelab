@@ -52,7 +52,7 @@ controllers:
           - sh
           - -c
           - |
-            yq eval-all '
+            whoami && yq eval-all '
               select(fileIndex == 0) * {"appservice": select(fileIndex == 1)}
             ' /base-config/config.yaml /registration/registration.yaml > /merged-config/config.yaml
         securityContext:
