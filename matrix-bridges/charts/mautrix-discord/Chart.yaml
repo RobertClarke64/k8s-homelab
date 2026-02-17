@@ -1,9 +1,0 @@
-apiVersion: v2
-name: mautrix-discord
-description: A Matrix puppeting bridge mautrix.
-icon: https://avatars.githubusercontent.com/u/88519669
-type: application
-version: "0.0.30"
-maintainers:
-  - name: WrenIX
-    url: https://wrenix.eu

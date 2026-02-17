@@ -1,68 +1,133 @@
-mautrix-discord:
-  image:
-    registry: dock.mau.dev
-    repository: mautrix/discord
-    tag: "v0.7.5"
-
-  config:
-    bridge:
-      permissions:
-        "*": relay
-        "robertclarke.co.uk": user
-        "@robertclarke64:robertclarke.co.uk": admin
-      username_template: discord_{{.}}
-      displayname_template: '{{if .Webhook}}Webhook{{else}}{{or .GlobalName .Username}}{{if .Bot}} (bot){{end}}{{end}}'
-      channel_name_template: '{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{end}}'
-      guild_name_template: '{{.Name}}'
-      command_prefix: '!discord'
-      startup_private_channel_create_limit: 10
-      management_room_text:
-          welcome: "Hello, I'm a Discord bridge bot."
-          welcome_connected: "Use `help` for help."
-          welcome_unconnected: "Use `help` for help or `login` to log in."
-          additional_help: ""
-      encryption:
-        allow: true
-        default: true
+# mautrix-discord:
+#   image:
+#     registry: dock.mau.dev
+#     repository: mautrix/discord
+#     tag: "v0.7.5"
 
 
-      backfill:
-        forward_limits:
-          initial:
-            dm: 50
-            channel: 50
-            thread: 50
-          missed:
-            dm: 50
-            channel: 50
-            thread: 50
+#     homeserver:
+#       address: "https://matrix.robertclarke.co.uk"
+#       domain: robertclarke.co.uk
 
-    homeserver:
-      address: "https://matrix.robertclarke.co.uk"
-      domain: robertclarke.co.uk
-
-    appservice:
-      as_token: OsFvRAvHEVTquMsRIOIV7iaxSMeA2M46aflj1e6N3iLns1WuDkR5oahtpx5KYZUE
-      hs_token: ic6fFEIJfKLWAHnSFkqDTSSSbn73fs6HzgrH8dAW97uLdTzBIfx2QM1bkbJHZLvz
-      database:
-        type: sqlite3-fk-wal
-        uri: "file:/data/discord.db?_txlock=immediate"
-      address: http://matrix-bridges-mautrix-discord.matrix-bridges.svc.cluster.local:29334
-      id: discord
-      bot:
-        username: discordbot
-        displayname: "Discord Bot"
-        avatar: mxc://maunium.net/nIdEykemnwdisvHbpxflpDlC
+#     appservice:
+#       as_token: OsFvRAvHEVTquMsRIOIV7iaxSMeA2M46aflj1e6N3iLns1WuDkR5oahtpx5KYZUE
+#       hs_token: ic6fFEIJfKLWAHnSFkqDTSSSbn73fs6HzgrH8dAW97uLdTzBIfx2QM1bkbJHZLvz
+#       database:
+#         type: sqlite3-fk-wal
+#         uri: "file:/data/discord.db?_txlock=immediate"
+#       address: http://matrix-bridges-mautrix-discord.matrix-bridges.svc.cluster.local:29334
+#       id: discord
+#       bot:
+#         username: discordbot
+#         displayname: "Discord Bot"
+#         avatar: mxc://maunium.net/nIdEykemnwdisvHbpxflpDlC
 
 
-  persistence:
-    storageClass: unraid-nfs-named
+#   persistence:
+#     storageClass: unraid-nfs-named
 
+#   registration:
+#     namespaces:
+#       users:
+#         - regex: ^@discordbot:robertclarke.co.uk$
+#           exclusive: true
+#         - regex: ^@discord_.*:robertclarke.co.uk$
+#           exclusive: true
+
+discordConfig:
+  bridge:
+    permissions:
+      "*": relay
+      "robertclarke.co.uk": user
+      "@robertclarke64:robertclarke.co.uk": admin
+    username_template: discord_{{.}}
+    displayname_template: '{{if .Webhook}}Webhook{{else}}{{or .GlobalName .Username}}{{if .Bot}} (bot){{end}}{{end}}'
+    channel_name_template: '{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{end}}'
+    guild_name_template: '{{.Name}}'
+    command_prefix: '!discord'
+    startup_private_channel_create_limit: 10
+    management_room_text:
+        welcome: "Hello, I'm a Discord bridge bot."
+        welcome_connected: "Use `help` for help."
+        welcome_unconnected: "Use `help` for help or `login` to log in."
+        additional_help: ""
+    encryption:
+      allow: true
+      default: true
+
+
+    backfill:
+      forward_limits:
+        initial:
+          dm: 50
+          channel: 50
+          thread: 50
+        missed:
+          dm: 50
+          channel: 50
+          thread: 50
+
+controllers:
+  mautrix-discord:
+    enabled: true
+    type: statefulset
+    initContainers:
+      merge-config:
+        image:
+          repository: mikefarah/yq
+          tag: "4"
+        command:
+          - sh
+          - -c
+          - |
+            yq eval-all '
+              select(fileIndex == 0) * {"appservice": select(fileIndex == 1)}
+            ' /base-config/config.yaml /registration/registration.yaml > /merged-config/config.yaml
+    containers:
+      mautrix-discord:
+        image:
+          repository: dock.mau.dev/mautrix/discord
+          tag: "v0.7.5"
+
+persistence:
+  base-config:
+    type: configMap
+    name: matrix-bridges-mautrix-discord
+    advancedMounts:
+      mautrix-discord:
+        merge-config:
+          - path: /base-config
+            readOnly: true
   registration:
-    namespaces:
-      users:
-        - regex: ^@discordbot:robertclarke.co.uk$
-          exclusive: true
-        - regex: ^@discord_.*:robertclarke.co.uk$
-          exclusive: true
+    type: secret
+    name: discord-registration
+    advancedMounts:
+      mautrix-discord:
+        merge-config:
+          - path: /registration
+            readOnly: true
+  merged-config:
+    type: emptyDir
+    advancedMounts:
+      mautrix-discord:
+        merge-config:
+          - path: /merged-config
+        mautrix-discord:
+          - path: /data
+
+service:
+  mautrix-discord:
+    controller: mautrix-discord
+    ports:
+      http:
+        port: 29334
+
+configMaps:
+  mautrix-discord:
+    enabled: true
+    data:
+      config.yaml: |-
+        {{- $baseValues := (.Files.Get "config/discord.yaml" | fromYaml) }}
+        {{- $merged := mergeOverwrite dict $baseValues .Values.discordConfig }}
+        {{- $merged | toYaml | nindent 2 }}
 
