@@ -270,7 +270,7 @@ bridge:
     default: true
     # Whether to use MSC2409/MSC3202 instead of /sync long polling for receiving encryption-related data.
     # Changing this option requires updating the appservice registration file.
-    appservice: true
+    appservice: false
     # Whether to use MSC4190 instead of appservice login to create the bridge bot device.
     # Requires the homeserver to support MSC4190 and the device masquerading parts of MSC3202.
     # Only relevant when using end-to-bridge encryption, required when using encryption with next-gen auth (MSC3861).
