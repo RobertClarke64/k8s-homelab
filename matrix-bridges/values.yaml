@@ -177,7 +177,7 @@ service:
     controller: mautrix-whatsapp
     ports:
       http:
-        port: 29334
+        port: 29318
 
 configMaps:
   mautrix-discord:
