@@ -30,6 +30,8 @@ matrix-stack:
     appservices:
       - secret: matrix-appservices
         secretKey: discord
+      - secret: matrix-appservices
+        secretKey: whatsapp
 
   matrixAuthenticationService:
     ingress:
