@@ -1,9 +1,0 @@
-dependencies:
-- name: matrix
-  repository: https://remram44.github.io/matrix-helm
-  version: 2.9.14
-- name: cluster
-  repository: https://cloudnative-pg.github.io/charts
-  version: 0.5.0
-digest: sha256:7ae96173230165787bf54797426286efa5385f2b2f681f939be3cb826db613ce
-generated: "2026-02-13T14:54:59.303967Z"
