@@ -55,6 +55,9 @@ controllers:
             yq eval-all '
               select(fileIndex == 0) * {"appservice": select(fileIndex == 1)}
             ' /base-config/config.yaml /registration/registration.yaml > /merged-config/config.yaml
+        securityContext:
+          runAsUser: 99
+          runAsGroup: 100
     containers:
       mautrix-discord:
         image:
