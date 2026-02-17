@@ -73,6 +73,7 @@ controllers:
           - "/data/config.yaml"
           - "-r"
           - "/registration/registration.yaml"
+        workingDir: /data
 
 persistence:
   base-config:
@@ -102,12 +103,6 @@ persistence:
           - path: /merged-config
         mautrix-discord:
           - path: /data
-  logs:
-    type: emptyDir
-    advancedMounts:
-      mautrix-discord:
-        mautrix-discord:
-          - path: /logs
 
 service:
   mautrix-discord:
