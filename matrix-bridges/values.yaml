@@ -63,6 +63,9 @@ controllers:
         image:
           repository: dock.mau.dev/mautrix/discord
           tag: "v0.7.5"
+        securityContext:
+          runAsUser: 99
+          runAsGroup: 100
 
 persistence:
   base-config:
