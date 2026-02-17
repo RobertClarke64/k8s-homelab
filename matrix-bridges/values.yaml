@@ -114,7 +114,7 @@ controllers:
 persistence:
   discord-base-config:
     type: configMap
-    name: matrix-bridges
+    name: matrix-bridges-mautrix-discord
     advancedMounts:
       mautrix-discord:
         merge-config:
@@ -141,7 +141,7 @@ persistence:
           - path: /data
   whatsapp-base-config:
     type: configMap
-    name: matrix-bridges
+    name: matrix-bridges-mautrix-whatsapp
     advancedMounts:
       mautrix-whatsapp:
         merge-config:
