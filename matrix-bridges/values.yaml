@@ -104,7 +104,6 @@ controllers:
           runAsGroup: 100
         command:
           - "/usr/bin/mautrix-whatsapp"
-          - "--no-update"
           - "-c"
           - "/data/config.yaml"
           - "-r"
