@@ -6,39 +6,7 @@
 #         - regex: ^@discord_.*:robertclarke.co.uk$
 #           exclusive: true
 
-discordConfig:
-  bridge:
-    permissions:
-      "*": relay
-      "robertclarke.co.uk": user
-      "@robertclarke64:robertclarke.co.uk": admin
-    username_template: discord_{{.}}
-    displayname_template: '{{if .Webhook}}Webhook{{else}}{{or .GlobalName .Username}}{{if .Bot}} (bot){{end}}{{end}}'
-    channel_name_template: '{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{end}}'
-    guild_name_template: '{{.Name}}'
-    command_prefix: '!discord'
-    startup_private_channel_create_limit: 10
-    management_room_text:
-        welcome: "Hello, I'm a Discord bridge bot."
-        welcome_connected: "Use `help` for help."
-        welcome_unconnected: "Use `help` for help or `login` to log in."
-        additional_help: ""
-    encryption:
-      allow: true
-      default: true
-
-
-    backfill:
-      forward_limits:
-        initial:
-          dm: 50
-          channel: 50
-          thread: 50
-        missed:
-          dm: 50
-          channel: 50
-          thread: 50
-
+discordConfig: {}
 whatsappConfig: {}
 
 controllers:
