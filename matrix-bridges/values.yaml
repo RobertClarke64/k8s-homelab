@@ -66,6 +66,13 @@ controllers:
         securityContext:
           runAsUser: 99
           runAsGroup: 100
+        command:
+          - "/usr/bin/mautrix-discord"
+          - "--no-update"
+          - "-c"
+          - "/data/config.yaml"
+          - "-r"
+          - "/registration/registration.yaml"
 
 persistence:
   base-config:
