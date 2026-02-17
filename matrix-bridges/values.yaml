@@ -39,6 +39,8 @@ discordConfig:
           channel: 50
           thread: 50
 
+whatsappConfig: {}
+
 controllers:
   mautrix-discord:
     enabled: true
@@ -74,9 +76,43 @@ controllers:
           - "-r"
           - "/registration/registration.yaml"
         workingDir: /data
+  mautrix-whatsapp:
+    enabled: true
+    type: statefulset
+    initContainers:
+      merge-config:
+        image:
+          repository: mikefarah/yq
+          tag: "4"
+        command:
+          - sh
+          - -c
+          - |
+            yq eval-all '
+              select(fileIndex == 0) * {"appservice": select(fileIndex == 1)}
+            ' /base-config/config.yaml /registration/registration.yaml > /merged-config/config.yaml
+        securityContext:
+          runAsUser: 99
+          runAsGroup: 100
+    containers:
+      mautrix-whatsapp:
+        image:
+          repository: dock.mau.dev/mautrix/whatsapp
+          tag: "v26.02"
+        securityContext:
+          runAsUser: 99
+          runAsGroup: 100
+        command:
+          - "/usr/bin/mautrix-whatsapp"
+          - "--no-update"
+          - "-c"
+          - "/data/config.yaml"
+          - "-r"
+          - "/registration/registration.yaml"
+        workingDir: /data
 
 persistence:
-  base-config:
+  discord-base-config:
     type: configMap
     name: matrix-bridges
     advancedMounts:
@@ -84,7 +120,7 @@ persistence:
         merge-config:
           - path: /base-config
             readOnly: true
-  registration:
+  discord-registration:
     type: secret
     name: discord-registration
     advancedMounts:
@@ -92,7 +128,7 @@ persistence:
         merge-config:
           - path: /registration
             readOnly: true
-  merged-config:
+  discord-merged-config:
     type: persistentVolumeClaim
     storageClass: unraid-nfs-named
     accessMode: ReadWriteOnce
@@ -103,10 +139,42 @@ persistence:
           - path: /merged-config
         mautrix-discord:
           - path: /data
+  whatsapp-base-config:
+    type: configMap
+    name: matrix-bridges
+    advancedMounts:
+      mautrix-whatsapp:
+        merge-config:
+          - path: /base-config
+            readOnly: true
+  whatsapp-registration:
+    type: secret
+    name: whatsapp-registration
+    advancedMounts:
+      mautrix-whatsapp:
+        merge-config:
+          - path: /registration
+            readOnly: true
+  whatsapp-merged-config:
+    type: persistentVolumeClaim
+    storageClass: unraid-nfs-named
+    accessMode: ReadWriteOnce
+    size: 5Gi
+    advancedMounts:
+      mautrix-whatsapp:
+        merge-config:
+          - path: /merged-config
+        mautrix-whatsapp:
+          - path: /data
 
 service:
   mautrix-discord:
     controller: mautrix-discord
+    ports:
+      http:
+        port: 29334
+  mautrix-whatsapp:
+    controller: mautrix-whatsapp
     ports:
       http:
         port: 29334
@@ -118,5 +186,12 @@ configMaps:
       config.yaml: |-
         {{- $baseValues := (.Files.Get "config/discord.yaml" | fromYaml) }}
         {{- $merged := mergeOverwrite dict $baseValues .Values.discordConfig }}
+        {{- $merged | toYaml | nindent 2 }}
+  mautrix-whatsapp:
+    enabled: true
+    data:
+      config.yaml: |-
+        {{- $baseValues := (.Files.Get "config/whatsapp.yaml" | fromYaml) }}
+        {{- $merged := mergeOverwrite dict $baseValues .Values.whatsappConfig }}
         {{- $merged | toYaml | nindent 2 }}
 
