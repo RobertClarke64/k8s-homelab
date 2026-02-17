@@ -28,7 +28,7 @@ homeserver:
 # Changing these values requires regeneration of the registration.
 appservice:
   # The address that the homeserver can use to connect to this appservice.
-  address: http://matrix-bridges-mautrix-discord.matrix-bridges.svc.cluster.local:29334
+  address: http://matrix-bridges.matrix-bridges.svc.cluster.local:29334
 
   # The hostname and port where this appservice should listen.
   hostname: 0.0.0.0

@@ -64,7 +64,7 @@ controllers:
 persistence:
   base-config:
     type: configMap
-    name: matrix-bridges-mautrix-discord
+    name: matrix-bridges
     advancedMounts:
       mautrix-discord:
         merge-config:
