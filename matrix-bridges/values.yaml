@@ -95,6 +95,9 @@ persistence:
         merge-config:
           - path: /registration
             readOnly: true
+        mautrix-discord:
+          - path: /registration
+            readOnly: true
   discord-merged-config:
     type: persistentVolumeClaim
     storageClass: unraid-nfs-named
@@ -120,6 +123,9 @@ persistence:
     advancedMounts:
       mautrix-whatsapp:
         merge-config:
+          - path: /registration
+            readOnly: true
+        mautrix-discord:
           - path: /registration
             readOnly: true
   whatsapp-merged-config:
