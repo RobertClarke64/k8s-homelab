@@ -12,7 +12,7 @@ httpRoute:
 stirling-pdf:
   image:
     repository: stirlingtools/stirling-pdf
-    tag: "2.4.6"
+    tag: "2.5.1"
   probes:
     liveness:
       initialDelaySeconds: 60
