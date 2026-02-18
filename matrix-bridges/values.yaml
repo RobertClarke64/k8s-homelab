@@ -219,7 +219,7 @@ service:
     controller: mautrix-meta
     ports:
       http:
-        port: 29318
+        port: 29319
 
 configMaps:
   mautrix-discord:
