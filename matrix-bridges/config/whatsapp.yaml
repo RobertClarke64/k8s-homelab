@@ -439,7 +439,7 @@ backfill:
     # Whether to do backfilling at all.
     enabled: true
     # Maximum number of messages to backfill in empty rooms.
-    max_initial_messages: 50
+    max_initial_messages: 5
     # Maximum number of missed messages to backfill after bridge restarts.
     max_catchup_messages: 500
     # If a backfilled chat is older than this number of hours,
@@ -448,7 +448,7 @@ backfill:
     # Settings for backfilling threads within other backfills.
     threads:
         # Maximum number of messages to backfill in a new thread.
-        max_initial_messages: 50
+        max_initial_messages: 10
     # Settings for the backwards backfill queue. This only applies when connecting to
     # Beeper as standard Matrix servers don't support inserting messages into history.
     queue:
@@ -460,7 +460,7 @@ backfill:
         batch_delay: 20
         # Maximum number of batches to backfill per portal.
         # If set to -1, all available messages will be backfilled.
-        max_batches: -1
+        max_batches: 2
         # Optional network-specific overrides for max batches.
         # Interpretation of this field depends on the network connector.
         max_batches_override: {}
