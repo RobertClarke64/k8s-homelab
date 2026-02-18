@@ -34,6 +34,8 @@ matrix-stack:
         secretKey: whatsapp
       - secret: matrix-appservices
         secretKey: meta
+    podSecurityContext:
+      fsGroupChangePolicy: OnRootMismatch
 
   matrixAuthenticationService:
     ingress:
