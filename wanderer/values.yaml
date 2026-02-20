@@ -83,7 +83,7 @@ db:
     repository: flomp/wanderer-db
     # repository: robertclarke64/wanderer-db
     pullPolicy: IfNotPresent
-    tag: "v0.18.4"
+    tag: "v0.18.5"
   args:
     - "--queryTimeout"
     - "3600"
