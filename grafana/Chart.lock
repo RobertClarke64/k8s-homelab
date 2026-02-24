@@ -4,6 +4,6 @@ dependencies:
   version: 11.2.0
 - name: grafana-operator
   repository: oci://ghcr.io/grafana/helm-charts
-  version: 5.21.4
-digest: sha256:f5f9cc577b1ee9a960a0e32d4fd3c18213ca160fd3b7589f6d58d17855070d84
-generated: "2026-02-24T14:58:12.926259535Z"
+  version: 5.22.0
+digest: sha256:1b4cab58b9da31b32c0892203ffbd108c8f4b1e192e460886c5fdca5297ce47f
+generated: "2026-02-24T08:58:23.235721821Z"
