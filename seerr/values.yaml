@@ -1,14 +1,3 @@
-httpRoute:
-  enabled: true
-  parentRefs:
-    - name: http
-      namespace: kgateway-system
-      sectionName: https
-      group: gateway.networking.k8s.io
-      kind: Gateway
-  hostnames:
-    - seerr.robertclarke.co.uk
-
 seerr:
   config:
     persistence:
@@ -17,3 +6,15 @@ seerr:
   probes:
     livenessProbe:
       initialDelaySeconds: 60
+
+  route:
+    main:
+      enabled: true
+      parentRefs:
+        - name: http
+          namespace: kgateway-system
+          sectionName: https
+          group: gateway.networking.k8s.io
+          kind: Gateway
+      hostnames:
+        - seerr.robertclarke.co.uk

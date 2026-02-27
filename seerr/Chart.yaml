@@ -4,7 +4,7 @@ description: A Helm Chart for deploying seerr
 type: application
 version: 0.1.0
 dependencies:
-  - name: jellyseerr-chart
-    version: 2.7.0
-    repository: oci://ghcr.io/fallenbagel/jellyseerr
+  - name: seerr-chart
+    version: 3.2.0
+    repository: oci://ghcr.io/seerr-team/seerr
     alias: seerr
