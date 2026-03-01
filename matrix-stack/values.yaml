@@ -104,10 +104,9 @@ matrix-stack:
       enabled: true
       hostnames:
         - matrix.robertclarke.co.uk
-
-  baseDomainRedirect:
-    # Disable this because I don't want the well-known domain to listen on the root path
-    enabled: false
+    baseDomainRedirect:
+      # Disable this because I don't want the well-known domain to listen on the root path
+      enabled: false
 
   postgres:
     enabled: false
