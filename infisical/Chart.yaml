@@ -15,5 +15,5 @@ dependencies:
     version: 0.9.3
     repository: https://valkey.io/valkey-helm/
   - name: cluster
-    version: 0.5.0
+    version: 0.6.0
     repository: https://cloudnative-pg.github.io/charts

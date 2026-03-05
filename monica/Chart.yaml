@@ -8,6 +8,6 @@ dependencies:
     version: 1.0.14
     repository: https://monicahq.github.io/helm/
   - name: cluster
-    version: 0.5.0
+    version: 0.6.0
     repository: https://cloudnative-pg.github.io/charts
 
