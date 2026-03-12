@@ -7,3 +7,17 @@ prometheus:
       type: LoadBalancer
       loadBalancerIP: 192.168.1.243
     retention: 25y
+    retentionSize: 100GB
+
+    resources:
+      limits:
+        memory: 2Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+
+    startupProbe:
+      enabled: true
+      periodSeconds: 10
+      failureThreshold: 30
+      timeoutSeconds: 10
