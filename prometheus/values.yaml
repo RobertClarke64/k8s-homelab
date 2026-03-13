@@ -19,6 +19,7 @@ prometheus:
     startupProbe:
       enabled: true
       periodSeconds: 10
+      failureThreshold: 60
 
     securityContext:
       fsGroupChangePolicy: "OnRootMismatch"
