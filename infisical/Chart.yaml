@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: infisical-standalone
-    version: 1.7.2
+    version: 1.7.4
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
     alias: infisical
   - name: secrets-operator
