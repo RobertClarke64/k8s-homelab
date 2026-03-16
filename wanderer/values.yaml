@@ -16,7 +16,7 @@ search:
   image:
     repository: getmeili/meilisearch
     pullPolicy: IfNotPresent
-    tag: "v1.38.2"
+    tag: "v1.39.0"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
