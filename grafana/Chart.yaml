@@ -8,5 +8,5 @@ dependencies:
     version: 11.3.3
     repository: https://grafana-community.github.io/helm-charts
   - name: grafana-operator
-    version: 5.22.1
+    version: 5.22.2
     repository: oci://ghcr.io/grafana/helm-charts
