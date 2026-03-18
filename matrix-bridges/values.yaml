@@ -67,7 +67,7 @@ controllers:
       mautrix-whatsapp:
         image:
           repository: dock.mau.dev/mautrix/whatsapp
-          tag: "v26.02"
+          tag: "v26.03"
         securityContext:
           runAsUser: 99
           runAsGroup: 100
