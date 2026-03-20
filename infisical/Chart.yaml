@@ -9,7 +9,7 @@ dependencies:
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
     alias: infisical
   - name: secrets-operator
-    version: 0.10.26
+    version: 0.10.27
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: valkey
     version: 0.9.3
