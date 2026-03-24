@@ -16,7 +16,7 @@ immich:
         main:
           image:
             repository: ghcr.io/immich-app/immich-server # Line doesn't do anything except persuade renovate to update image tag automatically
-            tag: v2.6.1
+            tag: v2.6.2
           env:
             DB_HOSTNAME:
               valueFrom:
