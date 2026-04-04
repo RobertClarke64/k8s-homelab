@@ -35,7 +35,10 @@ geopulse:
 
   # Application configuration
   config:
-    uiUrl: "https://geopulse.robertclarke.co.uk"
+    publicBaseUrl: "https://geopulse.robertclarke.co.uk"
+    cors:
+      enabled: true
+      origins: "https://geopulse.robertclarke.co.uk"
     cookieDomain: ".robertclarke.co.uk"
     admin:
       email: "me@robertclarke.co.uk"
