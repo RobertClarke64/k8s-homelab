@@ -38,6 +38,8 @@ geopulse:
     uiUrl: "https://geopulse.robertclarke.co.uk"
     admin:
       email: "me@robertclarke.co.uk"
+    auth:
+      registrationEnabled: true
 
   secrets:
     useExistingSecret: true
