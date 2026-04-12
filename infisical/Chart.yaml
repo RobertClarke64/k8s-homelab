@@ -12,7 +12,7 @@ dependencies:
     version: 0.10.29
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   - name: valkey
-    version: 0.9.3
+    version: 0.9.4
     repository: https://valkey.io/valkey-helm/
   - name: cluster
     version: 0.6.0
