@@ -8,7 +8,7 @@ metadata:
 spec:
   gatewayClassName: kgateway
   listeners:
-  - name: https
+  - name: https-root-domain
     protocol: HTTPS
     hostname: "robertclarke.co.uk"
     port: 443
