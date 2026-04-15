@@ -8,6 +8,19 @@ metadata:
 spec:
   gatewayClassName: kgateway
   listeners:
+  - name: https
+    protocol: HTTPS
+    hostname: "robertclarke.co.uk"
+    port: 443
+    allowedRoutes:
+      namespaces:
+        from: All
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: robertclarke-co-uk-tls
+          group: ''
+          kind: Secret
   - protocol: HTTPS
     hostname: "*.robertclarke.co.uk"
     port: 443
