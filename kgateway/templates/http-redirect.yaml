@@ -10,6 +10,7 @@ spec:
       name: http
       sectionName: http
   hostnames:
+    - "robertclarke.co.uk"
     - "*.robertclarke.co.uk"
   rules:
     - filters:
