@@ -44,7 +44,6 @@ applications:
     extraSyncOptions:
       - ServerSideApply=true
   stirling-pdf: {}
-  storyteller: {}
   seerr: {}
   sonobarr: {}
   tandoor: {}
