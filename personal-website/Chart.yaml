@@ -1,0 +1,9 @@
+apiVersion: v2
+name: personal-website
+description: A Helm Chart for deploying my personal website
+type: application
+version: 0.1.0
+dependencies:
+  - name: common
+    version: 4.6.2
+    repository: https://bjw-s-labs.github.io/helm-charts/

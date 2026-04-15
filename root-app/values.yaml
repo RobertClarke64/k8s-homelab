@@ -64,6 +64,7 @@ applications:
       args:
         - --kubelet-insecure-tls
   monica: {}
+  personal-website: {}
   grafana: {}
   wanderer: {}
   karakeep:
