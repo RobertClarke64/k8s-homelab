@@ -18,7 +18,7 @@ spec:
     tls:
       mode: Terminate
       certificateRefs:
-        - name: robertclarke-co-uk-tls
+        - name: robertclarke-root-co-uk-tls
           group: ''
           kind: Secret
   - protocol: HTTPS
