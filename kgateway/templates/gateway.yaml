@@ -41,6 +41,13 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
+  - protocol: HTTP
+    hostname: "robertclarke.co.uk"
+    port: 80
+    name: http-root-domain
+    allowedRoutes:
+      namespaces:
+        from: All
   addresses:
     - type: IPAddress
       value: 192.168.1.244

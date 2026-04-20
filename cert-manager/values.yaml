@@ -9,4 +9,3 @@ issuer:
   name: letsencrypt
   server: https://acme-v02.api.letsencrypt.org/directory
   email: me@robertclarke.co.uk
-  ingressClassName: nginx
