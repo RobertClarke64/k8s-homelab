@@ -100,7 +100,7 @@ controllers:
       mautrix-meta:
         image:
           repository: dock.mau.dev/mautrix/meta
-          tag: "v26.02"
+          tag: "v26.04"
         securityContext:
           runAsUser: 99
           runAsGroup: 100
