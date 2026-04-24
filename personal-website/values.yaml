@@ -21,7 +21,7 @@ controllers:
       main:
         image:
           repository: ghcr.io/robertclarke64/robertclarke.co.uk
-          tag: sha-1256486
+          tag: sha-6c4a02f
           pullPolicy: IfNotPresent
 
 service:
