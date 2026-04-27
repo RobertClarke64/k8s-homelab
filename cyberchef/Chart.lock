@@ -1,6 +1,6 @@
 dependencies:
 - name: cyberchef
   repository: https://tamcore.github.io/cyberchef
-  version: v10.23.0
-digest: sha256:89049d63d8253aa6e4d809bb7dc95279299370de4838f1b9d794788b9c1d21d9
-generated: "2026-04-07T13:44:36.298247448Z"
+  version: v10.24.0
+digest: sha256:0dfe5efb490b3944f7895d95db312fbbfa34212395c71c7d3e4994814dc7d633
+generated: "2026-04-27T20:13:56.936860429Z"
