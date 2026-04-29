@@ -13,7 +13,10 @@ route:
 controllers:
   main:
     type: deployment
-    strategy: Recreate
+    strategy: RollingUpdate
+    rollingUpdate:
+      unavailable: 0
+      surge: 1
     pod:
       imagePullSecrets:
         - name: ghcr-secret
