@@ -42,6 +42,8 @@ grafana:
   grafana.ini:
     feature_toggles:
       alertingListViewV2: true
+    security:
+      allow_embedding: true
 
 
 dashboards:
