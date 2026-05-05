@@ -276,7 +276,7 @@ redis:
   image:
     repository: redis
     pullPolicy: IfNotPresent
-    tag: "8.6.2"
+    tag: "8.6.3"
 
   env:
     - name: ALLOW_EMPTY_PASSWORD
