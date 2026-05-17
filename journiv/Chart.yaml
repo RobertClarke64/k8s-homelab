@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: common
-    version: 5.0.0
+    version: 5.0.1
     repository: https://bjw-s-labs.github.io/helm-charts/
   - name: valkey
     version: 0.9.4
