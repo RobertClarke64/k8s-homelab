@@ -4,6 +4,6 @@ dependencies:
   version: 26.2.2-httproutes-13
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
-  version: 0.6.0
-digest: sha256:38340778b470acf1e38cd0c80a53929a1593d6bd8f443f16b85384b7a81a0549
-generated: "2026-03-05T02:39:43.02724457Z"
+  version: 0.6.1
+digest: sha256:354ef20797191e20d4c3ade70ce745118d83c2352f3ad74020748cdec8186c1c
+generated: "2026-05-17T07:36:59.7539027Z"
