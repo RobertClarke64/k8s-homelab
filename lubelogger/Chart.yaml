@@ -8,5 +8,5 @@ dependencies:
     version: 1.4.6
     repository: https://anza-labs.github.io/charts
   - name: cluster
-    version: 0.6.0
+    version: 0.6.1
     repository: https://cloudnative-pg.github.io/charts
