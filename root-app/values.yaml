@@ -40,7 +40,7 @@ applications:
     # renovate: datasource=helm
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus-operator-crds
-    targetRevision: 28.0.1
+    targetRevision: 29.0.0
     extraSyncOptions:
       - ServerSideApply=true
   stirling-pdf: {}
