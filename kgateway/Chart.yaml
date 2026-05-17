@@ -8,5 +8,5 @@ dependencies:
     version: 2.3.0
     repository: oci://cr.kgateway.dev/kgateway-dev/charts
   - name: kgateway
-    version: v2.2.4
+    version: 2.3.0
     repository: oci://cr.kgateway.dev/kgateway-dev/charts
