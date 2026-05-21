@@ -4,6 +4,6 @@ dependencies:
   version: 2.3.0
 - name: kgateway
   repository: oci://cr.kgateway.dev/kgateway-dev/charts
-  version: 2.3.0
-digest: sha256:a365c1d42f04c41477ffa6d17fe11cab6c6b659a0097877c796b33b4d4385818
-generated: "2026-05-17T21:29:12.683529+01:00"
+  version: 2.3.1
+digest: sha256:86d0f74f2361490a4d8b4ba8bb5004b93949609c4fd4dfa2a175bf78cef092a0
+generated: "2026-05-21T19:02:50.666112764Z"
