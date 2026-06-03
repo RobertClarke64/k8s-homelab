@@ -234,11 +234,11 @@ web:
       value: admin
     - name: UPLOAD_PASSWORD
       value: admin
-    - name: PUBLIC_OVERPASS_API_URL
+    - name: OVERPASS_API_URL
       value: https://overpass-api.de
-    - name: PUBLIC_VALHALLA_URL
+    - name: VALHALLA_URL
       value: https://valhalla1.openstreetmap.de
-    - name: PUBLIC_NOMINATIM_URL
+    - name: NOMINATIM_URL
       value: https://nominatim.openstreetmap.org
   persistentVolume:
     create: true
