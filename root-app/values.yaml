@@ -47,6 +47,7 @@ applications:
   seerr: {}
   sonobarr: {}
   tandoor: {}
+  trek: {}
   loki: {}
   lubelogger: {}
   matrix-bridges: {}

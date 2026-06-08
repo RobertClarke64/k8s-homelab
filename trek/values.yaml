@@ -1,0 +1,68 @@
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        sectionName: https
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - trek.robertclarke.co.uk
+
+controllers:
+  main:
+    type: deployment
+    strategy: RollingUpdate
+    rollingUpdate:
+      unavailable: 0
+      surge: 1
+    containers:
+      main:
+        image:
+          repository: mauriceboe/trek
+          tag: v3.0.22
+          pullPolicy: IfNotPresent
+        env:
+          NODE_ENV: production
+          PORT: 3000
+          ENCRYPTION_KEY:
+            valueFrom:
+              secretKeyRef:
+                name: trek
+                key: ENCRYPTION_KEY
+          TZ: "Europe/London"
+          LOG_LEVEL: info
+          ALLOWED_ORIGINS: "https://trek.robertclarke.co.uk"
+          APP_URL: "https://trek.robertclarke.co.uk"
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 3000
+
+persistence:
+  config:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /app/data
+            readOnly: false
+            subpath: config/
+  uploads:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 5Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /app/uploads
+            readOnly: false
+            subpath: uploads/
