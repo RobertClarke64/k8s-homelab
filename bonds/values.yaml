@@ -1,0 +1,57 @@
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        sectionName: https
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - bonds.robertclarke.co.uk
+
+controllers:
+  main:
+    type: deployment
+    strategy: RollingUpdate
+    rollingUpdate:
+      unavailable: 0
+      surge: 1
+    containers:
+      main:
+        image:
+          repository: ghcr.io/naiba/bonds
+          tag: 0.13.1
+          pullPolicy: IfNotPresent
+        env:
+          SERVER_PORT: 8080
+          DB_DRIVER: sqlite
+          DB_DSN: /app/data/bonds.db
+
+          JWT_SECRET:
+            valueFrom:
+              secretKeyRef:
+                name: bonds
+                key: JWT_SECRET
+          APP_ENV: production
+          APP_URL: https://bonds.robertclarke.co.uk
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 8080
+
+persistence:
+  data:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /app/data
+            readOnly: false
+            subpath: config/
