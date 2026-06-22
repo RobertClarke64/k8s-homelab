@@ -6,6 +6,7 @@ applications:
     extraSyncOptions:
       - ServerSideApply=true
   barassistant: {}
+  bonds: {}
   cert-manager: {}
   cnpg:
     # renovate: datasource=helm
