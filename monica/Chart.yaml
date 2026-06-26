@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: monica
-    version: 1.0.14
+    version: 1.0.15
     repository: https://monicahq.github.io/helm/
   - name: cluster
     version: 0.6.1
