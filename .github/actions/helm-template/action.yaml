@@ -14,7 +14,7 @@ runs:
       uses: azure/setup-helm@v5.0.0
       id: install-helm
       with:
-        version: 'v4.2.0'
+        version: 'v4.2.2'
 
     - name: Generate repositories config
       id: repositories-config
