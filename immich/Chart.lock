@@ -4,6 +4,6 @@ dependencies:
   version: 0.12.0
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
-  version: 0.6.1
-digest: sha256:d364fd55153bd9c3801bb6344feaf6ea268df5bdfbef7177b39b044ffba9a79f
-generated: "2026-05-17T07:36:33.010508991Z"
+  version: 0.7.0
+digest: sha256:80e7997ff1e878c383b2996468c7990149108216c43a5a336c531780825c996a
+generated: "2026-06-26T23:03:54.201816471Z"
