@@ -1,7 +1,7 @@
 dependencies:
 - name: infisical-standalone
   repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
-  version: 1.9.0
+  version: 1.10.0
 - name: secrets-operator
   repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
   version: 0.11.2
@@ -11,5 +11,5 @@ dependencies:
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.7.0
-digest: sha256:41f3d8ce3404e2abbfd38ddd4644fc63278ee495c55ed3a08b653c28ab941c76
-generated: "2026-06-26T23:04:01.491551703Z"
+digest: sha256:570e3bb49cfaf5f7fccfe3817eaf63b67e240c1b0ef41466d01e6c980afdf152
+generated: "2026-07-26T14:07:39.881480897Z"
