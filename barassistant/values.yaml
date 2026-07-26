@@ -127,7 +127,7 @@ search:
   image:
     repository: getmeili/meilisearch
     pullPolicy: IfNotPresent
-    tag: "v1.48.2"
+    tag: "v1.50.0"
 
   env:
     - name: MEILI_NO_ANALYTICS
