@@ -52,6 +52,8 @@ immich:
       data:
         type: persistentVolumeClaim
         storageClass: unraid-nfs-named
+        size: 1Gi
+        accessMode: ReadWriteOnce
 
   server:
     route:
@@ -75,6 +77,8 @@ immich:
       cache:
         type: persistentVolumeClaim
         storageClass: unraid-nfs-named
+        size: 10Gi
+        accessMode: ReadWriteMany
 
 cluster:
   cluster:
