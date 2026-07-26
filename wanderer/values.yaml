@@ -123,9 +123,14 @@ db:
     - name: db-data-pv
       persistentVolumeClaim:
         claimName: db
+    - name: plugins-pv
+      persistentVolumeClaim:
+        claimName: plugins
   volumeMounts:
     - name: db-data-pv
       mountPath: "/pb_data"
+    - name: plugins-pv
+      mountPath: "/data/plugins"
   autoscaling:
     enabled: false
     minReplicas: 1
