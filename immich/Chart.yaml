@@ -8,6 +8,6 @@ dependencies:
     version: 0.13.1
     repository: oci://ghcr.io/immich-app/immich-charts
   - name: cluster
-    version: 0.7.0
+    version: 0.8.1
     repository: https://cloudnative-pg.github.io/charts
 
