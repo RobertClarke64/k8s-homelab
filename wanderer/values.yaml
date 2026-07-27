@@ -83,7 +83,7 @@ db:
     repository: flomp/wanderer-db
     # repository: robertclarke64/wanderer-db
     pullPolicy: IfNotPresent
-    tag: "v0.19.2"
+    tag: "v0.20.0"
   args:
     - "--queryTimeout"
     - "3600"
@@ -123,9 +123,14 @@ db:
     - name: db-data-pv
       persistentVolumeClaim:
         claimName: db
+    - name: plugins-pv
+      persistentVolumeClaim:
+        claimName: plugins
   volumeMounts:
     - name: db-data-pv
       mountPath: "/pb_data"
+    - name: plugins-pv
+      mountPath: "/data/plugins"
   autoscaling:
     enabled: false
     minReplicas: 1
@@ -174,7 +179,7 @@ web:
     repository: flomp/wanderer-web
     # repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.19.2"
+    tag: "v0.20.0"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
