@@ -8,5 +8,5 @@ dependencies:
     version: 26.2.2-httproutes-13
     repository: oci://ghcr.io/robertclarke64/ess-helm
   - name: cluster
-    version: 0.7.0
+    version: 0.8.1
     repository: https://cloudnative-pg.github.io/charts

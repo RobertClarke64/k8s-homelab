@@ -11,5 +11,5 @@ dependencies:
     version: 1.30.0
     repository: https://tess1o.github.io/geopulse/charts
   - name: cluster
-    version: 0.7.0
+    version: 0.8.1
     repository: https://cloudnative-pg.github.io/charts

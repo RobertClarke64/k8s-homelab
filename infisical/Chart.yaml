@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 dependencies:
   - name: infisical-standalone
-    version: 1.9.0
+    version: 1.10.0
     repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
     alias: infisical
   - name: secrets-operator
@@ -15,5 +15,5 @@ dependencies:
     version: 0.9.4
     repository: https://valkey.io/valkey-helm/
   - name: cluster
-    version: 0.7.0
+    version: 0.8.1
     repository: https://cloudnative-pg.github.io/charts
