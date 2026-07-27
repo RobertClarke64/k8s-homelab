@@ -14,3 +14,20 @@ spec:
     {{- toYaml . | nindent 4}}
   {{- end }}
 {{- end }}
+
+{{- range .Values.db.persistentVolume.additionalPersistentVolumeClaims }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .name }}
+spec:
+  storageClassName: {{ .storageClass }}
+  {{- with .accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- with .resources }}
+  resources:
+    {{- toYaml . | nindent 4}}
+  {{- end }}
+{{- end }}
