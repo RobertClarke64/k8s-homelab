@@ -146,6 +146,14 @@ db:
     resources:
       requests:
         storage: 10Gi
+    additionalPersistentVolumeClaims:
+      - name: plugins
+        storageClass: "unraid-nfs-named"
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 1Gi
   env:
     - name: POCKETBASE_ENCRYPTION_KEY
       valueFrom:
