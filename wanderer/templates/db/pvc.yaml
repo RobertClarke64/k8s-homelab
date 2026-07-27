@@ -14,7 +14,7 @@ spec:
     {{- toYaml . | nindent 4}}
   {{- end }}
 {{- end }}
-
+---
 {{- range .Values.db.persistentVolume.additionalPersistentVolumeClaims }}
 apiVersion: v1
 kind: PersistentVolumeClaim
