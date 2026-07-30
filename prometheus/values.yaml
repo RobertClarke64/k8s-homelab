@@ -1,5 +1,7 @@
 prometheus:
   server:
+    replicaCount: 0
+
     extraFlags:
       - web.enable-remote-write-receiver
       - web.enable-lifecycle
