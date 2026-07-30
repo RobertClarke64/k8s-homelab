@@ -21,7 +21,7 @@ controllers:
       main:
         image:
           repository: ghcr.io/naiba/bonds
-          tag: 0.14.0
+          tag: 0.15.13
           pullPolicy: IfNotPresent
         env:
           SERVER_PORT: 8080
