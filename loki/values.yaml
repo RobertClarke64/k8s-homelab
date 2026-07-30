@@ -1,7 +1,7 @@
 loki:
   deploymentMode: Monolithic
   singleBinary:
-    replicas: 0
+    replicas: 1
   loki:
     auth_enabled: false
     commonConfig:
