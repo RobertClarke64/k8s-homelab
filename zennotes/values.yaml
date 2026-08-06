@@ -17,6 +17,10 @@ controllers:
     rollingUpdate:
       unavailable: 0
       surge: 1
+    pod:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
     containers:
       main:
         image:
