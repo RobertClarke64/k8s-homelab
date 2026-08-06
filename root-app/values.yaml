@@ -23,6 +23,7 @@ applications:
     targetRevision: 4.13.4
     namespace: kube-system
   cyberchef: {}
+  dvinyl: {}
   external-secrets:
     extraSyncOptions:
       - ServerSideApply=true
