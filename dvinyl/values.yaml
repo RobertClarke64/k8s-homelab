@@ -28,7 +28,7 @@ controllers:
           tag: 3.1.0
           pullPolicy: IfNotPresent
         env:
-          MONGODB_URL: mongodb://mongo:27017/dvinyl
+          MONGODB_URL: mongodb://dvinyl-mongo:27017/dvinyl
           VINYL_PORT: 3099
           PROD: true
 
