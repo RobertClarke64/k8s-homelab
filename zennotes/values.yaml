@@ -1,0 +1,60 @@
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        sectionName: https
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - notes.robertclarke.co.uk
+
+controllers:
+  main:
+    type: deployment
+    strategy: RollingUpdate
+    rollingUpdate:
+      unavailable: 0
+      surge: 1
+    containers:
+      main:
+        image:
+          repository: adibhanna/zennotes
+          tag: 2.23.0
+          pullPolicy: IfNotPresent
+        env:
+          ZENNOTES_AUTH_TOKEN:
+            valueFrom:
+              secretKeyRef:
+                name: zennotes
+                key: ZENNOTES_AUTH_TOKEN
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 7878
+
+persistence:
+  data:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /data
+            readOnly: false
+  workspace:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /workspace
+            readOnly: false
