@@ -72,5 +72,4 @@ applications:
   karakeep:
     extraNamespaceLabels:
       pod-security.kubernetes.io/enforce: privileged
-  zennotes: {}
   zimaboard: {}
