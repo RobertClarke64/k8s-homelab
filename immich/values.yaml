@@ -38,6 +38,7 @@ immich:
                 secretKeyRef:
                   name: immich-cluster-superuser
                   key: password
+            IMMICH_LOG_LEVEL: debug
           probes:
             liveness:
               spec:
