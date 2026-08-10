@@ -1,9 +1,9 @@
 dependencies:
 - name: lubelogger
   repository: https://anza-labs.github.io/charts
-  version: 1.4.7
+  version: 1.4.8
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.8.1
-digest: sha256:9861ee56c8531a0aea6b5c42db1a526587be5df03b0e7d799cad0b548842a2bd
-generated: "2026-07-26T14:41:36.07447433Z"
+digest: sha256:38e93d69c3f3f193532e247f027bc150110cd79a8bbce18b79088dd4e50f44da
+generated: "2026-07-30T18:21:36.865394113Z"
