@@ -1,9 +1,0 @@
-dependencies:
-- name: matrix-stack
-  repository: oci://ghcr.io/robertclarke64/ess-helm
-  version: 26.2.2-httproutes-13
-- name: cluster
-  repository: https://cloudnative-pg.github.io/charts
-  version: 0.8.1
-digest: sha256:ba0cdb6abe6823a500587ca93a6a864033a71ffeb2397473b2c58276357c84a9
-generated: "2026-07-26T14:41:42.624299245Z"

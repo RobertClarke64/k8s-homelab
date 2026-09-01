@@ -52,8 +52,6 @@ applications:
   trek: {}
   loki: {}
   lubelogger: {}
-  matrix-bridges: {}
-  matrix-stack: {}
   metallb:
     namespace: metallb-system
     extraNamespaceLabels:
