@@ -4,6 +4,6 @@ dependencies:
   version: 5.0.1
 - name: valkey
   repository: https://valkey.io/valkey-helm/
-  version: 0.9.4
-digest: sha256:c5643fe3f501b9071e5e64e11901b23855356a8235ee369bd54adb19247aa3e3
-generated: "2026-05-15T21:13:06.210776673Z"
+  version: 0.12.0
+digest: sha256:884e1115c0fb25b47714422cd847476981b8b4fa2b84e61c07d240fd282a33fa
+generated: "2026-09-02T13:30:08.749588408Z"
