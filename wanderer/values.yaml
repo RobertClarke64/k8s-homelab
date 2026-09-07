@@ -67,7 +67,7 @@ search:
   args:
     - "/bin/sh"
     - "-c"
-    - "/bin/meilisearch --experimental-dumpless-upgrade"
+    - "/bin/meilisearch --upgrade-db"
   persistentVolume:
     create: true
     name: "search"
