@@ -13,7 +13,7 @@ discovery.kubernetes "pods" {
 
 loki.source.kubernetes "pods" {
 	targets    = discovery.relabel.pod_logs.output
-	forward_to = [loki.write.loki.receiver]
+	forward_to = [loki.write.loki.receiver, otelcol.receiver.loki.clickstack.receiver]
 }
 
 prometheus.exporter.cadvisor "pods" {
@@ -132,14 +132,14 @@ prometheus.relabel "add_cluster_label" {
 		replacement = "home-cluster"
 	}
 
-	forward_to = [prometheus.remote_write.prometheus.receiver]
+	forward_to = [prometheus.remote_write.prometheus.receiver, otelcol.receiver.prometheus.clickstack.receiver]
 }
 
 loki.source.api "loki_listen" {
 	http {
 		listen_port = 3100
 	}
-	forward_to = [loki.write.loki.receiver]
+	forward_to = [loki.write.loki.receiver, otelcol.receiver.loki.clickstack.receiver]
 }
 
 loki.write "loki" {
@@ -149,11 +149,56 @@ loki.write "loki" {
 }
 
 prometheus.receive_http "listen_prometheus" {
-	forward_to = [prometheus.remote_write.prometheus.receiver]
+	forward_to = [prometheus.remote_write.prometheus.receiver, otelcol.receiver.prometheus.clickstack.receiver]
 }
 
 prometheus.remote_write "prometheus" {
 	endpoint {
 		url = "http://prometheus-server.prometheus.svc.cluster.local/api/v1/write"
+	}
+}
+
+// ---------------------------------------------------------------------------
+// ClickStack / HyperDX
+//
+// Mirrors the logs and metrics collected above into ClickHouse via the
+// ClickStack OTel collector, alongside the existing Loki and Prometheus
+// destinations. The collector's OTLP receiver requires the HyperDX ingestion
+// API key as a bare `authorization` header (its bearertokenauth extension is
+// configured with an empty scheme, so no "Bearer " prefix).
+// ---------------------------------------------------------------------------
+
+// Converts Loki-format log entries into OTLP logs.
+otelcol.receiver.loki "clickstack" {
+	output {
+		logs = [otelcol.processor.batch.clickstack.input]
+	}
+}
+
+// Converts Prometheus metrics into OTLP metrics.
+otelcol.receiver.prometheus "clickstack" {
+	output {
+		metrics = [otelcol.processor.batch.clickstack.input]
+	}
+}
+
+otelcol.processor.batch "clickstack" {
+	output {
+		logs    = [otelcol.exporter.otlp.clickstack.input]
+		metrics = [otelcol.exporter.otlp.clickstack.input]
+	}
+}
+
+otelcol.exporter.otlp "clickstack" {
+	client {
+		endpoint = "clickstack-otel-collector.clickstack.svc.cluster.local:4317"
+
+		tls {
+			insecure = true
+		}
+
+		headers = {
+			authorization = sys.env("CLICKSTACK_INGESTION_API_KEY"),
+		}
 	}
 }
