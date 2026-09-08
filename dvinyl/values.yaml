@@ -25,7 +25,7 @@ controllers:
       main:
         image:
           repository: ghcr.io/kyonew/dvinyl
-          tag: 3.1.0
+          tag: 3.1.4
           pullPolicy: IfNotPresent
         env:
           MONGODB_URL: mongodb://dvinyl-mongo:27017/dvinyl
