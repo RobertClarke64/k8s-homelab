@@ -21,7 +21,7 @@ controllers:
       main:
         image:
           repository: mauriceboe/trek
-          tag: 3.4.1
+          tag: 4.2.1
           pullPolicy: IfNotPresent
         env:
           NODE_ENV: production
