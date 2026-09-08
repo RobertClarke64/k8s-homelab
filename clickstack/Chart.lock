@@ -1,0 +1,9 @@
+dependencies:
+- name: clickstack-operators
+  repository: https://clickhouse.github.io/ClickStack-helm-charts
+  version: 1.1.0
+- name: clickstack
+  repository: https://clickhouse.github.io/ClickStack-helm-charts
+  version: 3.2.0
+digest: sha256:5efbc29635f62dd98c3b001c545c18af5b3c326747104def711296bcf6346733
+generated: "2026-09-01T21:44:33.056853+01:00"
