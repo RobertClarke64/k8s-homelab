@@ -38,9 +38,9 @@ applications:
     namespace: kgateway-system
     extraSyncOptions:
       - ServerSideApply=true
-  prometheus:
-    extraNamespaceLabels:
-      pod-security.kubernetes.io/enforce: privileged
+  # prometheus:
+  #   extraNamespaceLabels:
+  #     pod-security.kubernetes.io/enforce: privileged
   prometheus-operator:
     # renovate: datasource=helm
     repoURL: https://prometheus-community.github.io/helm-charts
@@ -53,7 +53,7 @@ applications:
   sonobarr: {}
   tandoor: {}
   trek: {}
-  loki: {}
+  # loki: {}
   lubelogger: {}
   metallb:
     namespace: metallb-system
