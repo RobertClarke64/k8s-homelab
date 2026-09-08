@@ -63,7 +63,7 @@ applications:
     # renovate: datasource=helm
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     chart: metrics-server
-    targetRevision: 3.13.1
+    targetRevision: 3.14.0
     valuesObject:
       args:
         - --kubelet-insecure-tls
