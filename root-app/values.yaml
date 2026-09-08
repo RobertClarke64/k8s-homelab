@@ -8,7 +8,9 @@ applications:
   barassistant: {}
   bonds: {}
   cert-manager: {}
-  clickstack: {}
+  clickstack:
+    extraSyncOptions:
+      - ServerSideApply=true
   cnpg:
     # renovate: datasource=helm
     repoURL: https://cloudnative-pg.github.io/charts
