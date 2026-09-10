@@ -33,6 +33,7 @@ tandoor-recipes:
   cnpg:
     main:
       cluster:
+        instances: 1
         storage:
           storageClass: unraid-nfs-named
         walStorage:
