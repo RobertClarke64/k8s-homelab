@@ -61,9 +61,7 @@ proxy:
 
 nfs:
   server: 192.168.1.101
-  # Use direct disk path instead of user share to avoid stale NFS handles
-  # User shares (shfs) can invalidate file handles during disk operations
-  path: /mnt/disk2/k8s-pv  # Or /mnt/cache/k8s-pv if using cache
+  path: /mnt/user/k8s-pv
   mountOptions:
     - hard
     - nfsvers=4.1
@@ -73,7 +71,6 @@ nfs:
     - retrans=3
     - lookupcache=none
     - actimeo=0
-    - noatime
 
 storageClasses:
   - create: true
