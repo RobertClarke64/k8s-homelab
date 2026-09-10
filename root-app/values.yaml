@@ -32,7 +32,16 @@ applications:
       - ServerSideApply=true
   geopulse: {}
   immich: {}
-  infisical: {}
+  infisical:
+    extraSyncOptions:
+      - RespectIgnoreDifferences=true
+    extraIgnoreDifferences:
+      - group: apps
+        kind: Deployment
+        name: infisical-infisical
+        jsonPointers:
+          - /metadata/annotations/updatedAt
+          - /spec/template/metadata/annotations/updatedAt
   journiv: {}
   kgateway:
     namespace: kgateway-system
