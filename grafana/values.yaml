@@ -1,4 +1,7 @@
 grafana:
+  admin:
+    existingSecret: grafana-admin
+
   serviceMonitor:
     enabled: true
 
