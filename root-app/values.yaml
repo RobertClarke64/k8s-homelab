@@ -51,7 +51,20 @@ applications:
   stirling-pdf: {}
   seerr: {}
   sonobarr: {}
-  tandoor: {}
+  tandoor:
+    extraSyncOptions:
+      - RespectIgnoreDifferences=true
+    extraIgnoreDifferences:
+      - group: ""
+        kind: Secret
+        name: tandoor-tandoor-recipes-recipes-secrets
+        jsonPointers:
+          - /data/SECRET_KEY
+      - group: apps
+        kind: Deployment
+        name: tandoor-tandoor-recipes
+        jsonPointers:
+          - /spec/template/metadata/annotations/checksum~1secrets
   trek: {}
   # loki: {}
   lubelogger: {}
