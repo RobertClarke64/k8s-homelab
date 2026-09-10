@@ -23,12 +23,6 @@ controllers:
           globalMounts:
             - path: /app/data
 
-secrets:
-  convertx:
-    enabled: true
-    stringData:
-      JWT_SECRET: "{{ default (randAlphaNum 48) .Values.jsonWebToken }}"
-
 service:
   convertx:
     controller: convertx
