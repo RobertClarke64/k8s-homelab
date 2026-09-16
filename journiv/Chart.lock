@@ -1,9 +1,9 @@
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts/
-  version: 5.1.0
+  version: 5.2.0
 - name: valkey
   repository: https://valkey.io/valkey-helm/
   version: 0.12.0
-digest: sha256:b66e6bfedaf8736039361263d76f7d2f0ee800be42fa0015b93d4225dc4eb048
-generated: "2026-09-08T22:20:43.795447312Z"
+digest: sha256:33c086492f57b6896112194073d4b557c808c69afbf68991fb6859b68eb8fb6e
+generated: "2026-09-16T18:04:23.827355228Z"
