@@ -59,6 +59,18 @@ immich:
 
   valkey:
     enabled: true
+    # Memory request == limit so the pod can never exceed its request, which puts it
+    # at the bottom of the OOM-kill ranking. No CPU limit, to avoid throttling.
+    controllers:
+      main:
+        containers:
+          main:
+            resources:
+              requests:
+                cpu: 50m
+                memory: 256Mi
+              limits:
+                memory: 256Mi
     persistence:
       data:
         type: persistentVolumeClaim
@@ -67,6 +79,17 @@ immich:
         accessMode: ReadWriteOnce
 
   server:
+    controllers:
+      main:
+        containers:
+          main:
+            resources:
+              requests:
+                cpu: 200m
+                memory: 2Gi
+              limits:
+                memory: 2Gi
+
     route:
       main:
         enabled: true
@@ -84,6 +107,18 @@ immich:
       runAsUser: 99
 
   machine-learning:
+    # Needs the most headroom: buffalo_l detection + recognition, CLIP and
+    # PP-OCRv5 are all loaded into memory on the first job after an upload.
+    controllers:
+      main:
+        containers:
+          main:
+            resources:
+              requests:
+                cpu: 200m
+                memory: 3Gi
+              limits:
+                memory: 3Gi
     persistence:
       cache:
         type: persistentVolumeClaim
@@ -95,6 +130,12 @@ cluster:
   cluster:
     imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-0.4.3
     instances: 1
+    resources:
+      requests:
+        cpu: 250m
+        memory: 1Gi
+      limits:
+        memory: 1Gi
     storage:
       storageClass: unraid-nfs-named
       size: 1Gi
