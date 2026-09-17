@@ -42,7 +42,6 @@ applications:
         jsonPointers:
           - /metadata/annotations/updatedAt
           - /spec/template/metadata/annotations/updatedAt
-  journiv: {}
   kgateway:
     namespace: kgateway-system
     extraSyncOptions:
