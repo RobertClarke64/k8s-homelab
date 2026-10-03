@@ -1,0 +1,9 @@
+apiVersion: v2
+name: mybibliotheca
+description: A Helm Chart for deploying MyBibliotheca
+type: application
+version: 0.1.0
+dependencies:
+  - name: common
+    version: 5.2.1
+    repository: https://bjw-s-labs.github.io/helm-charts/

@@ -1,0 +1,60 @@
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: http
+        namespace: kgateway-system
+        sectionName: https
+        group: gateway.networking.k8s.io
+        kind: Gateway
+    hostnames:
+      - books.robertclarke.co.uk
+    rules:
+      - backendRefs:
+          - identifier: main
+            port: 5054
+
+controllers:
+  main:
+    type: deployment
+    # KuzuDB does not support concurrent access, so never run two pods at once
+    strategy: Recreate
+    containers:
+      main:
+        image:
+          repository: pickles4evaaaa/mybibliotheca
+          tag: 2.2.1
+          pullPolicy: IfNotPresent
+        env:
+          KUZU_DB_PATH: /app/data/kuzu
+          GRAPH_DATABASE_ENABLED: "true"
+          SITE_NAME: MyBibliotheca
+          TIMEZONE: Europe/London
+          # KuzuDB requires a single worker
+          WORKERS: "1"
+          LOG_LEVEL: INFO
+          MYBIBLIOTHECA_VERBOSE_INIT: "false"
+          AUTO_MIGRATE: "false"
+
+        envFrom:
+          - secretRef:
+              name: mybibliotheca
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 5054
+
+persistence:
+  data:
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: unraid-nfs-named
+    advancedMounts:
+      main:
+        main:
+          - path: /app/data
+            readOnly: false
