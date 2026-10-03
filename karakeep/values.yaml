@@ -56,18 +56,15 @@ karakeep:
     chrome:
       containers:
         chrome:
-          chrome:
-            image:
-              repository: ghcr.io/karakeep-app/karakeep-chrome
-              tag: release
+          image:
+            repository: ghcr.io/karakeep-app/karakeep-chrome
+            tag: release
           args:
-            - --no-sandbox
             - --disable-gpu
             - --disable-dev-shm-usage
             - --hide-scrollbars
             - --disable-blink-features=AutomationControlled
             - --window-size=1440,900
-            - --headless
 
   meilisearch:
     persistence:
