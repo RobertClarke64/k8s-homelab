@@ -1,6 +1,6 @@
 dependencies:
 - name: prometheus
   repository: oci://ghcr.io/prometheus-community/charts
-  version: 29.33.1
-digest: sha256:a4ca03015caa1c4b827cc9ee26446cb4d6c63377eecde5f4910c69a1a9270d15
-generated: "2026-09-25T13:31:34.799667045Z"
+  version: 29.35.0
+digest: sha256:51abd9195561f7c33491373886dc5036dc45ff22071bbcc50d2afd92a6a9278b
+generated: "2026-10-03T20:31:45.885605988Z"
