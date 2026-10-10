@@ -160,6 +160,11 @@ db:
         secretKeyRef:
           name: wanderer-secrets
           key: POCKETBASE_ENCRYPTION_KEY
+    - name: POCKETBASE_PROXY_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-secrets
+          key: POCKETBASE_PROXY_SECRET
     - name: POCKETBASE_CRON_SYNC_SCHEDULE
       value: "*/30 * * * *"
     - name: POCKETBASE_SMTP_ENABLED
@@ -253,6 +258,11 @@ web:
       value: https://valhalla1.openstreetmap.de
     - name: NOMINATIM_URL
       value: https://nominatim.openstreetmap.org
+    - name: POCKETBASE_PROXY_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-secrets
+          key: POCKETBASE_PROXY_SECRET
   persistentVolume:
     create: true
     name: "web"
