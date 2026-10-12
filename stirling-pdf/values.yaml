@@ -10,6 +10,8 @@ httpRoute:
     - pdf.robertclarke.co.uk
 
 stirling-pdf:
+  strategy:
+    type: Recreate
   image:
     repository: stirlingtools/stirling-pdf
     tag: "3.1.0"
