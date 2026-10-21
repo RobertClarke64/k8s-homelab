@@ -1,6 +1,6 @@
 dependencies:
 - name: stirling-pdf-chart
   repository: https://stirling-tools.github.io/Stirling-PDF-chart
-  version: 3.1.0
-digest: sha256:c968d8cf1eb6ae358e6c1fa081263b2a3073867578a37425e6fd01781ae6cf58
-generated: "2026-02-19T18:59:50.512891379Z"
+  version: 4.0.0
+digest: sha256:302ac345356445cf2825e9961c8a72dcf29c7d0281c44ff4be0a3cfd492f3b56
+generated: "2026-10-21T19:38:05.656279146Z"

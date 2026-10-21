@@ -1,6 +1,6 @@
 dependencies:
 - name: seerr-chart
   repository: oci://ghcr.io/seerr-team/seerr
-  version: 3.10.0
-digest: sha256:78cae37f82727564e3e9555724de606e563fb73c219d5fd1d9f30f6f247e0dff
-generated: "2026-10-03T20:31:53.107849402Z"
+  version: 3.10.1
+digest: sha256:15df2458f10eea0da34a23280b1378cbffec7f64be9499ad61cacf7bd68c0821
+generated: "2026-10-21T19:35:44.044897129Z"
