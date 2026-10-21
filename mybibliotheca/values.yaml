@@ -23,7 +23,7 @@ controllers:
       main:
         image:
           repository: pickles4evaaaa/mybibliotheca
-          tag: 2.2.1
+          tag: 3.0.0
           pullPolicy: IfNotPresent
         env:
           KUZU_DB_PATH: /app/data/kuzu
