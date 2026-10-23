@@ -83,7 +83,7 @@ db:
     repository: flomp/wanderer-db
     # repository: robertclarke64/wanderer-db
     pullPolicy: IfNotPresent
-    tag: "v0.21.1"
+    tag: "v0.21.1-app"
   args:
     - "--queryTimeout"
     - "3600"
@@ -192,7 +192,7 @@ web:
     repository: flomp/wanderer-web
     # repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.21.1"
+    tag: "v0.21.1-app"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
