@@ -263,6 +263,11 @@ web:
         secretKeyRef:
           name: wanderer-secrets
           key: POCKETBASE_PROXY_SECRET
+    - name: PROTOMAPS_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: wanderer-secrets
+          key: PROTOMAPS_API_KEY
   persistentVolume:
     create: true
     name: "web"
