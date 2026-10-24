@@ -89,7 +89,6 @@ applications:
       args:
         - --kubelet-insecure-tls
   monica: {}
-  mybibliotheca: {}
   personal-website: {}
   grafana: {}
   wanderer: {}
