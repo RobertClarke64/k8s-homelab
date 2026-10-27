@@ -192,7 +192,7 @@ web:
     repository: flomp/wanderer-web
     # repository: robertclarke64/wanderer-web
     pullPolicy: IfNotPresent
-    tag: "v0.21.1-app"
+    tag: "v0.21.2-app"
   imagePullSecrets: []
   replicaCount: 1
   podAnnotations: {}
