@@ -101,6 +101,17 @@ immich:
             kind: Gateway
         hostnames:
           - photos.robertclarke.co.uk
+        # Envoy's default 15s route timeout cuts off large video downloads/uploads mid-transfer.
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: 2283
+            matches:
+              - path:
+                  type: PathPrefix
+                  value: /
+            timeouts:
+              request: "0s"
 
     podSecurityContext:
       runAsNonRoot: true
