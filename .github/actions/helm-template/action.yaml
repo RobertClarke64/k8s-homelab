@@ -11,7 +11,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Helm
-      uses: azure/setup-helm@v5.0.1
+      uses: azure/setup-helm@v5.1.0
       id: install-helm
       with:
         version: 'v4.3.1'
