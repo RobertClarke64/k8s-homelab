@@ -50,7 +50,7 @@ controllers:
       mongo:
         image:
           repository: mongo
-          tag: 9.0.4
+          tag: 9.0.8
           pullPolicy: IfNotPresent
 
 
