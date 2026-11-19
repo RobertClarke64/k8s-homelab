@@ -3,7 +3,7 @@ stirling-pdf:
     type: Recreate
   image:
     repository: stirlingtools/stirling-pdf
-    tag: "3.3.0"
+    tag: "3.4.0"
   probes:
     liveness:
       initialDelaySeconds: 60
