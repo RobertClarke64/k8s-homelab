@@ -4,12 +4,12 @@ dependencies:
   version: 1.12.2
 - name: secrets-operator
   repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts
-  version: 0.11.16
+  version: 0.11.18
 - name: valkey
   repository: https://valkey.io/valkey-helm/
   version: 0.12.0
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.9.0
-digest: sha256:8a23b89b407439a1e3f46d55133967579ff26c3b1b5ce4d1b43ef2784bd622e3
-generated: "2026-11-17T21:41:14.134312498Z"
+digest: sha256:6263bbd6e0ac0938c7aeda98d5427d7e290f052332a9803ea6a4e2ae19f68811
+generated: "2026-11-19T21:17:17.661699884Z"
