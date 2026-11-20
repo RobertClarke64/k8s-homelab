@@ -90,7 +90,9 @@ applications:
         - --kubelet-insecure-tls
   monica: {}
   personal-website: {}
-  grafana: {}
+  grafana:
+    extraSyncOptions:
+      - ServerSideApply=true
   wanderer: {}
   karakeep:
     extraNamespaceLabels:
