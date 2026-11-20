@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Renders a chart, fetching its dependencies the same way CI does.
+# Dependencies are resolved in a temporary copy, so Chart.lock and charts/ are left untouched.
+set -euo pipefail
+
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <chart-dir> [args for helm template]"
+	exit 1
+fi
+
+chart_dir=${1%/}
+shift
+chart=$(basename "$chart_dir")
+
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+cp -R "$chart_dir" "$tmp/$chart"
+repositories="$tmp/repositories.yaml"
+
+cat << EOF > "$repositories"
+apiVersion: ""
+generated: "0001-01-01T00:00:00Z"
+repositories:
+EOF
+
+if [ -f "$tmp/$chart/Chart.lock" ]; then
+	yq '[.dependencies[] | select(.repository!="oci://*") ] | map_values(.caFile="", .certFile="", .insecure_skip_tls_verify=false, .keyFile="", .pass_credentials_all=false, .password="", .url=.repository, .username="") | del(.[].repository)' "$tmp/$chart/Chart.lock" | sed "s/\[\]//" >> "$repositories"
+
+	if [ "$(yq '.repositories | length' "$repositories")" -gt 0 ]; then
+		helm repo update --repository-config "$repositories" > /dev/null
+	fi
+	helm dependency update "$tmp/$chart" --repository-config "$repositories" > /dev/null
+fi
+
+helm template "$chart" "$tmp/$chart" "$@"

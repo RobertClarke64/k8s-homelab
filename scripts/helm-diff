@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Compares a chart rendered from the merge base with another branch against the working tree.
+# The old side is rendered in a temporary worktree, so the current checkout is never switched.
+set -euo pipefail
+
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <chart> [base-branch] [args for helm template]"
+	exit 1
+fi
+
+chart=${1%/}
+base=${2:-main}
+shift $(($# < 2 ? $# : 2))
+
+root=$(git rev-parse --show-toplevel)
+merge_base=$(git -C "$root" merge-base "$base" HEAD)
+
+tmp=$(mktemp -d)
+cleanup() {
+	git -C "$root" worktree remove --force "$tmp/worktree" > /dev/null 2>&1 || true
+	rm -rf "$tmp"
+}
+trap cleanup EXIT
+
+git -C "$root" worktree add --detach --quiet "$tmp/worktree" "$merge_base"
+
+if [ ! -f "$root/$chart/Chart.yaml" ] && [ ! -f "$tmp/worktree/$chart/Chart.yaml" ]; then
+	echo "No chart named $chart in the working tree or at merge base ${merge_base:0:8}" >&2
+	exit 1
+fi
+
+old="$tmp/$chart-old.yaml"
+new="$tmp/$chart-new.yaml"
+
+render() {
+	if [ -f "$1/$chart/Chart.yaml" ]; then
+		"$root/scripts/helm-template" "$1/$chart" "${@:3}"
+	else
+		echo "Chart $chart does not exist in $2, comparing against empty output" >&2
+	fi
+}
+
+render "$tmp/worktree" "merge base ${merge_base:0:8}" "$@" > "$old"
+render "$root" "working tree" "$@" > "$new"
+
+echo "Comparing $chart: merge base with $base (${merge_base:0:8}) -> working tree" >&2
+if [ -t 1 ] && command -v delta > /dev/null; then
+	delta "$old" "$new" || true
+else
+	diff -u "$old" "$new" || true
+fi

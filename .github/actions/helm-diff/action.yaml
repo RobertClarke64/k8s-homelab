@@ -7,29 +7,13 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Template new chart
-      uses: ./.github/actions/helm-template
+    - name: Install Helm
+      uses: azure/setup-helm@v5.1.0
+      id: install-helm
       with:
-        helm-chart: ${{ matrix.chart }}
-        output-file: new-chart.yaml
-
-    - name: Switch to old commit
-      shell: bash
-      run: git checkout HEAD^ -- ./${{ inputs.helm-chart }}
-
-    - name: Template old chart
-      uses: ./.github/actions/helm-template
-      with:
-        helm-chart: ${{ matrix.chart }}
-        output-file: old-chart.yaml
-
-    - name: git reset --hard
-      shell: bash
-      run: git reset --hard
+        version: 'v4.3.1'
 
     - name: Diff charts
       id: diff
       shell: bash
-      run: |
-        diff -u old-chart.yaml new-chart.yaml || true
-
+      run: make diff chart=${{ inputs.helm-chart }} base=HEAD^

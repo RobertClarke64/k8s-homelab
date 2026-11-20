@@ -99,6 +99,9 @@ helm template my-app ./my-app
 
 # Diff against deployed version
 helm diff upgrade my-app ./my-app -n my-app
+
+# Diff rendered changes against the merge base with main (base=<branch> to change), as CI does
+make diff chart=my-app
 ```
 
 ## Storage
