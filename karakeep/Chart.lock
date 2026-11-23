@@ -1,6 +1,6 @@
 dependencies:
 - name: karakeep
   repository: https://karakeep-app.github.io/helm-charts
-  version: 0.34.1
-digest: sha256:1fb2bd79532bd7b619b911b3f8e7c19977c1ca1ade0e250e18186b053951dd85
-generated: "2026-10-21T19:36:59.768206301Z"
+  version: 0.35.1
+digest: sha256:5f56f35d60a5db35dcc49d7979620fa32072c233f8ab39d6c9eb3d6e5ec5be4b
+generated: "2026-11-23T00:41:30.476096961Z"
