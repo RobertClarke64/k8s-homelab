@@ -7,9 +7,9 @@ dependencies:
   version: 0.11.18
 - name: valkey
   repository: https://valkey.io/valkey-helm/
-  version: 0.12.0
+  version: 0.12.1
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.9.0
-digest: sha256:444dd615047906a5490aca5a190ce0716344ade780eae954e545a8ba9b41e72d
-generated: "2026-11-21T17:15:53.59266198Z"
+digest: sha256:6a3d7b7858fa4d39e6aa9216c611deaabdcf754319e9fff711fb985469a539a0
+generated: "2026-11-23T00:41:15.227960684Z"
